@@ -1,23 +1,28 @@
 {
-  "memory_demo": {
-    "system": "You are a helpful assistant.",
+  "remember_case": [
+    "Please remember that Alice likes beef burgers.",
+    "What does Alice like to eat?"
+  ],
+  "multi-entity_case": {
     "turns": [
-      "Please remember that my badge number is M-2487.",
-      "Please remember that my preferred deployment region is ap-southeast-1.",
-      "What is my badge number?",
-      "Which deployment region did I prefer?"
+      "Please remember that Alice is 9 years old.",
+      "Please remember that Alice likes beef burgers.",
+      "Please remember that Alice lives in Beijing.",
+      "How old is Alice?"
     ]
   },
-  "update_demo": {
-    "system": "You are a helpful assistant.",
+  "forget_case": {
     "turns": [
-      "Please remember that my phone number is 555-0100.",
-      "Update: my phone number has changed to 555-0200.",
-      "What is my phone number?"
+      "Please remember that Alice likes beef burger.",
+      "Please forget Alice likes to eat beef burger.",
+      "What does Alice like to eat?"
     ]
   },
-  "plain_list_demo": [
-    "Please remember that my launch code is ORION-73.",
-    "What launch code did I tell you?"
-  ]
+  "distract_case": {
+    "turns": [
+      "Please remember that Alice likes beef burger.",
+      "Yesterday was a nice day.",
+      "What does Alice like to eat?"
+    ]
+  }
 }

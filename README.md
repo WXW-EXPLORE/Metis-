@@ -6,25 +6,28 @@
   </picture>
 
   <p>
-    <!-- TODO: replace PAPER_URL below with the public technical report link (e.g. arXiv) -->
-    <a href="https://statics.memtensor.com.cn/paper/metis_v1.pdf"><img src="assets/badges/paper.svg" alt="Preview"></a>
-    <a href="https://huggingface.co/collections/IAAR-Shanghai/metis"><img src="assets/badges/models.svg" alt="HuggingFace"></a>
+    <a href="https://arxiv.org/abs/2607.26760"><img src="https://img.shields.io/static/v1?label=arXiv&message=Paper&color=red" alt="Preview"></a>
+    <a href="https://huggingface.co/collections/IAAR-Shanghai/metis"><img src="https://img.shields.io/static/v1?label=HuggingFace&message=Models&color=yellow" alt="HuggingFace"></a>
   </p>
 
   <p>
-    <a href="https://arxiv.org/abs/XXXX.XXXXX">Paper</a> ·
+    <a href="https://arxiv.org/abs/2607.26760">Paper</a> ·
     <a href="#overview">Overview</a> ·
     <a href="#quick-start">Quick Start</a> ·
     <a href="#training">Training</a> ·
     <a href="#evaluation">Evaluation</a> ·
     <a href="#citation">Citation</a>
   </p>
+
+  <p align="center">
+    <strong>English</strong> | <a href="README_zh.md">中文</a>
+  </p>
 </div>
 
 > [!IMPORTANT]
-> **Research preview.** This repository provides the Metis architecture, data format documentation, inference examples, a multi-step mid-training and evaluation harness, and official model weights. Training data is not included yet.
+> **Research preview.** This repository provides the Metis architecture, data format documentation, inference examples, a multi-step mid-training and evaluation harness, and official model weights. Training data is not included.
 
-## Overview
+## 💡Overview
 
 **Metis is the first prototype of a memory foundation model, equipping foundation models with a persistent and dynamically evolving native memory state.**
 
@@ -47,6 +50,9 @@ A **Metis Block** is inserted into Transformer layers and contains two component
 
 After each memory step, Metis selects informative hidden states and updates the local memory. During a later query, memory attention reads that state and fuses the result with the original attention branch. The default implementation uses a **Gated Delta Network (GDN)** update. In the Qwen3.5 hybrid implementation, Metis is attached to full-attention layers, while linear-attention layers keep their original computation path.
 
+### Evaluation Results
+The overall performance on memory operation tasks. 
+![eval results](assets/eval_results.png)
 
 ## 🚀 Quick Start
 
@@ -67,14 +73,26 @@ bash infer.sh /path/to/checkpoint \
   --max_new_tokens 128
 ```
 
-For multi-turn inference with persistent memory, repeat `--prompt`:
+For multi-turn inference with persistent memory, repeat `--prompt`, each top-level entry in the JSON file is treated as an independent session:
 
 ```bash
 python run_inference.py \
   --checkpoint_path /path/to/checkpoint \
-  --prompt "Remember that my code name is Polaris." \
-  --prompt "What is my code name?" \
+  --prompt "Please remember that my launch code is ORION-73." \
+  --prompt "What launch code did I tell you?" \
   --commit_mode exchange
+```
+
+
+To run multiple independent multi-turn sessions from a JSON file, use
+`--questions_file`:
+
+```bash
+python run_inference.py \
+  --checkpoint_path /path/to/checkpoint \
+  --questions_file example/multi_turn_questions.json \
+  --commit_mode exchange \
+  --output_jsonl outputs/multi_turn_questions.jsonl
 ```
 
 `--commit_mode none` leaves memory unchanged, `--commit_mode user` commits only the user message, and `--commit_mode exchange` commits both the user message and the model response.
@@ -129,7 +147,8 @@ Each line of a Metis JSONL dataset contains one object. `messages` is a list of 
 
 ### 1. Prepare the dataset
 
-The Metis training dataset can be downloaded from **[URL to be released]**. Prepare separate training and validation splits in the JSONL format described above.
+<!-- The Metis training dataset can be downloaded from **[URL to be released]**.  -->
+Prepare separate training and validation splits in the JSONL format described above.
 
 ### 2. Tokenize the dataset
 

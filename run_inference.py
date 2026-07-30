@@ -119,10 +119,13 @@ def generate_response(
     device: torch.device,
     args: argparse.Namespace,
     prompt: str,
+    *,
+    system_prompt: str | None = None,
 ) -> str:
     messages: list[dict[str, str]] = []
-    if args.system:
-        messages.append({"role": "system", "content": args.system})
+    effective_system = args.system if system_prompt is None else system_prompt
+    if effective_system:
+        messages.append({"role": "system", "content": effective_system})
     messages.append({"role": "user", "content": prompt})
     input_ids, attention_mask = encode_messages(
         tokenizer,
@@ -187,34 +190,94 @@ def resolved_prompts(args: argparse.Namespace) -> list[str]:
     return prompts
 
 
+def load_question_sessions(path: str | Path) -> list[dict[str, Any]]:
+    """Load independent multi-turn sessions from an example JSON file."""
+    input_path = Path(path)
+    with input_path.open(encoding="utf-8") as handle:
+        payload = json.load(handle)
+    if not isinstance(payload, dict) or not payload:
+        raise ValueError(f"{input_path} must contain a non-empty JSON object")
+
+    sessions: list[dict[str, Any]] = []
+    for name, value in payload.items():
+        system_prompt: str | None = None
+        if isinstance(value, list):
+            turns = value
+        elif isinstance(value, dict):
+            turns = value.get("turns")
+            system_prompt = value.get("system")
+        else:
+            raise ValueError(
+                f"Session {name!r} must be a list of prompts or an object with a 'turns' list"
+            )
+
+        if not isinstance(turns, list) or not turns:
+            raise ValueError(f"Session {name!r} must contain a non-empty 'turns' list")
+        if not all(isinstance(turn, str) and turn for turn in turns):
+            raise ValueError(f"Every turn in session {name!r} must be a non-empty string")
+        if system_prompt is not None and not isinstance(system_prompt, str):
+            raise ValueError(f"Session {name!r} has a non-string 'system' value")
+
+        sessions.append({
+            "name": name,
+            "system": system_prompt,
+            "prompts": turns,
+        })
+    return sessions
+
+
 @torch.no_grad()
 def run(args: argparse.Namespace) -> list[dict[str, Any]]:
     torch.manual_seed(args.seed)
     model, tokenizer, device = load_model_and_tokenizer(args)
-    model.reset()
+
+    if args.questions_file:
+        sessions = load_question_sessions(args.questions_file)
+    else:
+        sessions = [{
+            "name": None,
+            "system": None,
+            "prompts": resolved_prompts(args),
+        }]
 
     rows: list[dict[str, Any]] = []
-    for step, prompt in enumerate(resolved_prompts(args), start=1):
-        response = generate_response(model, tokenizer, device, args, prompt)
-        commit_turn(
-            model,
-            tokenizer,
-            device,
-            prompt=prompt,
-            response=response,
-            commit_mode=args.commit_mode,
-        )
-        row = {
-            "step": step,
-            "prompt": prompt,
-            "response": response,
-            "commit_mode": args.commit_mode,
-        }
-        rows.append(row)
-        print(f"\n[Step {step}]")
-        print(f"User: {prompt}")
-        print(f"Assistant: {response}")
-        print(f"Memory commit: {args.commit_mode}")
+    for session_index, session in enumerate(sessions, start=1):
+        model.reset()
+        session_name = session["name"]
+        if session_name is not None:
+            print(f"\n[Session {session_index}: {session_name}]")
+            print("Memory reset")
+
+        for step, prompt in enumerate(session["prompts"], start=1):
+            response = generate_response(
+                model,
+                tokenizer,
+                device,
+                args,
+                prompt,
+                system_prompt=session["system"],
+            )
+            commit_turn(
+                model,
+                tokenizer,
+                device,
+                prompt=prompt,
+                response=response,
+                commit_mode=args.commit_mode,
+            )
+            row = {
+                "step": step,
+                "prompt": prompt,
+                "response": response,
+                "commit_mode": args.commit_mode,
+            }
+            if session_name is not None:
+                row["session"] = session_name
+            rows.append(row)
+            print(f"\n[Step {step}]")
+            print(f"User: {prompt}")
+            print(f"Assistant: {response}")
+            print(f"Memory commit: {args.commit_mode}")
 
     if args.output_jsonl:
         output_path = Path(args.output_jsonl)
@@ -250,6 +313,14 @@ def parse_args() -> argparse.Namespace:
         help="User prompt; repeat this option for a multi-turn conversation",
     )
     parser.add_argument(
+        "--questions_file",
+        default=None,
+        help=(
+            "JSON object of independent sessions; each value is a prompt list "
+            "or an object containing 'turns' and optional 'system'"
+        ),
+    )
+    parser.add_argument(
         "--num_steps",
         type=int,
         default=1,
@@ -272,6 +343,10 @@ def parse_args() -> argparse.Namespace:
     args = parser.parse_args()
     if args.num_steps < 1:
         parser.error("--num_steps must be >= 1")
+    if args.questions_file and args.prompt:
+        parser.error("--questions_file cannot be combined with --prompt")
+    if args.questions_file and args.num_steps != 1:
+        parser.error("--num_steps cannot be used with --questions_file")
     return args
 
 
