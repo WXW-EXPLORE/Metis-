@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 import subprocess
 import sys
 import tempfile
@@ -160,15 +161,31 @@ def test_ablation_checkpoints_use_the_shared_asset_registry() -> None:
     assert {item["id"] for item in matrix["checkpoints"]} <= set(assets)
 
 
-def test_release_text_has_no_private_server_paths_or_usernames() -> None:
+def test_release_text_has_no_private_paths_or_development_repo_names() -> None:
     root = Path(__file__).resolve().parents[2]
-    forbidden = (
-        "/" + "mnt/afs/",
+    forbidden_literals = (
+        "/" + "mnt/",
         "/" + "home/",
+        "/" + "root/",
         "/" + "Users/",
+        "/" + "tmp/",
         "api-" + "int.",
     )
-    suffixes = {".py", ".json", ".md", ".toml", ".yml", ".txt"}
+    forbidden_repo_names = (
+        "Metis_" + "dev",
+        "Metis_" + "open",
+    )
+    suffixes = {
+        ".cff",
+        ".json",
+        ".md",
+        ".py",
+        ".sh",
+        ".toml",
+        ".txt",
+        ".yaml",
+        ".yml",
+    }
     candidates = subprocess.run(
         [
             "git",
@@ -177,7 +194,6 @@ def test_release_text_has_no_private_server_paths_or_usernames() -> None:
             "--cached",
             "--others",
             "--exclude-standard",
-            "eval",
         ],
         cwd=root,
         check=True,
@@ -189,7 +205,14 @@ def test_release_text_has_no_private_server_paths_or_usernames() -> None:
         path = root / relative.decode()
         if path.is_file() and path.suffix in suffixes:
             text = path.read_text(encoding="utf-8", errors="replace").lower()
-            assert not any(value.lower() in text for value in forbidden), path
+            assert not any(value.lower() in text for value in forbidden_literals), path
+            assert not any(
+                re.search(
+                    rf"(?<![a-z0-9]){re.escape(value.lower())}(?![a-z0-9])",
+                    text,
+                )
+                for value in forbidden_repo_names
+            ), path
 
 
 def test_generated_result_metadata_is_git_ignored() -> None:

@@ -28,6 +28,7 @@ WARMUP_STEPS=${WARMUP_STEPS:-200}
 MAX_SEQ_LENGTH=${MAX_SEQ_LENGTH:-4096}
 MAX_TOTAL_TOKENS=${MAX_TOTAL_TOKENS:-1024}
 SAVE_STEPS=${SAVE_STEPS:-2000}
+SAVE_TOTAL_LIMIT=${SAVE_TOTAL_LIMIT:-2}
 
 # Checkpoint format: "delta" = only trainable Metis weights (default), ~100x
 # smaller since the frozen backbone is not duplicated per checkpoint;
@@ -163,6 +164,7 @@ TRAIN_ARGS=(
     --lora_r 0
     --log_steps 5
     --save_steps "${SAVE_STEPS}"
+    --save_total_limit "${SAVE_TOTAL_LIMIT}"
     --checkpoint_save_mode "${CHECKPOINT_SAVE_MODE}"
     --eval_steps "${EVAL_STEPS}"
     --gen_eval_steps "${GEN_EVAL_STEPS}"

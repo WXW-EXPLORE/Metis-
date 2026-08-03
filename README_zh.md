@@ -64,6 +64,7 @@ Metis 学习通过模型计算自主存储和使用信息，将历史上下文�
 ```bash
 conda env create -f environment.yml
 conda activate metis
+python -m pip install --no-build-isolation causal-conv1d==1.6.0 flash-attn==2.7.3
 ```
 
 ### 2. 运行推理

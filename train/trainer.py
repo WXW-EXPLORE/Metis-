@@ -259,12 +259,50 @@ class MetisMemoryTrainer(Trainer):
             loss = self.compute_loss(model, inputs)
         return (loss, None, None)
 
+    def save_model(self, output_dir=None, _internal_call=False):
+        """Avoid full-model ZeRO-3 consolidation for delta checkpoints.
+
+        HuggingFace's default DeepSpeed path calls
+        ``_zero3_consolidated_16bit_state_dict`` before ``_save``. That would
+        gather the complete frozen 27B model even though a Metis delta needs
+        only trainable memory parameters. All ranks participate here while
+        tensors are gathered one at a time.
+        """
+        if not (
+            self._checkpoint_save_mode == "delta"
+            and getattr(self, "is_deepspeed_enabled", False)
+        ):
+            return super().save_model(output_dir, _internal_call=_internal_call)
+
+        output_dir = output_dir or self.args.output_dir
+        unwrapped = self.model.module if hasattr(self.model, "module") else self.model
+        save_metis_delta_checkpoint(
+            unwrapped,
+            output_dir,
+            tokenizer=self._metis_tokenizer,
+            base_model_path=self._base_model_path,
+            state_dict=None,
+            is_main_process=self.args.should_save,
+        )
+        if self.args.should_save:
+            self._save_training_logs(output_dir)
+        if self.args.push_to_hub and not _internal_call:
+            self.push_to_hub(
+                commit_message="Model save",
+                revision=self.args.hub_revision,
+            )
+
     def _save(self, output_dir=None, state_dict=None):
         output_dir = output_dir or self.args.output_dir
         os.makedirs(output_dir, exist_ok=True)
         unwrapped = self.model.module if hasattr(self.model, "module") else self.model
 
         if state_dict is None and getattr(self, "is_deepspeed_enabled", False):
+            if self._checkpoint_save_mode == "delta":
+                raise RuntimeError(
+                    "DeepSpeed delta checkpoints must use save_model() on all ranks "
+                    "to avoid full-model ZeRO-3 consolidation."
+                )
             state_dict = self.accelerator.get_state_dict(self.model_wrapped)
 
         if self.args.should_save:

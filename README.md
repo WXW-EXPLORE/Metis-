@@ -61,6 +61,7 @@ The overall performance on memory operation tasks.
 ```bash
 conda env create -f environment.yml
 conda activate metis
+python -m pip install --no-build-isolation causal-conv1d==1.6.0 flash-attn==2.7.3
 ```
 
 ### 2. Run inference

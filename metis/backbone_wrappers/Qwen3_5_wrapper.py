@@ -23,6 +23,26 @@ from transformers.utils.output_capturing import capture_outputs
 from transformers.modeling_outputs import BaseModelOutputWithPast
 
 
+def _zero3_safe_checkpoint(function, hidden_states):
+    """Checkpoint frozen-backbone computation safely under ZeRO-3.
+
+    Reentrant checkpoint avoids the PyTorch 2.5 non-reentrant saved-tensor
+    metadata conflict with ZeRO-3 parameter re-partitioning.
+
+    If the input does not require gradients, the enclosed backbone operation
+    is fully frozen, so checkpointing it provides no backward-memory benefit.
+    """
+    if not torch.is_grad_enabled() or not hidden_states.requires_grad:
+        return function(hidden_states)
+
+    return _ckpt(
+        function,
+        hidden_states,
+        use_reentrant=True,
+        preserve_rng_state=True,
+    )
+
+
 class Qwen3_5DecoderLayerForMetis(DecoderLayerWrapperForMetis):
     def __init__(self, config, raw_decoder):
         super().__init__(config, raw_decoder)
@@ -137,7 +157,10 @@ class Qwen3_5DecoderLayerForMetis(DecoderLayerWrapperForMetis):
             attn_output = self_attn.o_proj(attn_output)
             return memory_for_query, attn_output, residual
 
-        memory_for_query, attn_output, residual = _ckpt(_attn, hidden_states, use_reentrant=False)
+        memory_for_query, attn_output, residual = _zero3_safe_checkpoint(
+            _attn,
+            hidden_states,
+        )
 
         return memory_for_query, attn_output, {'residual': residual}, self_attn.o_proj
     
@@ -183,7 +206,7 @@ class Qwen3_5DecoderLayerForMetis(DecoderLayerWrapperForMetis):
                 )
                 return residual + mixed
 
-            hidden_states = _ckpt(_mix, hidden_states, use_reentrant=False)
+            hidden_states = _zero3_safe_checkpoint(_mix, hidden_states)
 
         elif self.raw_decoder.layer_type == "full_attention":
             residual = cache_dict['residual']
@@ -194,7 +217,7 @@ class Qwen3_5DecoderLayerForMetis(DecoderLayerWrapperForMetis):
             normed = self.raw_decoder.post_attention_layernorm(hidden_states)
             return residual + self.raw_decoder.mlp(normed)
 
-        hidden_states = _ckpt(_mlp, hidden_states, use_reentrant=False)
+        hidden_states = _zero3_safe_checkpoint(_mlp, hidden_states)
 
         return hidden_states
     

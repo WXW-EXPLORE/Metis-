@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "note": "Public model IDs may be replaced by local mirrors. Relative paths resolve from the Metis_dev repository root.",
+  "note": "Public model IDs may be replaced by local mirrors. Relative paths resolve from the repository root.",
   "assets": {
     "qwen3_5_4b": "Qwen/Qwen3.5-4B",
     "qwen3_5_9b": "Qwen/Qwen3.5-9B",

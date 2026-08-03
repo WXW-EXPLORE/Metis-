@@ -1,17 +1,15 @@
 name: metis
 channels:
-  - conda-forge
   - nvidia
+  - conda-forge
 dependencies:
   - _openmp_mutex=4.5
   - bzip2=1.0.8
   - ca-certificates=2026.6.17
-  - cuda-cccl=12.9.27
-  - cuda-cccl_linux-64=12.9.27
-  - cuda-cudart=11.8.89
-  - cuda-cudart-dev=11.8.89
-  - cuda-nvcc=11.8.89
-  - cuda-version=12.9
+  - nvidia::cuda-cccl=11.8.89
+  - nvidia::cuda-cudart=11.8.89
+  - nvidia::cuda-cudart-dev=11.8.89
+  - nvidia::cuda-nvcc=11.8.89
   - ld_impl_linux-64=2.45.1
   - libexpat=2.8.1
   - libffi=3.5.2
@@ -36,6 +34,7 @@ dependencies:
   - zstd=1.5.7
   - pip:
       - --extra-index-url=https://download.pytorch.org/whl/cu118
+      # CUDA extensions must be built after torch is installed; see the README.
       - accelerate==1.14.0
       - aiohappyeyeballs==2.6.2
       - aiohttp==3.14.1
@@ -45,7 +44,6 @@ dependencies:
       - anyio==4.14.0
       - async-timeout==5.0.1
       - attrs==26.1.0
-      - causal-conv1d==1.6.2.post1
       - certifi==2026.6.17
       - charset-normalizer==3.4.7
       - click==8.4.1
@@ -57,7 +55,6 @@ dependencies:
       - einops==0.8.2
       - exceptiongroup==1.3.1
       - filelock==3.29.0
-      - flash-attn==2.6.3
       - flash-linear-attention==0.2.2
       - fonttools==4.63.0
       - frozenlist==1.8.0
@@ -96,7 +93,7 @@ dependencies:
       - nvidia-cusolver-cu11==11.4.1.48
       - nvidia-cusparse-cu11==11.7.5.86
       - nvidia-ml-py==13.595.45
-      - nvidia-nccl-cu11==2.20.5
+      - nvidia-nccl-cu11==2.21.5
       - nvidia-nvtx-cu11==11.8.86
       - nvitop==1.7.0
       - pandas==2.3.3
@@ -124,12 +121,12 @@ dependencies:
       - six==1.17.0
       - smmap==5.0.3
       - socksio==1.0.0
-      - sympy==1.14.0
+      - sympy==1.13.1
       - tokenizers==0.22.2
-      - torch==2.4.1+cu118
+      - torch==2.5.1+cu118
       - tqdm==4.68.3
       - transformers==5.4.0
-      - triton==3.0.0
+      - triton==3.1.0
       - typer==0.25.1
       - typing-extensions==4.15.0
       - typing-inspection==0.4.2

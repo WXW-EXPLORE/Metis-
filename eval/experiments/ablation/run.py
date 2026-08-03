@@ -13,6 +13,7 @@ import os
 import shutil
 import subprocess
 import sys
+import tempfile
 from collections import defaultdict
 from pathlib import Path
 from typing import Any, Iterable
@@ -21,8 +22,9 @@ from eval.common.assets import DEFAULT_ASSET_REGISTRY, load_assets, resolve_asse
 
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
-METIS_DEV_ROOT = Path(os.environ.get("METIS_MODEL_REPO_ROOT", str(REPO_ROOT)))
+MODEL_REPO_ROOT = Path(os.environ.get("METIS_MODEL_REPO_ROOT", str(REPO_ROOT)))
 DEFAULT_MATRIX = Path(__file__).resolve().parent / "configs" / "ablation_matrix.json"
+DEFAULT_JUDGE_LOCK = Path(tempfile.gettempdir()) / "metis_eval_judge32.lock"
 READY_STATUSES = {"ready", "reference_ready"}
 REQUIRED_CHECKPOINT_FILES = {
     "config.json",
@@ -562,7 +564,7 @@ def run_raw_stage(args: argparse.Namespace, matrix: dict[str, Any]) -> dict[str,
         "matrix": str(args.matrix),
         "matrix_sha256": sha256(args.matrix),
         "git": git_snapshot(),
-        "metis_dev_git": git_snapshot(METIS_DEV_ROOT),
+        "model_repo_git": git_snapshot(MODEL_REPO_ROOT),
         "python": args.python,
         "checkpoints": selected,
         "benchmarks": benchmarks,
@@ -915,7 +917,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--judge-concurrency", type=int, default=0)
     parser.add_argument("--judge-base-url", default="https://api.openai.com")
     parser.add_argument("--api-key-env", default="OPENAI_API_KEY")
-    parser.add_argument("--judge-lock", type=Path, default=Path("/tmp/metis_eval_judge32.lock"))
+    parser.add_argument("--judge-lock", type=Path, default=DEFAULT_JUDGE_LOCK)
     parser.add_argument("--judge-max-attempts", type=int, default=18)
     parser.add_argument("--judge-retry-sleep", type=float, default=2.0)
     parser.add_argument("--judge-retry-backoff", type=float, default=1.5)

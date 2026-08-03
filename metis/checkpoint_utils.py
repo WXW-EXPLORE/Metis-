@@ -14,11 +14,17 @@ from pathlib import Path
 from typing import Any
 
 import torch
+from safetensors import safe_open
 from safetensors.torch import load_file, save_file
 
 from .configuration_metis import MetisConfig
 from .modeling_metis import MetisForCausalLM
-from .weight_utils import load_metis_from_backbone
+from .weight_utils import (
+    _gather_parameters_for_update,
+    _is_zero3_parameter,
+    is_deepspeed_zero3_enabled,
+    load_metis_from_backbone,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -58,12 +64,29 @@ def _safe_dtype_name(tensor: torch.Tensor) -> str:
 
 def _trainable_state_dict(model, state_dict: dict[str, torch.Tensor] | None = None) -> dict[str, torch.Tensor]:
     unwrapped = _unwrap_model(model)
-    source = state_dict if state_dict is not None else unwrapped.state_dict()
-    trainable_names = [name for name, param in unwrapped.named_parameters() if param.requires_grad]
+    trainable_parameters = [
+        (name, param)
+        for name, param in unwrapped.named_parameters()
+        if param.requires_grad
+    ]
 
+    # A normal state_dict from a ZeRO-3 model contains only local
+    # placeholders. Gather one trainable tensor at a time instead of asking
+    # Accelerate/DeepSpeed to consolidate the complete frozen 27B model.
+    if state_dict is None and any(
+        _is_zero3_parameter(param) for _, param in trainable_parameters
+    ):
+        delta: dict[str, torch.Tensor] = {}
+        for name, parameter in trainable_parameters:
+            with _gather_parameters_for_update([parameter]) as should_collect:
+                if should_collect:
+                    delta[name] = parameter.detach().cpu().clone()
+        return delta
+
+    source = state_dict if state_dict is not None else unwrapped.state_dict()
     delta: dict[str, torch.Tensor] = {}
     missing: list[str] = []
-    for name in trainable_names:
+    for name, _ in trainable_parameters:
         tensor = source.get(name)
         if tensor is None:
             tensor = source.get(f"module.{name}")
@@ -89,17 +112,30 @@ def save_metis_delta_checkpoint(
     tokenizer=None,
     base_model_path: str = "",
     state_dict: dict[str, torch.Tensor] | None = None,
+    is_main_process: bool = True,
 ) -> None:
     """Save a compact checkpoint containing only trainable Metis weights."""
     output = Path(output_dir)
-    output.mkdir(parents=True, exist_ok=True)
     unwrapped = _unwrap_model(model)
+    uses_zero3_collectives = any(
+        _is_zero3_parameter(parameter)
+        for parameter in unwrapped.parameters()
+    )
 
     if base_model_path:
         meta = dict(getattr(unwrapped.config, "backbone_meta", {}) or {})
         meta["backbone_path"] = base_model_path
         unwrapped.config.backbone_meta = meta
 
+    # All ZeRO-3 ranks must participate in the per-parameter gathers above.
+    # Only rank 0 receives tensors and writes files.
+    delta = _trainable_state_dict(unwrapped, state_dict=state_dict)
+    if not is_main_process:
+        if uses_zero3_collectives:
+            torch.distributed.barrier()
+        return
+
+    output.mkdir(parents=True, exist_ok=True)
     unwrapped.config.save_pretrained(output)
     generation_config = getattr(unwrapped, "generation_config", None)
     if generation_config is not None:
@@ -107,7 +143,6 @@ def save_metis_delta_checkpoint(
     if tokenizer is not None:
         tokenizer.save_pretrained(output)
 
-    delta = _trainable_state_dict(unwrapped, state_dict=state_dict)
     save_file(delta, str(output / DELTA_WEIGHTS_NAME))
 
     manifest = {
@@ -133,6 +168,8 @@ def save_metis_delta_checkpoint(
         len(delta),
         manifest["num_parameters"] / 1_000_000,
     )
+    if uses_zero3_collectives:
+        torch.distributed.barrier()
 
 
 def load_delta_manifest(checkpoint_path: str | os.PathLike[str]) -> dict[str, Any]:
@@ -238,6 +275,65 @@ def load_metis_delta_into_model(
         raise ValueError(f"Not a Metis delta checkpoint: {checkpoint}")
 
     unwrapped = _unwrap_model(model)
+    if is_deepspeed_zero3_enabled():
+        manifest = load_delta_manifest(checkpoint)
+        manifest_tensors = manifest.get("tensors") or {}
+        parameter_map = dict(unwrapped.named_parameters())
+        file_path = checkpoint / DELTA_WEIGHTS_NAME
+
+        with safe_open(str(file_path), framework="pt", device="cpu") as tensors:
+            file_names = set(tensors.keys())
+            manifest_names = set(manifest_tensors)
+            if file_names != manifest_names:
+                missing = sorted(manifest_names - file_names)
+                unexpected = sorted(file_names - manifest_names)
+                raise RuntimeError(
+                    "Delta manifest and safetensors file do not match: "
+                    f"missing={missing[:10]}, unexpected={unexpected[:10]}"
+                )
+
+            unknown = sorted(file_names - parameter_map.keys())
+            if unknown:
+                raise RuntimeError(
+                    f"Delta checkpoint has {len(unknown)} unexpected keys: "
+                    + ", ".join(unknown[:10])
+                )
+
+            # Validate every logical shape before entering a collective. This
+            # prevents one rank from raising mid-gather while its peers wait.
+            for name in sorted(file_names):
+                parameter = parameter_map[name]
+                logical_shape = tuple(
+                    getattr(parameter, "ds_shape", parameter.shape)
+                )
+                checkpoint_shape = tuple(manifest_tensors[name]["shape"])
+                if logical_shape != checkpoint_shape:
+                    raise RuntimeError(
+                        f"Delta tensor shape mismatch for {name}: "
+                        f"model={logical_shape}, checkpoint={checkpoint_shape}"
+                    )
+
+            # Materialize one trainable tensor at a time. Rank 0 reads it,
+            # then GatheredParameters broadcasts and re-partitions the update.
+            for name in sorted(file_names):
+                parameter = parameter_map[name]
+                with _gather_parameters_for_update([parameter]) as should_update:
+                    if should_update:
+                        value = tensors.get_tensor(name)
+                        parameter.copy_(
+                            value.to(
+                                device=parameter.device,
+                                dtype=parameter.dtype,
+                            )
+                        )
+
+        logger.info(
+            "Loaded Metis delta weights into ZeRO-3 shards from %s (%d tensors)",
+            checkpoint,
+            len(file_names),
+        )
+        return
+
     delta = load_file(str(checkpoint / DELTA_WEIGHTS_NAME), device="cpu")
     incompatible = unwrapped.load_state_dict(delta, strict=False)
     if incompatible.unexpected_keys:
@@ -267,10 +363,14 @@ def load_metis_model_from_checkpoint(
             dtype=dtype,
         )
         load_metis_delta_into_model(model, checkpoint)
+        if is_deepspeed_zero3_enabled():
+            return model
         return model.to(device=device, dtype=dtype)
 
     if is_full_checkpoint(checkpoint):
         model = MetisForCausalLM.from_pretrained(checkpoint, dtype=dtype)
+        if is_deepspeed_zero3_enabled():
+            return model
         return model.to(device=device, dtype=dtype)
 
     raise ValueError(

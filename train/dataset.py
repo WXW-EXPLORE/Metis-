@@ -525,7 +525,16 @@ class TokenizedMemoryDataset(Dataset):
 
 
 def _torch_load(path: Path):
+    # Tokenized caches are read-only during training.  mmap keeps tensor
+    # storages file-backed, so independent torchrun ranks can share the same
+    # physical page-cache pages instead of each materializing a private copy
+    # of every shard in host RAM.  Older PyTorch versions (or legacy,
+    # non-zip torch.save files) do not support mmap; retain a safe fallback.
     try:
-        return torch.load(path, map_location="cpu", weights_only=False)
+        return torch.load(path, map_location="cpu", weights_only=False, mmap=True)
     except TypeError:
         return torch.load(path, map_location="cpu")
+    except RuntimeError as exc:
+        if "mmap" not in str(exc).lower():
+            raise
+        return torch.load(path, map_location="cpu", weights_only=False)

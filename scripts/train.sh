@@ -28,6 +28,7 @@
 #   WEIGHT_DECAY=0.01                 MAX_GRAD_NORM=1.0
 #   WARMUP_STEPS=200                  NUM_EPOCHS=2
 #   MAX_STEPS=0                       SAVE_STEPS=2000
+#   SAVE_TOTAL_LIMIT=2
 #   CHECKPOINT_SAVE_MODE=delta        EVAL_STEPS=1000
 #   GEN_EVAL_STEPS=0                  EVAL_SAMPLES=60
 #   EVAL_SAMPLES_PER_TASK=20          USE_WANDB=1
@@ -89,6 +90,7 @@ Options:
   --nproc-per-node N            Number of torchrun workers (default: 4).
   --batch-size N                Per-device batch size (default: 2).
   --grad-accum N                Gradient accumulation steps (default: 10).
+  --save-total-limit N          Retain at most N resumable checkpoints (default: 2).
   --metis-block-type TYPE       Metis block implementation.
   --metis-hyper-memory-type TYPE
                                 Hyper-memory implementation.
@@ -147,6 +149,8 @@ while [ "$#" -gt 0 ]; do
       require_value "$@"; BATCH_SIZE=$2; shift 2 ;;
     --grad-accum)
       require_value "$@"; GRAD_ACCUM=$2; shift 2 ;;
+    --save-total-limit)
+      require_value "$@"; SAVE_TOTAL_LIMIT=$2; shift 2 ;;
     --metis-block-type)
       require_value "$@"; METIS_BLOCK_TYPE=$2; shift 2 ;;
     --metis-hyper-memory-type)
@@ -200,6 +204,10 @@ for value_name in NPROC_PER_NODE BATCH_SIZE GRAD_ACCUM; do
     exit 2
   fi
 done
+if [ -n "${SAVE_TOTAL_LIMIT:-}" ] && ! [[ "${SAVE_TOTAL_LIMIT}" =~ ^[0-9]+$ ]]; then
+  echo "Error: SAVE_TOTAL_LIMIT must be a non-negative integer, got '${SAVE_TOTAL_LIMIT}'." >&2
+  exit 2
+fi
 
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 cd "${SCRIPT_DIR}/.."
@@ -270,6 +278,7 @@ export TASK4_WEIGHT_END=${TASK4_WEIGHT_END:-0.15}
 #    keep only the ~126M/202M trainable Metis weights instead of a full model
 #    dump — set CHECKPOINT_SAVE_MODE=full for legacy from_pretrained dumps) ──
 export SAVE_STEPS=${SAVE_STEPS:-2000}
+export SAVE_TOTAL_LIMIT=${SAVE_TOTAL_LIMIT:-2}
 export CHECKPOINT_SAVE_MODE=${CHECKPOINT_SAVE_MODE:-delta}
 export EVAL_STEPS=${EVAL_STEPS:-1000}
 export GEN_EVAL_STEPS=${GEN_EVAL_STEPS:-0}
@@ -299,7 +308,7 @@ echo "   memory=${METIS_BLOCK_TYPE}/${METIS_HYPER_MEMORY_TYPE}/${METIS_LOCAL_MEM
 echo "   deepspeed=${DS_CONFIG:-off}"
 echo "   gpus=${CUDA_VISIBLE_DEVICES} nproc=${NPROC_PER_NODE} port=${MASTER_PORT}"
 echo "   bs=${BATCH_SIZE} accum=${GRAD_ACCUM} effective=$((NPROC_PER_NODE*BATCH_SIZE*GRAD_ACCUM)) lr=${LR}"
-echo "   epochs=${NUM_EPOCHS} max_steps=${MAX_STEPS} save_steps=${SAVE_STEPS} ckpt_mode=${CHECKPOINT_SAVE_MODE}"
+echo "   epochs=${NUM_EPOCHS} max_steps=${MAX_STEPS} save_steps=${SAVE_STEPS} keep_ckpts=${SAVE_TOTAL_LIMIT} ckpt_mode=${CHECKPOINT_SAVE_MODE}"
 echo "   eval_steps=${EVAL_STEPS}(loss) gen_eval_steps=${GEN_EVAL_STEPS}(generation; 0=every eval)"
 echo "   output=${OUTPUT_DIR}/${NAME}"
 echo "   wandb_run=${WANDB_RUN_NAME}"

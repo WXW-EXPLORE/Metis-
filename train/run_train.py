@@ -202,6 +202,50 @@ def _enable_zero3_memory_efficient_linear() -> None:
     logger.info("Enabled DeepSpeed ZeRO-3 memory_efficient_linear wrapper")
 
 
+def _build_training_arguments(args) -> TrainingArguments:
+    """Build Trainer arguments before model construction.
+
+    This ordering is required for Transformers to register
+    ``HfTrainerDeepSpeedConfig`` before any ``from_pretrained`` call. With
+    ZeRO-3, model constructors can then partition parameters immediately
+    instead of first materializing one full model per rank.
+    """
+    return TrainingArguments(
+        output_dir=args.output_dir,
+        num_train_epochs=args.num_epochs,
+        # max_steps > 0 takes precedence over num_train_epochs (HF semantics);
+        # 0 or negative means "train by epochs".
+        max_steps=args.max_steps if args.max_steps > 0 else -1,
+        per_device_train_batch_size=args.batch_size,
+        gradient_accumulation_steps=args.gradient_accumulation_steps,
+        learning_rate=args.learning_rate,
+        weight_decay=args.weight_decay,
+        warmup_steps=args.warmup_steps,
+        max_grad_norm=args.max_grad_norm,
+        adam_beta1=args.adam_beta1,
+        adam_beta2=args.adam_beta2,
+        adam_epsilon=args.adam_epsilon,
+        lr_scheduler_type="constant_with_warmup",
+        logging_steps=args.log_steps,
+        eval_strategy="no",   # eval is handled via the callback
+        save_strategy="steps",
+        save_steps=args.save_steps,
+        save_total_limit=args.save_total_limit if args.save_total_limit > 0 else None,
+        save_only_model=False,
+        bf16=(args.dtype == "bfloat16"),
+        fp16=(args.dtype == "float16"),
+        report_to=["wandb"] if args.wandb else ["none"],
+        run_name=args.wandb_run_name,
+        remove_unused_columns=False,
+        dataloader_num_workers=4,
+        dataloader_pin_memory=True,
+        ddp_backend="nccl",
+        ddp_find_unused_parameters=False,
+        deepspeed=args.deepspeed,
+        seed=args.seed,
+    )
+
+
 # ── Task-weighted length sampler ───────────────────────────────────
 
 class TaskWeightedLengthDistributedSampler(Sampler):
@@ -532,8 +576,24 @@ def train(args):
     else:
         device = torch.device(args.device)
 
+    # This must stay alive for the whole load: Transformers keeps only a
+    # weak reference to the DeepSpeed config consulted by model constructors.
+    training_args = _build_training_arguments(args)
+
     if args.deepspeed:
         _enable_zero3_memory_efficient_linear()
+        from metis.weight_utils import is_deepspeed_zero3_enabled
+
+        if is_deepspeed_zero3_enabled():
+            logger.info(
+                "DeepSpeed ZeRO-3 registered before model load; "
+                "Metis and backbone parameters will be constructed as shards."
+            )
+        else:
+            logger.warning(
+                "DeepSpeed is enabled but stage is not ZeRO-3; "
+                "model loading will materialize full parameters on each rank."
+            )
 
     # ── Model ─────────────────────────────────────────────────
     checkpoint_to_load = args.init_from_checkpoint or args.resume_from_checkpoint
@@ -586,6 +646,17 @@ def train(args):
             qk_kernel_type=args.qk_kernel_type,
             metis_reweight_gamma=args.metis_reweight_gamma,
         )
+
+    if is_main and device.type == "cuda":
+        gib = 1024**3
+        logger.info(
+            "Model load CUDA memory (rank 0): allocated=%.2f GiB  "
+            "reserved=%.2f GiB  peak_allocated=%.2f GiB",
+            torch.cuda.memory_allocated(device) / gib,
+            torch.cuda.memory_reserved(device) / gib,
+            torch.cuda.max_memory_allocated(device) / gib,
+        )
+
     if is_main:
         logger.info(
             f"memory_configs: "
@@ -677,44 +748,6 @@ def train(args):
         os.environ["WANDB_PROJECT"] = args.wandb_project
         if args.wandb_run_name:
             os.environ["WANDB_NAME"] = args.wandb_run_name
-
-    # ── TrainingArguments ─────────────────────────────────────
-    train_sampling_kwargs = {}
-
-    training_args = TrainingArguments(
-        output_dir=args.output_dir,
-        num_train_epochs=args.num_epochs,
-        # max_steps > 0 takes precedence over num_train_epochs (HF semantics);
-        # 0 or negative means "train by epochs".
-        max_steps=args.max_steps if args.max_steps > 0 else -1,
-        per_device_train_batch_size=args.batch_size,
-        gradient_accumulation_steps=args.gradient_accumulation_steps,
-        learning_rate=args.learning_rate,
-        weight_decay=args.weight_decay,
-        warmup_steps=args.warmup_steps,
-        max_grad_norm=args.max_grad_norm,
-        adam_beta1=args.adam_beta1,
-        adam_beta2=args.adam_beta2,
-        adam_epsilon=args.adam_epsilon,
-        lr_scheduler_type="constant_with_warmup",
-        logging_steps=args.log_steps,
-        eval_strategy="no",   # eval is handled via the callback
-        save_strategy="steps",
-        save_steps=args.save_steps,
-        save_only_model=False,
-        bf16=(args.dtype == "bfloat16"),
-        fp16=(args.dtype == "float16"),
-        report_to=["wandb"] if args.wandb else ["none"],
-        run_name=args.wandb_run_name,
-        remove_unused_columns=False,
-        dataloader_num_workers=4,
-        dataloader_pin_memory=True,
-        ddp_backend="nccl",
-        ddp_find_unused_parameters=False,
-        deepspeed=args.deepspeed,
-        seed=args.seed,
-        **train_sampling_kwargs,
-    )
 
     # ── Build eval samples (from a small held-out subset) ─────
     eval_samples = None
@@ -893,16 +926,20 @@ def train(args):
     step0_dir = os.path.join(args.output_dir, "checkpoint-0")
     if args.resume_from_checkpoint:
         logger.info("Skipping step-0 checkpoint while resuming from %s", args.resume_from_checkpoint)
+    elif args.deepspeed:
+        # At this point ZeRO-3 parameters already exist as shards, but Trainer
+        # has not built its DeepSpeed engine yet. Calling model.state_dict()
+        # here would either save placeholders or gather the complete 27B model
+        # on rank 0. Normal step/final saves run after engine initialization.
+        logger.info(
+            "Skipping checkpoint-0 before DeepSpeed engine initialization; "
+            "the first configured step checkpoint will be fully resumable."
+        )
     elif trainer.is_world_process_zero():
         os.makedirs(step0_dir, exist_ok=True)
-        if args.deepspeed:
-            # DeepSpeed engine is only built inside trainer.train(); pre-train
-            # checkpoint-0 should save from the still-unwrapped module.
-            trainer._save(step0_dir, state_dict=trainer.model.state_dict())
-        else:
-            # trainer._save respects checkpoint_save_mode (delta/full) and also
-            # saves the tokenizer.
-            trainer._save(step0_dir)
+        # trainer._save respects checkpoint_save_mode (delta/full) and also
+        # saves the tokenizer.
+        trainer._save(step0_dir)
         logger.info(f"Step-0 checkpoint saved → {step0_dir}")
 
     # ── Log task weights per epoch ────────────────────────────
@@ -1003,6 +1040,12 @@ def parse_args():
     g.add_argument("--log_file", default="train.log")
     g.add_argument("--log_steps", type=int, default=5)
     g.add_argument("--save_steps", type=int, default=500)
+    g.add_argument(
+        "--save_total_limit",
+        type=int,
+        default=2,
+        help="Maximum number of resumable checkpoints to retain; 0 keeps all.",
+    )
     g.add_argument("--eval_steps", type=int, default=0,
                    help="Frequency of eval (0 = off). Cheap loss eval runs every this many steps.")
     g.add_argument("--gen_eval_steps", type=int, default=0,

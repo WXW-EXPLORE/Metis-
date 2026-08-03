@@ -96,8 +96,13 @@ def freeze_backbone(model: nn.Module) -> int:
 
 
 def count_params(model: nn.Module) -> tuple[int, int]:
-    total = sum(p.numel() for p in model.parameters())
-    trainable = sum(p.numel() for p in model.parameters() if p.requires_grad)
+    def logical_numel(parameter: nn.Parameter) -> int:
+        # ZeRO-3 parameters are placeholders locally; ds_numel records the
+        # unpartitioned logical size used for meaningful parameter counts.
+        return int(getattr(parameter, "ds_numel", parameter.numel()))
+
+    total = sum(logical_numel(p) for p in model.parameters())
+    trainable = sum(logical_numel(p) for p in model.parameters() if p.requires_grad)
     return total, trainable
 
 
@@ -127,8 +132,9 @@ def dump_sampler_tree(dl) -> None:
 # ═══════════════════════════════════════════════════════════════════
 
 _SNAPSHOT_EXCLUDE_DIRS = {
-    "experiments", "wandb", "__pycache__", ".git",
-    "pretrained_models", "data", "checkpoint", "log",
+    "experiments", "wandb", "__pycache__", ".git", ".pytest_cache",
+    "pretrained_models", "data", "checkpoint", "checkpoints",
+    "code_snapshot", "log", "logs", "output", "outputs",
 }
 
 def save_code_snapshot(output_dir: str, project_root: str | None = None) -> None:
@@ -136,13 +142,26 @@ def save_code_snapshot(output_dir: str, project_root: str | None = None) -> None
     if project_root is None:
         project_root = os.path.dirname(os.path.abspath(__file__))
 
+    project_root = os.path.realpath(project_root)
+    output_dir = os.path.realpath(output_dir)
     snap_dir = os.path.join(output_dir, "code_snapshot")
     os.makedirs(snap_dir, exist_ok=True)
 
+    def is_in_output(path: str) -> bool:
+        try:
+            return os.path.commonpath((os.path.realpath(path), output_dir)) == output_dir
+        except ValueError:
+            return False
+
     copied = 0
     for dirpath, dirnames, filenames in os.walk(project_root):
-        dirnames[:] = [d for d in dirnames
-                       if d not in _SNAPSHOT_EXCLUDE_DIRS and not d.startswith(".")]
+        dirnames[:] = [
+            dirname
+            for dirname in dirnames
+            if dirname not in _SNAPSHOT_EXCLUDE_DIRS
+            and not dirname.startswith(".")
+            and not is_in_output(os.path.join(dirpath, dirname))
+        ]
         for fname in filenames:
             if not fname.endswith((".py", ".sh")):
                 continue
