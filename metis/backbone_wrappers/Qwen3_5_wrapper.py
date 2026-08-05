@@ -43,6 +43,52 @@ def _zero3_safe_checkpoint(function, hidden_states):
     )
 
 
+def _create_qwen3_5_causal_mask(
+    *,
+    config,
+    inputs_embeds,
+    attention_mask,
+    past_key_values,
+    position_ids,
+):
+    """Call the Transformers 5.x mask API shared by 5.4 and 5.10.
+
+    Transformers 5.4 accepted a deprecated ``cache_position`` keyword but did
+    not use it. Transformers 5.10 removed that keyword. Omitting it preserves
+    5.4 behavior and keeps the wrapper compatible with both releases.
+    """
+
+    return create_causal_mask(
+        config=config,
+        inputs_embeds=inputs_embeds,
+        attention_mask=attention_mask,
+        past_key_values=past_key_values,
+        position_ids=position_ids,
+    )
+
+
+def _prepare_qwen3_5_generation_cache(
+    past_key_values,
+    *,
+    config,
+    use_cache,
+):
+    """Create the configured hybrid cache on the first generation call.
+
+    Transformers generation may pre-create an empty generic cache. In 5.4 the
+    Qwen-specific cache class must replace it; in 5.10 ``DynamicCache`` uses
+    the model config to build the full/linear hybrid layers. Replacing only an
+    empty cache is safe and preserves the populated cache on later decode
+    steps.
+    """
+
+    if not use_cache:
+        return past_key_values
+    if past_key_values is None or past_key_values.get_seq_length() == 0:
+        return Qwen3_5DynamicCache(config=config)
+    return past_key_values
+
+
 class Qwen3_5DecoderLayerForMetis(DecoderLayerWrapperForMetis):
     def __init__(self, config, raw_decoder):
         super().__init__(config, raw_decoder)
@@ -256,13 +302,11 @@ class Qwen3_5CausalLMForMetis(CausalLMWrapperForMetis):
         if inputs_embeds is None:
             inputs_embeds = self.model.embed_tokens(input_ids)
 
-        # generate() in transformers 5.x pre-creates a standard DynamicCache.
-        # Qwen3.5's hybrid (full + linear attention) model requires Qwen3_5DynamicCache,
-        # which manages recurrent states for linear attention layers.
-        # On the first call the incoming cache is always empty, so replacement is safe.
-        # On subsequent calls the cache is already Qwen3_5DynamicCache and is left as-is.
-        if use_cache and not isinstance(past_key_values, Qwen3_5DynamicCache):
-            past_key_values = Qwen3_5DynamicCache(config=self.model.config)
+        past_key_values = _prepare_qwen3_5_generation_cache(
+            past_key_values,
+            config=self.model.config,
+            use_cache=use_cache,
+        )
 
         if cache_position is None:
             past_seen_tokens = past_key_values.get_seq_length() if past_key_values is not None else 0
@@ -282,11 +326,10 @@ class Qwen3_5CausalLMForMetis(CausalLMWrapperForMetis):
         else:
             text_position_ids = None
 
-        causal_mask = create_causal_mask(
+        causal_mask = _create_qwen3_5_causal_mask(
             config=self.config,
             inputs_embeds=inputs_embeds,
             attention_mask=attention_mask,
-            cache_position=cache_position,
             past_key_values=past_key_values,
             position_ids=text_position_ids,
         )
