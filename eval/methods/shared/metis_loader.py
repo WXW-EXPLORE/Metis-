@@ -149,7 +149,20 @@ def _candidate_base_paths(raw_path: str | None) -> list[Path]:
     return candidates
 
 
-def _base_model_path_from_checkpoint(ckpt_dir: Path, config: MetisConfig) -> str | Path:
+def _base_model_path_from_checkpoint(
+    ckpt_dir: Path,
+    config: MetisConfig,
+    *,
+    model_path: str | Path | None = None,
+) -> str | Path:
+    if model_path is not None:
+        explicit_path = Path(model_path).expanduser()
+        if not explicit_path.is_dir():
+            raise FileNotFoundError(
+                f"Explicit base model override is not a directory: {explicit_path}"
+            )
+        return explicit_path.resolve()
+
     raw_paths: list[str] = []
     manifest_path = ckpt_dir / "metis_delta_manifest.json"
     if manifest_path.exists():
@@ -530,6 +543,7 @@ def load_v2_full_checkpoint(
     device: str = "cuda:0",
     dtype: torch.dtype = torch.bfloat16,
     *,
+    model_path: str | Path | None = None,
     device_map: str = "single",
     model_parallel_devices: str | None = None,
     max_memory: dict[int | str, str] | None = None,
@@ -542,7 +556,11 @@ def load_v2_full_checkpoint(
     state_path, checkpoint_format = _checkpoint_state_path(ckpt_dir)
     base_report: dict[str, Any] = {}
     if checkpoint_format == "delta":
-        base_path = _base_model_path_from_checkpoint(ckpt_dir, config)
+        base_path = _base_model_path_from_checkpoint(
+            ckpt_dir,
+            config,
+            model_path=model_path,
+        )
         base_report = _load_backbone_weights_into_metis(model, base_path, dtype)
 
     state = load_file(state_path, device="cpu")

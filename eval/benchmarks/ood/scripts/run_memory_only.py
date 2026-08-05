@@ -94,6 +94,7 @@ def build_config(args: argparse.Namespace, instances_sha256: str, count: int) ->
         common.update(
             {
                 "checkpoint": args.model_path,
+                "base_model_path": args.base_model_path or None,
                 "device_map": args.device_map,
                 "model_parallel_devices": args.model_parallel_devices,
             }
@@ -210,6 +211,7 @@ def load_runtime(args: argparse.Namespace) -> tuple[Any, dict[str, Any]]:
         checkpoint,
         device=args.device,
         dtype=parse_dtype(args.dtype),
+        model_path=args.base_model_path or None,
         device_map=args.device_map,
         model_parallel_devices=args.model_parallel_devices,
         max_memory=parse_max_memory(args.max_memory),
@@ -337,6 +339,7 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--method", required=True, choices=("metis", "delta_mem", "temp_lora"))
     parser.add_argument("--model-path", required=True)
+    parser.add_argument("--base-model-path", default="")
     parser.add_argument("--model-label", required=True)
     parser.add_argument("--adapter-dir", default="")
     parser.add_argument("--instances", type=Path, required=True)
