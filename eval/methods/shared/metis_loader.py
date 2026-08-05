@@ -115,6 +115,7 @@ def _normalize_backbone_type_for_local_wrappers(config: MetisConfig) -> tuple[st
         "qwen3": "Qwen3",
         "qwen3_5": "Qwen3_5",
         "gemma4": "Gemma4",
+        "llama": "Llama",
     }
     if isinstance(original, str) and original in aliases:
         backbone_meta["backbone_type"] = aliases[original]
@@ -262,6 +263,34 @@ def infer_metis_model_family(ckpt_dir: str | Path, config: MetisConfig) -> str:
     path_text = str(ckpt_dir).lower()
     text_cfg = _text_config(config)
     model_type = str(getattr(text_cfg, "model_type", "") or "").lower()
+    backbone_type = str(
+        (getattr(config, "backbone_meta", None) or {}).get(
+            "backbone_type", ""
+        )
+    ).lower()
+    if model_type == "llama" or backbone_type == "llama":
+        name_candidates = [
+            path_text,
+            str(getattr(config.backbone_configs, "_name_or_path", "") or "").lower(),
+            str(
+                (getattr(config, "backbone_meta", None) or {}).get(
+                    "backbone_path", ""
+                )
+            ).lower(),
+        ]
+        for candidate in name_candidates:
+            size_match = re.search(
+                r"(?<![a-z0-9])(\d+(?:\.\d+)?)b(?![a-z0-9])",
+                candidate,
+            )
+            if size_match:
+                return f"llama_{size_match.group(1)}b"
+        hidden_size = int(getattr(text_cfg, "hidden_size", 0) or 0)
+        num_layers = int(getattr(text_cfg, "num_hidden_layers", 0) or 0)
+        if hidden_size >= 8192 and num_layers >= 80:
+            return "llama_70b"
+        return "llama_unknown"
+
     if model_type.startswith("gemma4"):
         name_candidates = [
             path_text,
@@ -308,12 +337,13 @@ def enforce_metis_device_policy(
 
     family = infer_metis_model_family(ckpt_dir, config)
     devices = model_parallel_devices or []
-    if device_map == "paired_layers" and len(devices) != 2:
-        raise ValueError(
-            "Metis evaluation device policy requires paired_layers to use exactly two devices; "
-            f"got {devices!r}. Use --model-parallel-devices cuda:0,cuda:1 for 27B, "
-            "and --device-map single for 4B/9B."
-        )
+    if device_map == "paired_layers":
+        required_devices = 4 if family == "llama_70b" else 2
+        if len(devices) != required_devices or len(set(devices)) != required_devices:
+            raise ValueError(
+                f"Metis evaluation device policy requires {family} paired_layers "
+                f"to use exactly {required_devices} distinct devices; got {devices!r}."
+            )
     if family in {"4b", "9b"} and device_map != "single":
         raise ValueError(
             f"Metis evaluation device policy requires Metis {family.upper()} to run single-GPU; "
@@ -323,6 +353,12 @@ def enforce_metis_device_policy(
         raise ValueError(
             "Metis evaluation device policy requires Metis 27B to run on exactly two GPUs with "
             "--device-map paired_layers --model-parallel-devices cuda:0,cuda:1."
+        )
+    if family == "llama_70b" and device_map != "paired_layers":
+        raise ValueError(
+            "Metis evaluation device policy requires Llama 70B to run on exactly four GPUs with "
+            "--device-map paired_layers "
+            "--model-parallel-devices cuda:0,cuda:1,cuda:2,cuda:3."
         )
     return family
 
@@ -351,6 +387,20 @@ def _stringify_device_map(device_map: Any) -> Any:
     return device_map
 
 
+def _module_execution_device(module: Any, fallback: Any) -> Any:
+    hook_device = getattr(
+        getattr(module, "_hf_hook", None),
+        "execution_device",
+        None,
+    )
+    if hook_device is not None:
+        return hook_device
+    try:
+        return next(module.parameters()).device
+    except StopIteration:
+        return fallback
+
+
 def _patch_model_parallel_commit_memory(model: MetisForCausalLM) -> None:
     def _commit_memory(self: MetisForCausalLM, outputs: Any, attention_mask: torch.Tensor | None = None) -> None:
         offset = self.config.memory_configs.get("commit_hidden_offset", 0)
@@ -362,8 +412,17 @@ def _patch_model_parallel_commit_memory(model: MetisForCausalLM) -> None:
                 continue
             layer_h = all_hidden[k + offset]
             layer_attention_mask = attention_mask
-            if layer_attention_mask is not None and layer_attention_mask.device != layer_h.device:
-                layer_attention_mask = layer_attention_mask.to(layer_h.device)
+            execution_device = _module_execution_device(
+                layer.hyper_memory,
+                layer_h.device,
+            )
+            if (
+                layer_attention_mask is not None
+                and layer_attention_mask.device != execution_device
+            ):
+                layer_attention_mask = layer_attention_mask.to(
+                    execution_device
+                )
             layer.hyper_memory.update_local_memory(
                 layer_h,
                 layer.local_memory,
