@@ -15,6 +15,11 @@ from typing import Any
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
+from metis.generation_utils import (
+    decode_generated_response,
+    resolve_generation_special_token_ids,
+)
+
 
 def utc_now() -> str:
     return dt.datetime.now(dt.timezone.utc).isoformat()
@@ -112,16 +117,19 @@ def generate(
     started = time.time()
     text = chat_text(tokenizer, prompt)
     encoded = tokenizer(text, return_tensors="pt", add_special_tokens=False).to(device)
+    eos_token_id, pad_token_id = resolve_generation_special_token_ids(
+        model, tokenizer
+    )
     output_ids = model.generate(
         **encoded,
         max_new_tokens=max_new_tokens,
         do_sample=False,
         use_cache=True,
-        pad_token_id=tokenizer.pad_token_id or tokenizer.eos_token_id,
-        eos_token_id=tokenizer.eos_token_id,
+        pad_token_id=pad_token_id,
+        eos_token_id=eos_token_id,
     )
     new_ids = output_ids[:, encoded.input_ids.shape[1] :]
-    return tokenizer.decode(new_ids[0], skip_special_tokens=True).strip(), int(encoded.input_ids.shape[1]), round(time.time() - started, 3)
+    return decode_generated_response(tokenizer, new_ids[0]), int(encoded.input_ids.shape[1]), round(time.time() - started, 3)
 
 
 def parse_max_memory(items: list[str] | None) -> dict[int | str, str] | None:
