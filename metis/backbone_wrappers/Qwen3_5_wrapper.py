@@ -67,6 +67,28 @@ def _create_qwen3_5_causal_mask(
     )
 
 
+def _is_compatible_qwen3_5_generation_cache(past_key_values, config):
+    if not isinstance(past_key_values, Qwen3_5DynamicCache):
+        return False
+
+    cache_layers = getattr(past_key_values, "layers", None)
+    layer_types = getattr(config, "layer_types", None)
+    if cache_layers is None or layer_types is None:
+        return True
+    if len(cache_layers) != len(layer_types):
+        return False
+    for layer_type, cache_layer in zip(layer_types, cache_layers):
+        if layer_type == "linear_attention":
+            required_names = ("conv_states", "recurrent_states")
+        elif layer_type == "full_attention":
+            required_names = ("keys", "values")
+        else:
+            continue
+        if not all(hasattr(cache_layer, name) for name in required_names):
+            return False
+    return True
+
+
 def _prepare_qwen3_5_generation_cache(
     past_key_values,
     *,
@@ -77,14 +99,19 @@ def _prepare_qwen3_5_generation_cache(
 
     Transformers generation may pre-create an empty generic cache. In 5.4 the
     Qwen-specific cache class must replace it; in 5.10 ``DynamicCache`` uses
-    the model config to build the full/linear hybrid layers. Replacing only an
-    empty cache is safe and preserves the populated cache on later decode
-    steps.
+    the model config to build the full/linear hybrid layers. A foreign cache
+    must be rebuilt even when populated; a compatible populated cache is
+    preserved on later decode steps.
     """
 
     if not use_cache:
         return past_key_values
-    if past_key_values is None or past_key_values.get_seq_length() == 0:
+    if past_key_values is None:
+        return Qwen3_5DynamicCache(config=config)
+    if not _is_compatible_qwen3_5_generation_cache(past_key_values, config):
+        # A populated foreign cache cannot safely represent Qwen3.5's hybrid state.
+        return Qwen3_5DynamicCache(config=config)
+    if past_key_values.get_seq_length() == 0:
         return Qwen3_5DynamicCache(config=config)
     return past_key_values
 
