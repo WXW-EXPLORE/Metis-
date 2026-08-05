@@ -74,7 +74,10 @@ class CausalLMWrapperForMetis(nn.Module):
 
     def get_decoder_layer_by_id(self, layer_id: int):
         raise NotImplementedError
+
+    def project_logits(self, hidden_states: torch.Tensor) -> torch.Tensor:
+        """Project hidden states, allowing backbone-specific post-processing."""
+        return self.lm_head(hidden_states)
     
     def forward_with_memory(self, **kwargs):
         raise NotImplementedError
-

@@ -30,6 +30,7 @@ PUBLIC_BASE_MODELS = {
 
 from metis.configuration_metis import MetisConfig  # noqa: E402
 from metis.modeling_metis import MetisForCausalLM  # noqa: E402
+from metis.weight_utils import _gemma4_text_model, _load_gemma4_pretrained  # noqa: E402
 
 
 DEPRECATED_CHECKPOINT_ALIASES = {
@@ -113,6 +114,7 @@ def _normalize_backbone_type_for_local_wrappers(config: MetisConfig) -> tuple[st
     aliases = {
         "qwen3": "Qwen3",
         "qwen3_5": "Qwen3_5",
+        "gemma4": "Gemma4",
     }
     if isinstance(original, str) and original in aliases:
         backbone_meta["backbone_type"] = aliases[original]
@@ -184,17 +186,40 @@ def _load_backbone_weights_into_metis(
     base_model_path: str | Path,
     dtype: torch.dtype,
 ) -> dict[str, Any]:
-    backbone = AutoModelForCausalLM.from_pretrained(
-        str(base_model_path),
-        trust_remote_code=True,
-        dtype=dtype,
+    backbone_type = str(
+        (getattr(model.config, "backbone_meta", None) or {}).get(
+            "backbone_type", ""
+        )
     )
+    if backbone_type == "Gemma4":
+        backbone = _load_gemma4_pretrained(
+            str(base_model_path),
+            model.config,
+            dtype,
+        )
+        text_model = _gemma4_text_model(backbone)
+        output_embeddings = backbone.get_output_embeddings()
+        if output_embeddings is None:
+            output_embeddings = text_model.embed_tokens
+    else:
+        backbone = AutoModelForCausalLM.from_pretrained(
+            str(base_model_path),
+            trust_remote_code=True,
+            dtype=dtype,
+        )
+        text_model = backbone.model
+        output_embeddings = backbone.lm_head
+
     metis_backbone = model.model.metis_backbone
-    metis_backbone.model.load_state_dict(backbone.model.state_dict(), strict=True)
-    metis_backbone.lm_head.load_state_dict(backbone.lm_head.state_dict(), strict=True)
+    metis_backbone.model.load_state_dict(text_model.state_dict(), strict=True)
+    metis_backbone.lm_head.load_state_dict(
+        output_embeddings.state_dict(),
+        strict=True,
+    )
     report = {
         "base_model_path": str(base_model_path),
         "base_model_class": backbone.__class__.__name__,
+        "base_text_model_class": text_model.__class__.__name__,
     }
     del backbone
     gc.collect()
@@ -235,11 +260,31 @@ def infer_metis_model_family(ckpt_dir: str | Path, config: MetisConfig) -> str:
     """Infer the Metis size family used for device policy checks."""
 
     path_text = str(ckpt_dir).lower()
+    text_cfg = _text_config(config)
+    model_type = str(getattr(text_cfg, "model_type", "") or "").lower()
+    if model_type.startswith("gemma4"):
+        name_candidates = [
+            path_text,
+            str(getattr(config.backbone_configs, "_name_or_path", "") or "").lower(),
+            str(
+                (getattr(config, "backbone_meta", None) or {}).get(
+                    "backbone_path", ""
+                )
+            ).lower(),
+        ]
+        for candidate in name_candidates:
+            size_match = re.search(
+                r"(?<![a-z0-9])(\d+(?:\.\d+)?)b(?![a-z0-9])",
+                candidate,
+            )
+            if size_match:
+                return f"gemma4_{size_match.group(1)}b"
+        return "gemma4_unknown"
+
     for family in ("27b", "9b", "4b"):
         if re.search(rf"(?<![a-z0-9]){family}(?![a-z0-9])", path_text):
             return family
 
-    text_cfg = _text_config(config)
     hidden_size = int(getattr(text_cfg, "hidden_size", 0) or 0)
     num_layers = int(getattr(text_cfg, "num_hidden_layers", 0) or 0)
     if hidden_size and num_layers:
@@ -259,7 +304,7 @@ def enforce_metis_device_policy(
     device_map: str,
     model_parallel_devices: list[str] | None = None,
 ) -> str:
-    """Enforce the paper evaluation policy: 4B/9B single GPU, 27B two GPU."""
+    """Enforce the released Qwen paper-evaluation device policy."""
 
     family = infer_metis_model_family(ckpt_dir, config)
     devices = model_parallel_devices or []
@@ -363,7 +408,13 @@ def _dispatch_model(
     from accelerate import dispatch_model, infer_auto_device_map
 
     model.to(dtype=dtype)
-    no_split = ["MetisBlock", "Qwen3_5DecoderLayer", "Qwen3DecoderLayer"]
+    no_split = [
+        "MetisBlock",
+        "Qwen3_5DecoderLayer",
+        "Qwen3DecoderLayer",
+        "Gemma4DecoderLayer",
+        "Gemma4UnifiedDecoderLayer",
+    ]
     if device_map == "paired_layers":
         devices = paired_devices or parse_model_parallel_devices(model_parallel_devices, device)
         resolved_map = build_paired_layer_device_map(config, devices)
@@ -471,6 +522,11 @@ def load_v2_full_checkpoint(
             or "query_norm" in key
         )
     ]
+    if important_missing:
+        raise RuntimeError(
+            f"Missing required Metis tensors while loading {checkpoint_format} "
+            f"checkpoint {ckpt_dir}: {important_missing[:50]}"
+        )
 
     model, dispatch_report = _dispatch_model(
         model,

@@ -242,6 +242,7 @@ def _build_metis_from_delta_config(
         metis_hyper_memory_type=_memory_arg(memory, "metis_hyper_memory_type", "StraightThroughAlphaTopPGatedDeltaRuleMetisHyperMemory"),
         metis_local_memory_type=_memory_arg(memory, "metis_local_memory_type", "NormalizedDeltaNetMetisLocalMemory"),
         update_ratio=float(_memory_arg(memory, "update_ratio", 0.9)),
+        forget_ratio=float(_memory_arg(memory, "forget_ratio", 1.0)),
         commit_hidden_offset=int(_memory_arg(memory, "commit_hidden_offset", 0)),
         mem_norm_init=float(_memory_arg(memory, "mem_norm_init", 1.0)),
         uniform_num_selected=int(_memory_arg(memory, "uniform_num_selected", 16)),
@@ -256,6 +257,9 @@ def _build_metis_from_delta_config(
         gated_delta_beta_init=float(_memory_arg(memory, "gated_delta_beta_init", 1.0)),
         qk_kernel_type=_memory_arg(memory, "qk_kernel_type", "elu_plus_one"),
         metis_reweight_gamma=float(_memory_arg(memory, "metis_reweight_gamma", 0.9)),
+        memory_on_sliding_layers=bool(
+            _memory_arg(memory, "memory_on_sliding_layers", True)
+        ),
     )
     model.config.backbone_meta = {
         **backbone_meta,
@@ -340,6 +344,18 @@ def load_metis_delta_into_model(
         preview = ", ".join(incompatible.unexpected_keys[:10])
         raise RuntimeError(
             f"Delta checkpoint has {len(incompatible.unexpected_keys)} unexpected keys: {preview}"
+        )
+    missing_metis = [
+        key
+        for key in incompatible.missing_keys
+        if key.startswith("model.metis_blocks.")
+    ]
+    if missing_metis:
+        preview = ", ".join(missing_metis[:10])
+        raise RuntimeError(
+            f"Delta checkpoint is missing {len(missing_metis)} Metis block "
+            f"tensors present in the rebuilt model: {preview}. Checkpoint "
+            "memory_configs and rebuilt architecture do not match."
         )
     logger.info("Loaded Metis delta weights from %s (%d tensors)", checkpoint, len(delta))
 
