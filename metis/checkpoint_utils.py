@@ -339,6 +339,29 @@ def load_metis_delta_into_model(
         return
 
     delta = load_file(str(checkpoint / DELTA_WEIGHTS_NAME), device="cpu")
+    manifest = load_delta_manifest(checkpoint)
+    manifest_tensors = manifest.get("tensors") or {}
+    manifest_keys = set(manifest_tensors)
+    delta_keys = set(delta)
+    missing_from_file = sorted(manifest_keys - delta_keys)
+    absent_from_manifest = sorted(delta_keys - manifest_keys)
+    if missing_from_file or absent_from_manifest:
+        raise RuntimeError(
+            f"Delta manifest/tensor mismatch for {checkpoint}: "
+            f"missing_from_file={missing_from_file[:10]} "
+            f"absent_from_manifest={absent_from_manifest[:10]}"
+        )
+    for key, tensor in delta.items():
+        declared = manifest_tensors[key]
+        declared_shape = list(declared.get("shape") or [])
+        declared_dtype = str(declared.get("dtype") or "")
+        actual_dtype = _safe_dtype_name(tensor)
+        if declared_shape != list(tensor.shape) or declared_dtype != actual_dtype:
+            raise RuntimeError(
+                f"Delta manifest metadata mismatch for {key!r}: "
+                f"declared shape/dtype={declared_shape}/{declared_dtype}, "
+                f"actual={list(tensor.shape)}/{actual_dtype}"
+            )
     incompatible = unwrapped.load_state_dict(delta, strict=False)
     if incompatible.unexpected_keys:
         preview = ", ".join(incompatible.unexpected_keys[:10])
