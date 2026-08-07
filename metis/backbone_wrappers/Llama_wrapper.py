@@ -20,6 +20,30 @@ from typing_extensions import Unpack
 from ..utils import CausalLMWrapperForMetis, DecoderLayerWrapperForMetis
 
 
+def _create_llama_causal_mask(
+    *,
+    config,
+    inputs_embeds,
+    attention_mask,
+    past_key_values,
+    position_ids,
+):
+    """Call the Transformers 5.x causal-mask API without a removed keyword.
+
+    Transformers 5.4 accepted a deprecated ``cache_position`` keyword but did
+    not use it. Transformers 5.10 removed that keyword. Omitting it preserves
+    the mask semantics and keeps the wrapper compatible with both releases.
+    """
+
+    return create_causal_mask(
+        config=config,
+        inputs_embeds=inputs_embeds,
+        attention_mask=attention_mask,
+        past_key_values=past_key_values,
+        position_ids=position_ids,
+    )
+
+
 class LlamaDecoderLayerForMetis(DecoderLayerWrapperForMetis):
     def __init__(self, config, raw_decoder):
         super().__init__(config, raw_decoder)
@@ -163,11 +187,10 @@ class LlamaCausalLMForMetis(CausalLMWrapperForMetis):
         if position_ids is None:
             position_ids = cache_position.unsqueeze(0)
 
-        causal_mask = create_causal_mask(
+        causal_mask = _create_llama_causal_mask(
             config=self.model.config,
             inputs_embeds=inputs_embeds,
             attention_mask=attention_mask,
-            cache_position=cache_position,
             past_key_values=past_key_values,
             position_ids=position_ids,
         )

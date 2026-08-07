@@ -242,6 +242,7 @@ def _build_metis_from_delta_config(
         metis_hyper_memory_type=_memory_arg(memory, "metis_hyper_memory_type", "StraightThroughAlphaTopPGatedDeltaRuleMetisHyperMemory"),
         metis_local_memory_type=_memory_arg(memory, "metis_local_memory_type", "NormalizedDeltaNetMetisLocalMemory"),
         update_ratio=float(_memory_arg(memory, "update_ratio", 0.9)),
+        forget_ratio=float(_memory_arg(memory, "forget_ratio", 1.0)),
         commit_hidden_offset=int(_memory_arg(memory, "commit_hidden_offset", 0)),
         mem_norm_init=float(_memory_arg(memory, "mem_norm_init", 1.0)),
         uniform_num_selected=int(_memory_arg(memory, "uniform_num_selected", 16)),
@@ -256,6 +257,9 @@ def _build_metis_from_delta_config(
         gated_delta_beta_init=float(_memory_arg(memory, "gated_delta_beta_init", 1.0)),
         qk_kernel_type=_memory_arg(memory, "qk_kernel_type", "elu_plus_one"),
         metis_reweight_gamma=float(_memory_arg(memory, "metis_reweight_gamma", 0.9)),
+        memory_on_sliding_layers=bool(
+            _memory_arg(memory, "memory_on_sliding_layers", True)
+        ),
     )
     model.config.backbone_meta = {
         **backbone_meta,
@@ -335,11 +339,46 @@ def load_metis_delta_into_model(
         return
 
     delta = load_file(str(checkpoint / DELTA_WEIGHTS_NAME), device="cpu")
+    manifest = load_delta_manifest(checkpoint)
+    manifest_tensors = manifest.get("tensors") or {}
+    manifest_keys = set(manifest_tensors)
+    delta_keys = set(delta)
+    missing_from_file = sorted(manifest_keys - delta_keys)
+    absent_from_manifest = sorted(delta_keys - manifest_keys)
+    if missing_from_file or absent_from_manifest:
+        raise RuntimeError(
+            f"Delta manifest/tensor mismatch for {checkpoint}: "
+            f"missing_from_file={missing_from_file[:10]} "
+            f"absent_from_manifest={absent_from_manifest[:10]}"
+        )
+    for key, tensor in delta.items():
+        declared = manifest_tensors[key]
+        declared_shape = list(declared.get("shape") or [])
+        declared_dtype = str(declared.get("dtype") or "")
+        actual_dtype = _safe_dtype_name(tensor)
+        if declared_shape != list(tensor.shape) or declared_dtype != actual_dtype:
+            raise RuntimeError(
+                f"Delta manifest metadata mismatch for {key!r}: "
+                f"declared shape/dtype={declared_shape}/{declared_dtype}, "
+                f"actual={list(tensor.shape)}/{actual_dtype}"
+            )
     incompatible = unwrapped.load_state_dict(delta, strict=False)
     if incompatible.unexpected_keys:
         preview = ", ".join(incompatible.unexpected_keys[:10])
         raise RuntimeError(
             f"Delta checkpoint has {len(incompatible.unexpected_keys)} unexpected keys: {preview}"
+        )
+    missing_metis = [
+        key
+        for key in incompatible.missing_keys
+        if key.startswith("model.metis_blocks.")
+    ]
+    if missing_metis:
+        preview = ", ".join(missing_metis[:10])
+        raise RuntimeError(
+            f"Delta checkpoint is missing {len(missing_metis)} Metis block "
+            f"tensors present in the rebuilt model: {preview}. Checkpoint "
+            "memory_configs and rebuilt architecture do not match."
         )
     logger.info("Loaded Metis delta weights from %s (%d tensors)", checkpoint, len(delta))
 

@@ -30,6 +30,7 @@ PUBLIC_BASE_MODELS = {
 
 from metis.configuration_metis import MetisConfig  # noqa: E402
 from metis.modeling_metis import MetisForCausalLM  # noqa: E402
+from metis.weight_utils import _gemma4_text_model, _load_gemma4_pretrained  # noqa: E402
 
 
 DEPRECATED_CHECKPOINT_ALIASES = {
@@ -113,6 +114,8 @@ def _normalize_backbone_type_for_local_wrappers(config: MetisConfig) -> tuple[st
     aliases = {
         "qwen3": "Qwen3",
         "qwen3_5": "Qwen3_5",
+        "gemma4": "Gemma4",
+        "llama": "Llama",
     }
     if isinstance(original, str) and original in aliases:
         backbone_meta["backbone_type"] = aliases[original]
@@ -146,7 +149,20 @@ def _candidate_base_paths(raw_path: str | None) -> list[Path]:
     return candidates
 
 
-def _base_model_path_from_checkpoint(ckpt_dir: Path, config: MetisConfig) -> str | Path:
+def _base_model_path_from_checkpoint(
+    ckpt_dir: Path,
+    config: MetisConfig,
+    *,
+    model_path: str | Path | None = None,
+) -> str | Path:
+    if model_path is not None:
+        explicit_path = Path(model_path).expanduser()
+        if not explicit_path.is_dir():
+            raise FileNotFoundError(
+                f"Explicit base model override is not a directory: {explicit_path}"
+            )
+        return explicit_path.resolve()
+
     raw_paths: list[str] = []
     manifest_path = ckpt_dir / "metis_delta_manifest.json"
     if manifest_path.exists():
@@ -184,17 +200,40 @@ def _load_backbone_weights_into_metis(
     base_model_path: str | Path,
     dtype: torch.dtype,
 ) -> dict[str, Any]:
-    backbone = AutoModelForCausalLM.from_pretrained(
-        str(base_model_path),
-        trust_remote_code=True,
-        dtype=dtype,
+    backbone_type = str(
+        (getattr(model.config, "backbone_meta", None) or {}).get(
+            "backbone_type", ""
+        )
     )
+    if backbone_type == "Gemma4":
+        backbone = _load_gemma4_pretrained(
+            str(base_model_path),
+            model.config,
+            dtype,
+        )
+        text_model = _gemma4_text_model(backbone)
+        output_embeddings = backbone.get_output_embeddings()
+        if output_embeddings is None:
+            output_embeddings = text_model.embed_tokens
+    else:
+        backbone = AutoModelForCausalLM.from_pretrained(
+            str(base_model_path),
+            trust_remote_code=True,
+            dtype=dtype,
+        )
+        text_model = backbone.model
+        output_embeddings = backbone.lm_head
+
     metis_backbone = model.model.metis_backbone
-    metis_backbone.model.load_state_dict(backbone.model.state_dict(), strict=True)
-    metis_backbone.lm_head.load_state_dict(backbone.lm_head.state_dict(), strict=True)
+    metis_backbone.model.load_state_dict(text_model.state_dict(), strict=True)
+    metis_backbone.lm_head.load_state_dict(
+        output_embeddings.state_dict(),
+        strict=True,
+    )
     report = {
         "base_model_path": str(base_model_path),
         "base_model_class": backbone.__class__.__name__,
+        "base_text_model_class": text_model.__class__.__name__,
     }
     del backbone
     gc.collect()
@@ -235,11 +274,59 @@ def infer_metis_model_family(ckpt_dir: str | Path, config: MetisConfig) -> str:
     """Infer the Metis size family used for device policy checks."""
 
     path_text = str(ckpt_dir).lower()
+    text_cfg = _text_config(config)
+    model_type = str(getattr(text_cfg, "model_type", "") or "").lower()
+    backbone_type = str(
+        (getattr(config, "backbone_meta", None) or {}).get(
+            "backbone_type", ""
+        )
+    ).lower()
+    if model_type == "llama" or backbone_type == "llama":
+        name_candidates = [
+            path_text,
+            str(getattr(config.backbone_configs, "_name_or_path", "") or "").lower(),
+            str(
+                (getattr(config, "backbone_meta", None) or {}).get(
+                    "backbone_path", ""
+                )
+            ).lower(),
+        ]
+        for candidate in name_candidates:
+            size_match = re.search(
+                r"(?<![a-z0-9])(\d+(?:\.\d+)?)b(?![a-z0-9])",
+                candidate,
+            )
+            if size_match:
+                return f"llama_{size_match.group(1)}b"
+        hidden_size = int(getattr(text_cfg, "hidden_size", 0) or 0)
+        num_layers = int(getattr(text_cfg, "num_hidden_layers", 0) or 0)
+        if hidden_size >= 8192 and num_layers >= 80:
+            return "llama_70b"
+        return "llama_unknown"
+
+    if model_type.startswith("gemma4"):
+        name_candidates = [
+            path_text,
+            str(getattr(config.backbone_configs, "_name_or_path", "") or "").lower(),
+            str(
+                (getattr(config, "backbone_meta", None) or {}).get(
+                    "backbone_path", ""
+                )
+            ).lower(),
+        ]
+        for candidate in name_candidates:
+            size_match = re.search(
+                r"(?<![a-z0-9])(\d+(?:\.\d+)?)b(?![a-z0-9])",
+                candidate,
+            )
+            if size_match:
+                return f"gemma4_{size_match.group(1)}b"
+        return "gemma4_unknown"
+
     for family in ("27b", "9b", "4b"):
         if re.search(rf"(?<![a-z0-9]){family}(?![a-z0-9])", path_text):
             return family
 
-    text_cfg = _text_config(config)
     hidden_size = int(getattr(text_cfg, "hidden_size", 0) or 0)
     num_layers = int(getattr(text_cfg, "num_hidden_layers", 0) or 0)
     if hidden_size and num_layers:
@@ -259,16 +346,17 @@ def enforce_metis_device_policy(
     device_map: str,
     model_parallel_devices: list[str] | None = None,
 ) -> str:
-    """Enforce the paper evaluation policy: 4B/9B single GPU, 27B two GPU."""
+    """Enforce the released Qwen paper-evaluation device policy."""
 
     family = infer_metis_model_family(ckpt_dir, config)
     devices = model_parallel_devices or []
-    if device_map == "paired_layers" and len(devices) != 2:
-        raise ValueError(
-            "Metis evaluation device policy requires paired_layers to use exactly two devices; "
-            f"got {devices!r}. Use --model-parallel-devices cuda:0,cuda:1 for 27B, "
-            "and --device-map single for 4B/9B."
-        )
+    if device_map == "paired_layers":
+        required_devices = 4 if family == "llama_70b" else 2
+        if len(devices) != required_devices or len(set(devices)) != required_devices:
+            raise ValueError(
+                f"Metis evaluation device policy requires {family} paired_layers "
+                f"to use exactly {required_devices} distinct devices; got {devices!r}."
+            )
     if family in {"4b", "9b"} and device_map != "single":
         raise ValueError(
             f"Metis evaluation device policy requires Metis {family.upper()} to run single-GPU; "
@@ -278,6 +366,12 @@ def enforce_metis_device_policy(
         raise ValueError(
             "Metis evaluation device policy requires Metis 27B to run on exactly two GPUs with "
             "--device-map paired_layers --model-parallel-devices cuda:0,cuda:1."
+        )
+    if family == "llama_70b" and device_map != "paired_layers":
+        raise ValueError(
+            "Metis evaluation device policy requires Llama 70B to run on exactly four GPUs with "
+            "--device-map paired_layers "
+            "--model-parallel-devices cuda:0,cuda:1,cuda:2,cuda:3."
         )
     return family
 
@@ -306,6 +400,20 @@ def _stringify_device_map(device_map: Any) -> Any:
     return device_map
 
 
+def _module_execution_device(module: Any, fallback: Any) -> Any:
+    hook_device = getattr(
+        getattr(module, "_hf_hook", None),
+        "execution_device",
+        None,
+    )
+    if hook_device is not None:
+        return hook_device
+    try:
+        return next(module.parameters()).device
+    except StopIteration:
+        return fallback
+
+
 def _patch_model_parallel_commit_memory(model: MetisForCausalLM) -> None:
     def _commit_memory(self: MetisForCausalLM, outputs: Any, attention_mask: torch.Tensor | None = None) -> None:
         offset = self.config.memory_configs.get("commit_hidden_offset", 0)
@@ -317,8 +425,17 @@ def _patch_model_parallel_commit_memory(model: MetisForCausalLM) -> None:
                 continue
             layer_h = all_hidden[k + offset]
             layer_attention_mask = attention_mask
-            if layer_attention_mask is not None and layer_attention_mask.device != layer_h.device:
-                layer_attention_mask = layer_attention_mask.to(layer_h.device)
+            execution_device = _module_execution_device(
+                layer.hyper_memory,
+                layer_h.device,
+            )
+            if (
+                layer_attention_mask is not None
+                and layer_attention_mask.device != execution_device
+            ):
+                layer_attention_mask = layer_attention_mask.to(
+                    execution_device
+                )
             layer.hyper_memory.update_local_memory(
                 layer_h,
                 layer.local_memory,
@@ -363,7 +480,13 @@ def _dispatch_model(
     from accelerate import dispatch_model, infer_auto_device_map
 
     model.to(dtype=dtype)
-    no_split = ["MetisBlock", "Qwen3_5DecoderLayer", "Qwen3DecoderLayer"]
+    no_split = [
+        "MetisBlock",
+        "Qwen3_5DecoderLayer",
+        "Qwen3DecoderLayer",
+        "Gemma4DecoderLayer",
+        "Gemma4UnifiedDecoderLayer",
+    ]
     if device_map == "paired_layers":
         devices = paired_devices or parse_model_parallel_devices(model_parallel_devices, device)
         resolved_map = build_paired_layer_device_map(config, devices)
@@ -420,6 +543,7 @@ def load_v2_full_checkpoint(
     device: str = "cuda:0",
     dtype: torch.dtype = torch.bfloat16,
     *,
+    model_path: str | Path | None = None,
     device_map: str = "single",
     model_parallel_devices: str | None = None,
     max_memory: dict[int | str, str] | None = None,
@@ -432,7 +556,11 @@ def load_v2_full_checkpoint(
     state_path, checkpoint_format = _checkpoint_state_path(ckpt_dir)
     base_report: dict[str, Any] = {}
     if checkpoint_format == "delta":
-        base_path = _base_model_path_from_checkpoint(ckpt_dir, config)
+        base_path = _base_model_path_from_checkpoint(
+            ckpt_dir,
+            config,
+            model_path=model_path,
+        )
         base_report = _load_backbone_weights_into_metis(model, base_path, dtype)
 
     state = load_file(state_path, device="cpu")
@@ -471,6 +599,11 @@ def load_v2_full_checkpoint(
             or "query_norm" in key
         )
     ]
+    if important_missing:
+        raise RuntimeError(
+            f"Missing required Metis tensors while loading {checkpoint_format} "
+            f"checkpoint {ckpt_dir}: {important_missing[:50]}"
+        )
 
     model, dispatch_report = _dispatch_model(
         model,

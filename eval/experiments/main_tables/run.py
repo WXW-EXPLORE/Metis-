@@ -109,11 +109,14 @@ def module_and_args(args: argparse.Namespace, instances: Path) -> tuple[str, lis
         ]
     if task == "memqa":
         if args.method == "metis":
-            return "eval.benchmarks.memqa.scripts.run_metis_memqa", [
+            method_args = [
                 "--checkpoint", checkpoint, "--model-label", args.model_label,
                 "--output", str(output), "--query-style", args.query_style,
                 "--max-new-tokens", str(args.max_new_tokens), *metis_loading, *common,
             ]
+            if args.model:
+                method_args += ["--model-path", args.model]
+            return "eval.benchmarks.memqa.scripts.run_metis_memqa", method_args
         module = f"eval.methods.{args.method}.scripts.run_memqa_{args.method}"
         method_args = ["--model-path", model, "--model-label", args.model_label, "--output", str(output)]
         if args.method == "delta_mem":

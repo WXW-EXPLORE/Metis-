@@ -1,3 +1,5 @@
+import copy
+
 from transformers import GradientCheckpointingLayer
 import torch
 import torch.nn as nn
@@ -7,8 +9,28 @@ from ..utils import create_metis_decoder_layer
 from abc import ABC
 
 
+def _layer_type_of(config, layer_idx, raw_decoder) -> str:
+    """Resolve the attention type used by one instantiated decoder layer."""
+    text_cfg = getattr(config.backbone_configs, "text_config", config.backbone_configs)
+    layer_types = getattr(text_cfg, "layer_types", None)
+    if layer_types is not None and layer_idx < len(layer_types):
+        return layer_types[layer_idx]
+    self_attn = getattr(raw_decoder, "self_attn", None)
+    return getattr(
+        raw_decoder,
+        "layer_type",
+        getattr(self_attn, "layer_type", "full_attention"),
+    )
+
+
 def create_metis_block(config, layer_idx, raw_decoder):
-    if getattr(raw_decoder, "layer_type", "full_attention") == "linear_attention":
+    layer_type = _layer_type_of(config, layer_idx, raw_decoder)
+    if layer_type == "linear_attention":
+        return NonMemoryMetisBlock(config, layer_idx, raw_decoder)
+    if (
+        layer_type == "sliding_attention"
+        and not config.memory_configs.get("memory_on_sliding_layers", True)
+    ):
         return NonMemoryMetisBlock(config, layer_idx, raw_decoder)
     return eval(config.memory_configs['metis_block_type'])(config, layer_idx, raw_decoder)
 
@@ -19,11 +41,57 @@ def _is_boundary_memory_layer(config, layer_idx: int) -> bool:
     layer_types = getattr(text_cfg, "layer_types", None)
     if layer_types is None:
         return layer_idx in {0, num_layers - 1}
-    memory_layers = [
-        i for i, lt in enumerate(layer_types)
-        if lt != "linear_attention"
-    ]
+    skip_types = {"linear_attention"}
+    if not config.memory_configs.get("memory_on_sliding_layers", True):
+        skip_types.add("sliding_attention")
+    memory_layers = [i for i, layer_type in enumerate(layer_types) if layer_type not in skip_types]
     return bool(memory_layers) and layer_idx in {memory_layers[0], memory_layers[-1]}
+
+
+def _attention_geometry(config, raw_decoder):
+    """Return the effective query/KV head counts and head size for one layer."""
+    text_cfg = getattr(config.backbone_configs, "text_config", config.backbone_configs)
+    self_attn = getattr(raw_decoder, "self_attn", None)
+    num_q_heads = int(text_cfg.num_attention_heads)
+    default_head_dim = getattr(
+        text_cfg, "head_dim", text_cfg.hidden_size // num_q_heads
+    )
+    head_dim = int(getattr(self_attn, "head_dim", default_head_dim))
+    k_proj = getattr(self_attn, "k_proj", None)
+    if k_proj is not None and getattr(k_proj, "out_features", 0) % head_dim == 0:
+        num_kv_heads = k_proj.out_features // head_dim
+    else:
+        num_kv_groups = int(getattr(self_attn, "num_key_value_groups", 1))
+        num_kv_heads = num_q_heads // num_kv_groups
+    return num_q_heads, int(num_kv_heads), head_dim
+
+
+def _config_for_attention_layer(config, raw_decoder):
+    """Return a shallow config view aligned with this layer's geometry."""
+    num_q_heads, num_kv_heads, head_dim = _attention_geometry(config, raw_decoder)
+    text_cfg = getattr(config.backbone_configs, "text_config", config.backbone_configs)
+    current = (
+        int(text_cfg.num_attention_heads),
+        int(getattr(text_cfg, "num_key_value_heads", num_q_heads)),
+        int(getattr(text_cfg, "head_dim", text_cfg.hidden_size // num_q_heads)),
+    )
+    effective = (num_q_heads, num_kv_heads, head_dim)
+    if current == effective:
+        return config
+
+    layer_config = copy.copy(config)
+    backbone_config = copy.copy(config.backbone_configs)
+    if hasattr(config.backbone_configs, "text_config"):
+        layer_text_config = copy.copy(text_cfg)
+        backbone_config.text_config = layer_text_config
+    else:
+        layer_text_config = backbone_config
+    layer_text_config.num_attention_heads = num_q_heads
+    layer_text_config.num_key_value_heads = num_kv_heads
+    layer_text_config.head_dim = head_dim
+    layer_config.backbone_configs = backbone_config
+    return layer_config
+
 
 class NonMemoryMetisBlock(GradientCheckpointingLayer):
     """Block with no memory modules — used for debugging / ablation.
@@ -40,6 +108,7 @@ class NonMemoryMetisBlock(GradientCheckpointingLayer):
         self.last_attention_branch_norm = None
         self.last_memory_attention_norm_ratio = None
         self._backbone_decoder_ref = [create_metis_decoder_layer(config, raw_decoder)]
+        self._backbone_decoder_ref[0]._skip_memory_query = True
 
     @property
     def backbone_decoder(self):
@@ -61,8 +130,9 @@ class MetisBlockBase(GradientCheckpointingLayer, ABC):
         self.config = config
         self.layer_idx = layer_idx
 
-        self.local_memory = create_metis_local_memory(config)
-        self.hyper_memory = create_metis_hyper_memory(config)
+        layer_config = _config_for_attention_layer(config, raw_decoder)
+        self.local_memory = create_metis_local_memory(layer_config)
+        self.hyper_memory = create_metis_hyper_memory(layer_config)
         self._backbone_decoder_ref = [create_metis_decoder_layer(config, raw_decoder)]
         self.hyper_memory.register_raw_decoder(self._backbone_decoder_ref)
 
@@ -101,8 +171,9 @@ class MetisBlockBase(GradientCheckpointingLayer, ABC):
     def _init_learned_query(self, raw_decoder):
         text_cfg = getattr(self.config.backbone_configs, 'text_config', self.config.backbone_configs)
         hidden_dim = text_cfg.hidden_size
-        self.query_num_heads = text_cfg.num_attention_heads
-        self.query_head_dim = getattr(text_cfg, "head_dim", hidden_dim // self.query_num_heads)
+        self.query_num_heads, _, self.query_head_dim = _attention_geometry(
+            self.config, raw_decoder
+        )
         mem_dim = self.query_num_heads * self.query_head_dim
 
         self_attn = getattr(raw_decoder, "self_attn", None)
@@ -161,8 +232,8 @@ class NormedNaiveMetisBlock(NaiveMetisBlock):
 
     def __init__(self, config, layer_idx: int, raw_decoder):
         super().__init__(config, layer_idx, raw_decoder)
-        text_cfg = getattr(config.backbone_configs, 'text_config', config.backbone_configs)
-        mem_dim = text_cfg.num_attention_heads * text_cfg.head_dim
+        num_q_heads, _, head_dim = _attention_geometry(config, raw_decoder)
+        mem_dim = num_q_heads * head_dim
 
         ln = raw_decoder.input_layernorm
         norm_cls = type(ln)

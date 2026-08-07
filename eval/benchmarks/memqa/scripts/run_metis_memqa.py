@@ -15,6 +15,10 @@ import torch
 
 
 from eval.methods.shared.memqa_io import audit_query_payload, query_prompt_for_style  # noqa: E402
+from metis.generation_utils import (  # noqa: E402
+    decode_generated_response,
+    resolve_generation_special_token_ids,
+)
 
 from eval.methods.shared.metis_loader import (
     _chat_template,
@@ -95,17 +99,21 @@ def generate_answer(model: Any, tokenizer: Any, question: str, device: str, max_
     prompt = query_prompt_for_style(question, query_style)
     started = time.time()
     prefix_ids = render_messages(tokenizer, [{"role": "user", "content": prompt}], add_generation_prompt=True, device=device)
+    eos_token_id, pad_token_id = resolve_generation_special_token_ids(
+        model,
+        tokenizer,
+    )
     output_ids = model.generate(
         input_ids=prefix_ids,
         attention_mask=torch.ones_like(prefix_ids),
         max_new_tokens=max_new_tokens,
         do_sample=False,
         use_cache=True,
-        pad_token_id=tokenizer.pad_token_id or tokenizer.eos_token_id,
-        eos_token_id=tokenizer.eos_token_id,
+        pad_token_id=pad_token_id,
+        eos_token_id=eos_token_id,
     )
     new_ids = output_ids[:, prefix_ids.shape[1] :]
-    generated = tokenizer.decode(new_ids[0], skip_special_tokens=True).strip()
+    generated = decode_generated_response(tokenizer, new_ids[0])
     return generated, int(prefix_ids.shape[1]), round(time.time() - started, 3), prompt
 
 
@@ -136,6 +144,7 @@ def run(args: argparse.Namespace) -> Path:
         ckpt_path,
         device=args.device,
         dtype=parse_dtype(args.dtype),
+        model_path=args.model_path or None,
         device_map=args.device_map,
         model_parallel_devices=args.model_parallel_devices,
         max_memory=parse_max_memory(args.max_memory),
@@ -157,6 +166,11 @@ def run(args: argparse.Namespace) -> Path:
         "baseline": "metis",
         "model_label": args.model_label,
         "model_path": str(ckpt_path),
+        "base_model_override": (
+            str(Path(args.model_path).expanduser().resolve())
+            if args.model_path
+            else None
+        ),
         "checkpoint_config": config_summary(ckpt_path),
         "load_report": load_report,
         "device": args.device,
@@ -209,6 +223,11 @@ def run(args: argparse.Namespace) -> Path:
                 "baseline": "metis",
                 "model_label": args.model_label,
                 "model_path": str(ckpt_path),
+                "base_model_override": (
+                    str(Path(args.model_path).expanduser().resolve())
+                    if args.model_path
+                    else None
+                ),
                 "device": args.device,
                 "input_device": str(input_device),
                 "physical_gpu": os.environ.get("CUDA_VISIBLE_DEVICES"),
@@ -253,6 +272,7 @@ def run(args: argparse.Namespace) -> Path:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--checkpoint", required=True)
+    parser.add_argument("--model-path", default="")
     parser.add_argument("--model-label", required=True)
     parser.add_argument("--instances", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

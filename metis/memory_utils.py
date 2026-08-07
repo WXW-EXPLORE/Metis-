@@ -31,7 +31,11 @@ def encode_and_commit_memory(
     hooks = []
 
     for k, block in enumerate(model.model.metis_blocks):
-        if not is_full_attention(block):
+        if (
+            block.local_memory is None
+            or block.hyper_memory is None
+            or not is_full_attention(block)
+        ):
             continue
 
         def _hook(mod, inp, out, idx=k):
@@ -47,6 +51,10 @@ def encode_and_commit_memory(
 
     for k, block in enumerate(model.model.metis_blocks):
         if k in captured:
+            if block.local_memory is None or block.hyper_memory is None:
+                raise RuntimeError(
+                    f"Captured layer {k} has no writable Metis memory."
+                )
             block.hyper_memory.update_local_memory(
                 captured[k],
                 block.local_memory,

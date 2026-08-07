@@ -73,8 +73,11 @@ def cell_commands(args: argparse.Namespace, dataset: str) -> list[list[str]]:
             ]
             if args.method in {"metis", "temp_lora"}:
                 command.extend(["--device-map", args.device_map])
-                if args.method == "metis" and args.model_parallel_devices:
-                    command.extend(["--model-parallel-devices", args.model_parallel_devices])
+                if args.method == "metis":
+                    if args.model:
+                        command.extend(["--base-model-path", args.model])
+                    if args.model_parallel_devices:
+                        command.extend(["--model-parallel-devices", args.model_parallel_devices])
                 for item in args.max_memory:
                     command.extend(["--max-memory", item])
             if args.method == "delta_mem":

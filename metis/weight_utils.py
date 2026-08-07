@@ -16,6 +16,7 @@ _BACKBONE_TYPE_MAP: dict[str, str] = {
     "qwen3_5": "Qwen3_5",
     "qwen3":   "Qwen3",
     "llama":   "Llama",
+    "gemma4":  "Gemma4",
 }
 
 
@@ -329,6 +330,12 @@ def _init_hyper_memory_from_backbone(model: MetisForCausalLM) -> None:
             # full_attention: k_proj → W_k,  v_proj → W_v
             src_k = getattr(self_attn, "k_proj", None)
             src_v = getattr(self_attn, "v_proj", None)
+            if (
+                src_k is not None
+                and src_v is None
+                and getattr(self_attn, "use_alternative_attention", False)
+            ):
+                src_v = src_k
 
         if src_k is None or src_v is None:
             linear_attn = getattr(raw_decoder, "linear_attn", None)
@@ -407,6 +414,42 @@ def _init_hyper_memory_from_backbone(model: MetisForCausalLM) -> None:
     print(f"[weight_utils] Hyper-memory initialized from backbone projections: {inited} layers (skipped {skipped}).")
 
 
+def _gemma4_text_model(backbone):
+    """Locate the text decoder inside Gemma 4 or Gemma 4 Unified shells."""
+    candidates = [
+        getattr(getattr(backbone, "model", None), "language_model", None),
+        getattr(backbone, "language_model", None),
+        getattr(backbone, "model", None),
+    ]
+    for candidate in candidates:
+        if (
+            candidate is not None
+            and hasattr(candidate, "layers")
+            and hasattr(candidate, "embed_tokens")
+        ):
+            return candidate
+    raise RuntimeError(
+        f"Could not locate the Gemma 4 text model inside {type(backbone).__name__}."
+    )
+
+
+def _load_gemma4_pretrained(backbone_path: str, config, dtype: torch.dtype):
+    """Load the matching Hugging Face Gemma shell."""
+    model_type = str(getattr(config.backbone_configs, "model_type", ""))
+    if model_type.startswith("gemma4_unified"):
+        try:
+            from transformers import AutoModelForMultimodalLM
+        except ImportError as exc:
+            raise ImportError(
+                "Gemma 4 Unified requires transformers>=5.10.1."
+            ) from exc
+        return AutoModelForMultimodalLM.from_pretrained(
+            backbone_path,
+            dtype=dtype,
+        )
+    return AutoModelForCausalLM.from_pretrained(backbone_path, dtype=dtype)
+
+
 def load_metis_from_backbone(
     backbone_path: str,
     backbone_type: str = "qwen3_5",
@@ -416,6 +459,7 @@ def load_metis_from_backbone(
     metis_hyper_memory_type: str = "StraightThroughAlphaTopPGatedDeltaRuleMetisHyperMemory",
     metis_local_memory_type: str = "NormalizedDeltaNetMetisLocalMemory",
     update_ratio: float = 0.9,
+    forget_ratio: float = 1.0,
     commit_hidden_offset: int = 0,
     mem_norm_init: float = 1.0,
     uniform_num_selected: int = 16,
@@ -430,18 +474,21 @@ def load_metis_from_backbone(
     gated_delta_beta_init: float = 1.0,
     qk_kernel_type: str = "elu_plus_one",
     metis_reweight_gamma: float = 0.9,
+    memory_on_sliding_layers: bool = True,
 ) -> tuple[MetisForCausalLM, "AutoTokenizer"]:
     """Build a MetisForCausalLM and load pretrained backbone weights into it.
 
     Args:
         backbone_path: Local path (or HF hub id) to the backbone model.
-        backbone_type: One of ``qwen3_5`` / ``qwen3`` / ``llama`` (lowercase).
+        backbone_type: One of ``qwen3_5`` / ``qwen3`` / ``llama`` /
+            ``gemma4`` (lowercase).
         device: Target device.
         dtype: Weight dtype (e.g. torch.float16 / torch.bfloat16).
         metis_block_type: Which MetisBlock variant to use.
         metis_hyper_memory_type: Which HyperMemory variant to use.
         metis_local_memory_type: Which LocalMemory variant to use.
         update_ratio: Blend factor for memory write (1.0 = full update).
+        forget_ratio: Stored for checkpoint/config compatibility.
         commit_hidden_offset: 0 → layer input, 1 → layer output.
         mem_norm_init: Initial value for mem_norm RMSNorm weight.
         uniform_num_selected: N for uniformly-spaced token selection.
@@ -456,6 +503,8 @@ def load_metis_from_backbone(
         gated_delta_beta_init: Initial sigmoid value for gated-delta beta.
         qk_kernel_type: Feature map for kernelized q/k memory variants.
         metis_reweight_gamma: Gate weight for reweight blocks.
+        memory_on_sliding_layers: Whether sliding-attention layers carry
+            Metis memory. Gemma full-attention-only checkpoints set this false.
 
     Returns:
         (model, tokenizer)
@@ -472,6 +521,7 @@ def load_metis_from_backbone(
             "metis_hyper_memory_type": metis_hyper_memory_type,
             "metis_local_memory_type": metis_local_memory_type,
             "update_ratio": update_ratio,
+            "forget_ratio": forget_ratio,
             "commit_hidden_offset": commit_hidden_offset,
             "mem_norm_init": mem_norm_init,
             "uniform_num_selected": uniform_num_selected,
@@ -486,6 +536,7 @@ def load_metis_from_backbone(
             "gated_delta_beta_init": gated_delta_beta_init,
             "qk_kernel_type": qk_kernel_type,
             "metis_reweight_gamma": metis_reweight_gamma,
+            "memory_on_sliding_layers": memory_on_sliding_layers,
         },
     )
 
@@ -497,10 +548,21 @@ def load_metis_from_backbone(
         model = MetisForCausalLM(config)
 
     print(f"[weight_utils] Loading backbone weights from {backbone_path} …")
-    backbone = AutoModelForCausalLM.from_pretrained(backbone_path, dtype=dtype)
+    if backbone_type_camel == "Gemma4":
+        backbone = _load_gemma4_pretrained(backbone_path, config, dtype)
+    else:
+        backbone = AutoModelForCausalLM.from_pretrained(backbone_path, dtype=dtype)
     mb = model.model.metis_backbone
-    _copy_module_state(mb.model, backbone.model)
-    _copy_module_state(mb.lm_head, backbone.lm_head)
+    if backbone_type_camel == "Gemma4":
+        text_model = _gemma4_text_model(backbone)
+        output_embeddings = backbone.get_output_embeddings()
+        if output_embeddings is None:
+            output_embeddings = text_model.embed_tokens
+        _copy_module_state(mb.model, text_model)
+        _copy_module_state(mb.lm_head, output_embeddings)
+    else:
+        _copy_module_state(mb.model, backbone.model)
+        _copy_module_state(mb.lm_head, backbone.lm_head)
 
     _init_learned_query_from_backbone(model)
     _init_hyper_memory_from_backbone(model)

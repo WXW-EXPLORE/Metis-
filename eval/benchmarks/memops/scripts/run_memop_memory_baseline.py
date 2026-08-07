@@ -16,6 +16,10 @@ import torch
 
 from eval.methods.shared.memqa_io import query_prompt_for_style  # noqa: E402
 from eval.methods.shared.memory_contract import QueryResult  # noqa: E402
+from metis.generation_utils import (  # noqa: E402
+    decode_generated_response,
+    resolve_generation_special_token_ids,
+)
 from eval.methods.shared.metis_loader import (
     _chat_template as metis_chat_template,
     infer_input_device,
@@ -152,15 +156,22 @@ class MetisMemOPBaseline:
         low_rank_rank: int | None = None,
         low_rank_policy: str = "after_each_commit",
         low_rank_target: str = "state",
+        model_path: str = "",
     ):
         self.checkpoint = Path(checkpoint).expanduser().resolve()
         self.device = device
         self.max_new_tokens = max_new_tokens
         self.query_style = query_style
+        self.base_model_override = (
+            str(Path(model_path).expanduser().resolve())
+            if model_path
+            else None
+        )
         self.model, self.tokenizer, self.load_report = load_v2_full_checkpoint(
             self.checkpoint,
             device=device,
             dtype=metis_parse_dtype(dtype),
+            model_path=model_path or None,
             device_map=device_map,
             model_parallel_devices=model_parallel_devices,
             max_memory=parse_max_memory(max_memory),
@@ -212,18 +223,22 @@ class MetisMemOPBaseline:
             add_generation_prompt=True,
             device=self.input_device,
         )
+        eos_token_id, pad_token_id = resolve_generation_special_token_ids(
+            self.model,
+            self.tokenizer,
+        )
         output_ids = self.model.generate(
             input_ids=prefix_ids,
             attention_mask=torch.ones_like(prefix_ids),
             max_new_tokens=self.max_new_tokens,
             do_sample=False,
             use_cache=True,
-            pad_token_id=self.tokenizer.pad_token_id or self.tokenizer.eos_token_id,
-            eos_token_id=self.tokenizer.eos_token_id,
+            pad_token_id=pad_token_id,
+            eos_token_id=eos_token_id,
         )
         new_ids = output_ids[:, prefix_ids.shape[1] :]
         return QueryResult(
-            raw_output=self.tokenizer.decode(new_ids[0], skip_special_tokens=True).strip(),
+            raw_output=decode_generated_response(self.tokenizer, new_ids[0]),
             prompt_tokens=int(prefix_ids.shape[1]),
             latency_sec=round(time.time() - started, 3),
             debug={
@@ -293,6 +308,7 @@ def build_baseline(args: argparse.Namespace) -> tuple[Any, str, str]:
                 args.metis_low_rank_rank,
                 args.metis_low_rank_policy,
                 args.metis_low_rank_target,
+                model_path=args.model_path,
             ),
             str(Path(args.checkpoint).expanduser().resolve()),
             "metis_memory_state_only",
@@ -329,6 +345,11 @@ def output_record(
         "baseline": args.method,
         "model_label": args.model_label,
         "model_path": model_path,
+        "base_model_override": (
+            getattr(args, "metis_base_model_override", None)
+            if args.method == "metis"
+            else None
+        ),
         "adapter_dir": args.adapter_dir if args.method == "delta_mem" else None,
         "checkpoint": args.checkpoint if args.method == "metis" else None,
         "device": args.device,
@@ -361,6 +382,11 @@ def run(args: argparse.Namespace) -> Path:
     baseline, model_path, context_policy = build_baseline(args)
     args.metis_input_device = str(getattr(baseline, "input_device", args.device))
     args.metis_load_report = getattr(baseline, "load_report", None)
+    args.metis_base_model_override = getattr(
+        baseline,
+        "base_model_override",
+        None,
+    )
     dataset_label = instances[0].get("dataset", "memop") if instances else "memop"
     meta = {
         "run_id": args.run_id,
@@ -371,6 +397,11 @@ def run(args: argparse.Namespace) -> Path:
         "baseline": args.method,
         "model_label": args.model_label,
         "model_path": model_path,
+        "base_model_override": (
+            args.metis_base_model_override
+            if args.method == "metis"
+            else None
+        ),
         "adapter_dir": args.adapter_dir if args.method == "delta_mem" else None,
         "checkpoint": args.checkpoint if args.method == "metis" else None,
         "instances": str(args.instances),

@@ -1,6 +1,13 @@
 from transformers import PretrainedConfig, AutoConfig
 
 
+def _gemma4_config_error() -> ImportError:
+    return ImportError(
+        "Gemma 4 support requires transformers>=5.10.1 so both gemma4 and "
+        "gemma4_unified configs are registered."
+    )
+
+
 class MetisConfig(PretrainedConfig):
     model_type = "metis"
 
@@ -23,7 +30,12 @@ class MetisConfig(PretrainedConfig):
             if isinstance(backbone_configs, dict) and "model_type" in backbone_configs:
                 cfg = dict(backbone_configs)
                 model_type = cfg.pop("model_type")
-                backbone_configs = AutoConfig.for_model(model_type, **cfg)
+                try:
+                    backbone_configs = AutoConfig.for_model(model_type, **cfg)
+                except ValueError as exc:
+                    if str(model_type).startswith("gemma4"):
+                        raise _gemma4_config_error() from exc
+                    raise
             self.backbone_configs = backbone_configs
         else:
             # Eagerly load only when an explicit path is provided.
@@ -31,7 +43,15 @@ class MetisConfig(PretrainedConfig):
             # diff/serialization), backbone_path is "" so this is skipped.
             backbone_path = self.backbone_meta.get('backbone_path', '')
             if backbone_path:
-                self.backbone_configs = AutoConfig.from_pretrained(backbone_path)
+                try:
+                    self.backbone_configs = AutoConfig.from_pretrained(backbone_path)
+                except ValueError as exc:
+                    backbone_type = str(
+                        self.backbone_meta.get("backbone_type", "")
+                    ).lower()
+                    if backbone_type == "gemma4":
+                        raise _gemma4_config_error() from exc
+                    raise
             else:
                 self.backbone_configs = None
 
@@ -53,6 +73,11 @@ class MetisConfig(PretrainedConfig):
             self.num_hidden_layers = text_cfg.num_hidden_layers
             self.num_attention_heads = text_cfg.num_attention_heads
             self.hidden_size = text_cfg.hidden_size
-            self.bos_token_id = text_cfg.bos_token_id
-            self.eos_token_id = text_cfg.eos_token_id
-            self.pad_token_id = text_cfg.pad_token_id
+            # Composite instruction checkpoints may keep generation stop IDs
+            # on the outer config while their text config retains only the
+            # base text EOS ID.
+            for token_id_name in ("bos_token_id", "eos_token_id", "pad_token_id"):
+                token_id = getattr(self.backbone_configs, token_id_name, None)
+                if token_id is None:
+                    token_id = getattr(text_cfg, token_id_name)
+                setattr(self, token_id_name, token_id)

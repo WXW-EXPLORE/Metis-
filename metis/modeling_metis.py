@@ -99,6 +99,9 @@ class MetisForCausalLM(MetisPreTrainedModel, TrajectoryGenerationMixin):
         attention_mask_1d: torch.Tensor | None = None,
         **kwargs,
     ) -> CausalLMOutputWithPast:
+        return_hidden_states = kwargs.get("output_hidden_states")
+        if return_hidden_states is None:
+            return_hidden_states = bool(self.config.output_hidden_states)
         if commit_memory:
             kwargs['output_hidden_states'] = True
 
@@ -115,7 +118,9 @@ class MetisForCausalLM(MetisPreTrainedModel, TrajectoryGenerationMixin):
 
         hidden_states = outputs.last_hidden_state
         slice_indices = slice(-logits_to_keep, None) if isinstance(logits_to_keep, int) else logits_to_keep
-        logits = self.model.metis_backbone.lm_head(hidden_states[:, slice_indices, :])
+        logits = self.model.metis_backbone.project_logits(
+            hidden_states[:, slice_indices, :]
+        )
 
         loss = None
         if labels is not None:
@@ -137,6 +142,6 @@ class MetisForCausalLM(MetisPreTrainedModel, TrajectoryGenerationMixin):
             loss=loss,
             logits=logits,
             past_key_values=outputs.past_key_values,
-            hidden_states=outputs.hidden_states,
+            hidden_states=outputs.hidden_states if return_hidden_states else None,
             attentions=outputs.attentions,
         )
