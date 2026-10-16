@@ -1,0 +1,15 @@
+{
+  "variant": "baseline",
+  "seed": 1,
+  "init": "scratch",
+  "final_val_seen_nll": 5.603203125,
+  "steps": 300,
+  "accum": 4,
+  "lr": 0.0001,
+  "lam": null,
+  "trainable_params": 125925392,
+  "init_val_nll": 14.0234375,
+  "final_val_nll": 5.836796875,
+  "n_val": 200,
+  "wall_time_s": 2558.1942431926727
+}

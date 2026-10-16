@@ -1,0 +1,15 @@
+{
+  "variant": "rls",
+  "seed": 0,
+  "init": "scratch",
+  "final_val_seen_nll": 5.681484375,
+  "steps": 300,
+  "accum": 4,
+  "lr": 0.0001,
+  "lam": 0.9,
+  "trainable_params": 125884416,
+  "init_val_nll": 14.06953125,
+  "final_val_nll": 5.8853125,
+  "n_val": 200,
+  "wall_time_s": 3850.0041394233704
+}

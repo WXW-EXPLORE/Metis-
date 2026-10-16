@@ -1,0 +1,17 @@
+{
+  "checkpoint_path": "/hy-tmp/metis-models/Metis-4B",
+  "memqa_file": "eval/data/memqa/locomo_evidence_sessions_tps16_20260626.jsonl",
+  "sessions_total": 568,
+  "sessions_used": 100,
+  "qa_rows": 247,
+  "seed": 0,
+  "modes": [
+    "full",
+    "no_erase",
+    "no_forget",
+    "none"
+  ],
+  "dtype": "bf16",
+  "answer_tokens": "tokenizer.encode(answer, add_special_tokens=False), no eos",
+  "full_vs_original_max_diff": 0.0
+}

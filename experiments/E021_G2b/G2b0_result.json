@@ -1,0 +1,35 @@
+{
+ "state_max_abs_diff_per_layer": [
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0
+ ],
+ "P_max_abs_diff_per_layer": [
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0
+ ],
+ "z_max_abs_diff_per_layer": [
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0
+ ],
+ "logits_max_abs_diff": 0.0,
+ "logits_equal": true,
+ "passed": true
+}

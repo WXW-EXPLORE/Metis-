@@ -1,0 +1,12 @@
+{
+  "checkpoint_path": "/hy-tmp/metis-models/Metis-4B",
+  "questions_file": "example/multi_turn_questions.json",
+  "num_synthetic": 200,
+  "num_sessions": 204,
+  "num_commits": 1017,
+  "seed": 0,
+  "dtype": "bf16",
+  "device": "cuda",
+  "commit_mode": "exchange",
+  "assistant_replies": "scripted (not generated)"
+}

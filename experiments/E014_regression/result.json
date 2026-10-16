@@ -1,0 +1,8 @@
+{
+  "logits_bitwise_equal_after_uninstall": true,
+  "states_bitwise_equal_after_uninstall": true,
+  "n_state_layers": 8,
+  "max_abs_logit_diff": 0.0,
+  "residual_instance_methods": [],
+  "passed": true
+}

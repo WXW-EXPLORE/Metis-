@@ -1,0 +1,7 @@
+{
+  "train_hash": "87e8948d819f1a41d8c71d2c69982c935da768b33fb91733c1ce633d99ae49e1",
+  "val_hash": "e46e4577e999d24f76e7dad82f386a3e7c9e067ced7dc428fec3f507d1cebb63",
+  "n_train": 1200,
+  "n_val": 200,
+  "seed": 0
+}

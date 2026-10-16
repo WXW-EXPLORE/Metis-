@@ -1,0 +1,130 @@
+{
+  "zero_shot_nll_mean": {
+    "gdn": 10.140625,
+    "rls_zero_shot": 12.576041666666667,
+    "no_memory": 14.15625
+  },
+  "zero_shot_n": 30,
+  "deletion_per_episode": [
+    {
+      "episode_id": "val_00000",
+      "c_del": 1,
+      "age": 3,
+      "state_rel_err_max": 0.6603841781616211,
+      "P_rel_err_max": 0.07951238006353378,
+      "nll_before_delete": 10.5,
+      "nll_after_delete": 12.4375,
+      "nll_reference_no_chunk": 11.125,
+      "nll_no_memory": 11.5
+    },
+    {
+      "episode_id": "val_00001",
+      "c_del": 4,
+      "age": 0,
+      "state_rel_err_max": 4.143624391872436e-05,
+      "P_rel_err_max": 2.1791793187730946e-06,
+      "nll_before_delete": 15.375,
+      "nll_after_delete": 18.375,
+      "nll_reference_no_chunk": 18.375,
+      "nll_no_memory": 14.6875
+    },
+    {
+      "episode_id": "val_00002",
+      "c_del": 0,
+      "age": 4,
+      "state_rel_err_max": 0.8294563889503479,
+      "P_rel_err_max": 0.09371549636125565,
+      "nll_before_delete": 13.0,
+      "nll_after_delete": 17.0,
+      "nll_reference_no_chunk": 16.5,
+      "nll_no_memory": 13.4375
+    },
+    {
+      "episode_id": "val_00003",
+      "c_del": 1,
+      "age": 3,
+      "state_rel_err_max": 0.6241917014122009,
+      "P_rel_err_max": 0.07479460537433624,
+      "nll_before_delete": 14.4375,
+      "nll_after_delete": 16.5,
+      "nll_reference_no_chunk": 15.875,
+      "nll_no_memory": 19.0
+    },
+    {
+      "episode_id": "val_00004",
+      "c_del": 0,
+      "age": 4,
+      "state_rel_err_max": 0.9034455418586731,
+      "P_rel_err_max": 0.09642022848129272,
+      "nll_before_delete": 6.96875,
+      "nll_after_delete": 11.25,
+      "nll_reference_no_chunk": 11.0625,
+      "nll_no_memory": 13.375
+    },
+    {
+      "episode_id": "val_00005",
+      "c_del": 3,
+      "age": 1,
+      "state_rel_err_max": 0.2487933188676834,
+      "P_rel_err_max": 0.027656253427267075,
+      "nll_before_delete": 10.875,
+      "nll_after_delete": 12.9375,
+      "nll_reference_no_chunk": 12.9375,
+      "nll_no_memory": 9.875
+    },
+    {
+      "episode_id": "val_00006",
+      "c_del": 0,
+      "age": 4,
+      "state_rel_err_max": 0.8593844771385193,
+      "P_rel_err_max": 0.10054394602775574,
+      "nll_before_delete": 8.25,
+      "nll_after_delete": 13.75,
+      "nll_reference_no_chunk": 19.0,
+      "nll_no_memory": 17.0
+    },
+    {
+      "episode_id": "val_00007",
+      "c_del": 0,
+      "age": 4,
+      "state_rel_err_max": 0.8205587863922119,
+      "P_rel_err_max": 0.09724383801221848,
+      "nll_before_delete": 14.4375,
+      "nll_after_delete": 17.5,
+      "nll_reference_no_chunk": 21.0,
+      "nll_no_memory": 18.375
+    },
+    {
+      "episode_id": "val_00008",
+      "c_del": 0,
+      "age": 4,
+      "state_rel_err_max": 0.8639270067214966,
+      "P_rel_err_max": 0.1038016527891159,
+      "nll_before_delete": 13.5625,
+      "nll_after_delete": 16.25,
+      "nll_reference_no_chunk": 14.625,
+      "nll_no_memory": 15.5
+    },
+    {
+      "episode_id": "val_00009",
+      "c_del": 1,
+      "age": 3,
+      "state_rel_err_max": 0.6361081004142761,
+      "P_rel_err_max": 0.06978440284729004,
+      "nll_before_delete": 16.875,
+      "nll_after_delete": 18.0,
+      "nll_reference_no_chunk": 18.0,
+      "nll_no_memory": 16.0
+    }
+  ],
+  "deletion_mean": {
+    "c_del": 1.0,
+    "age": 3.0,
+    "state_rel_err_max": 0.6446290936160949,
+    "P_rel_err_max": 0.07434749825633843,
+    "nll_before_delete": 12.428125,
+    "nll_after_delete": 15.4,
+    "nll_reference_no_chunk": 15.85,
+    "nll_no_memory": 14.875
+  }
+}

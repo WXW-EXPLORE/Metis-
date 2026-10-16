@@ -1,0 +1,76 @@
+{
+  "real": {
+    "layer_index0": {
+      "n_keys": 1458,
+      "participation_ratio": 5.2007012367248535,
+      "var_top16": 0.8578230738639832,
+      "var_top64": 0.9608271718025208,
+      "cos_mean": 0.37248170375823975,
+      "frac_abs_cos_gt_0.5": 0.33077436685562134
+    },
+    "layer_index1": {
+      "n_keys": 1458,
+      "participation_ratio": 15.122113227844238,
+      "var_top16": 0.734341561794281,
+      "var_top64": 0.9209972620010376,
+      "cos_mean": 0.1701250970363617,
+      "frac_abs_cos_gt_0.5": 0.05422382801771164
+    },
+    "layer_index2": {
+      "n_keys": 1458,
+      "participation_ratio": 9.823457717895508,
+      "var_top16": 0.7960949540138245,
+      "var_top64": 0.9387997984886169,
+      "cos_mean": 0.24508342146873474,
+      "frac_abs_cos_gt_0.5": 0.10789688676595688
+    },
+    "layer_index3": {
+      "n_keys": 1458,
+      "participation_ratio": 5.39852237701416,
+      "var_top16": 0.8234761357307434,
+      "var_top64": 0.9457549452781677,
+      "cos_mean": 0.38290151953697205,
+      "frac_abs_cos_gt_0.5": 0.3061065673828125
+    },
+    "layer_index4": {
+      "n_keys": 1458,
+      "participation_ratio": 11.786094665527344,
+      "var_top16": 0.6346403360366821,
+      "var_top64": 0.8645504713058472,
+      "cos_mean": 0.24399609863758087,
+      "frac_abs_cos_gt_0.5": 0.044725194573402405
+    },
+    "layer_index5": {
+      "n_keys": 1458,
+      "participation_ratio": 10.400284767150879,
+      "var_top16": 0.6192966103553772,
+      "var_top64": 0.848903477191925,
+      "cos_mean": 0.2574373781681061,
+      "frac_abs_cos_gt_0.5": 0.07093799114227295
+    },
+    "layer_index6": {
+      "n_keys": 1458,
+      "participation_ratio": 14.454117774963379,
+      "var_top16": 0.5649634003639221,
+      "var_top64": 0.8179050087928772,
+      "cos_mean": 0.2141808271408081,
+      "frac_abs_cos_gt_0.5": 0.032487787306308746
+    },
+    "layer_index7": {
+      "n_keys": 1458,
+      "participation_ratio": 7.504813194274902,
+      "var_top16": 0.7040696740150452,
+      "var_top64": 0.8829368948936462,
+      "cos_mean": 0.3220633566379547,
+      "frac_abs_cos_gt_0.5": 0.15084455907344818
+    }
+  },
+  "isotropic_reference": {
+    "n_keys": 2000,
+    "participation_ratio": 676.5524291992188,
+    "var_top16": 0.04364004358649254,
+    "var_top64": 0.1606322079896927,
+    "cos_mean": -2.8092732463846914e-05,
+    "frac_abs_cos_gt_0.5": 0.0
+  }
+}

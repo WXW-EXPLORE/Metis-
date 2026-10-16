@@ -1,0 +1,38 @@
+{
+  "layer_index0": {
+    "uncentered": {
+      "max_util": 0.49074074625968933,
+      "norm_entropy": 0.8347668947156611,
+      "used_banks": 4
+    },
+    "centered": {
+      "max_util": 0.30787035822868347,
+      "norm_entropy": 0.9807362233297905,
+      "used_banks": 4
+    }
+  },
+  "layer_index3": {
+    "uncentered": {
+      "max_util": 0.6504629850387573,
+      "norm_entropy": 0.648641681027218,
+      "used_banks": 4
+    },
+    "centered": {
+      "max_util": 0.28935185074806213,
+      "norm_entropy": 0.9954513168711541,
+      "used_banks": 4
+    }
+  },
+  "layer_index7": {
+    "uncentered": {
+      "max_util": 0.47453704476356506,
+      "norm_entropy": 0.8851540276616895,
+      "used_banks": 4
+    },
+    "centered": {
+      "max_util": 0.2986111044883728,
+      "norm_entropy": 0.9887704788340952,
+      "used_banks": 4
+    }
+  }
+}

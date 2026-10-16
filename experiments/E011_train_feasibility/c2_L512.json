@@ -1,0 +1,35 @@
+{
+  "chunks": 2,
+  "chunk_len": 512,
+  "grad_ckpt": false,
+  "trainable_params": 125925392,
+  "total_params": 4967375888,
+  "peak_mem_GiB": 15.28183364868164,
+  "step_time_s_last": 0.38217735290527344,
+  "loss_last": 14.1875,
+  "params_with_grad": 80,
+  "params_with_nonzero_grad": 64,
+  "all_grads_finite": true,
+  "zero_grad_params": [
+    "model.metis_blocks.11.hyper_memory.gated_delta_alpha.bias",
+    "model.metis_blocks.11.hyper_memory.gated_delta_alpha.weight",
+    "model.metis_blocks.15.hyper_memory.gated_delta_alpha.bias",
+    "model.metis_blocks.15.hyper_memory.gated_delta_alpha.weight",
+    "model.metis_blocks.19.hyper_memory.gated_delta_alpha.bias",
+    "model.metis_blocks.19.hyper_memory.gated_delta_alpha.weight",
+    "model.metis_blocks.23.hyper_memory.gated_delta_alpha.bias",
+    "model.metis_blocks.23.hyper_memory.gated_delta_alpha.weight",
+    "model.metis_blocks.27.hyper_memory.gated_delta_alpha.bias",
+    "model.metis_blocks.27.hyper_memory.gated_delta_alpha.weight",
+    "model.metis_blocks.3.hyper_memory.gated_delta_alpha.bias",
+    "model.metis_blocks.3.hyper_memory.gated_delta_alpha.weight",
+    "model.metis_blocks.31.hyper_memory.gated_delta_alpha.bias",
+    "model.metis_blocks.31.hyper_memory.gated_delta_alpha.weight",
+    "model.metis_blocks.7.hyper_memory.gated_delta_alpha.bias",
+    "model.metis_blocks.7.hyper_memory.gated_delta_alpha.weight"
+  ],
+  "step_times_s": [
+    44.39207935333252,
+    0.38217735290527344
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "checkpoint_path": "/hy-tmp/metis-models/Metis-4B",
+  "questions_file": null,
+  "memqa_file": "eval/data/memqa/locomo_evidence_sessions_tps16_20260626.jsonl",
+  "num_synthetic": 0,
+  "num_sessions": 568,
+  "num_commits": 2115,
+  "seed": 0,
+  "dtype": "bf16",
+  "device": "cuda",
+  "commit_mode": "user (memqa)",
+  "assistant_replies": "scripted (not generated)"
+}

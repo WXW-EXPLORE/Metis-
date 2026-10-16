@@ -1,0 +1,18 @@
+{
+  "chunks": 3,
+  "chunk_len": 512,
+  "grad_ckpt": false,
+  "trainable_params": 125925392,
+  "total_params": 4967375888,
+  "peak_mem_GiB": 17.601195812225342,
+  "step_time_s_last": 0.576167106628418,
+  "loss_last": 13.375,
+  "params_with_grad": 80,
+  "params_with_nonzero_grad": 80,
+  "all_grads_finite": true,
+  "zero_grad_params": [],
+  "step_times_s": [
+    44.55032277107239,
+    0.576167106628418
+  ]
+}

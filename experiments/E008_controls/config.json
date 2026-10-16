@@ -1,0 +1,13 @@
+{
+  "D": 64,
+  "DV": 64,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "E008a": "RLS K1 (2*64^2 state) vs GDN K=2 full banks top-1 (2*64^2 state), equal bytes",
+  "E008b": "RLS arm i (K=4, d_b=16, top-1) with random vs block coordinate projection"
+}

@@ -1,0 +1,313 @@
+{
+ "summary": {
+  "n_episodes": 20,
+  "K": 4,
+  "kd": 256,
+  "lam": 0.9,
+  "state_err_B_max": 0.0,
+  "state_err_A_mean": 40611516949920.77,
+  "B_minus_ref": {
+   "mean_diff": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ]
+  },
+  "A_minus_ref": {
+   "mean_diff": -0.1125,
+   "ci95": [
+    -0.7939062499999999,
+    0.5438281249999988
+   ]
+  },
+  "full_minus_ref": {
+   "mean_diff": -1.0078125,
+   "ci95": [
+    -1.7375390625,
+    -0.290625
+   ]
+  },
+  "no_memory_minus_ref": {
+   "mean_diff": -1.20625,
+   "ci95": [
+    -1.95,
+    -0.46875
+   ]
+  },
+  "mean_replayed_chunks_B": 3.1,
+  "mean_N": 5.0,
+  "load": {
+   "share_per_bank": [
+    0.10669273320875605,
+    0.8081574909282306,
+    0.05072207477792847,
+    0.0344277010850848
+   ],
+   "max_share": 0.8081574909282306,
+   "norm_entropy": 0.48914516816841197
+  },
+  "G2b_passed_given_G2b0": true
+ },
+ "episodes": [
+  {
+   "episode_id": "val_00000",
+   "c_del": 1,
+   "N": 5,
+   "replayed_chunks_B": 4,
+   "state_err_A": 1.1095938682556152,
+   "state_err_B": 0.0,
+   "nll_full": 13.875,
+   "nll_ref": 13.75,
+   "nll_A": 14.625,
+   "nll_B": 13.75,
+   "nll_no_memory": 13.25
+  },
+  {
+   "episode_id": "val_00001",
+   "c_del": 2,
+   "N": 5,
+   "replayed_chunks_B": 3,
+   "state_err_A": 1.4090445041656494,
+   "state_err_B": 0.0,
+   "nll_full": 13.0,
+   "nll_ref": 17.0,
+   "nll_A": 12.875,
+   "nll_B": 17.0,
+   "nll_no_memory": 14.75
+  },
+  {
+   "episode_id": "val_00002",
+   "c_del": 0,
+   "N": 5,
+   "replayed_chunks_B": 5,
+   "state_err_A": 1.2824348211288452,
+   "state_err_B": 0.0,
+   "nll_full": 12.1875,
+   "nll_ref": 11.875,
+   "nll_A": 12.375,
+   "nll_B": 11.875,
+   "nll_no_memory": 13.5
+  },
+  {
+   "episode_id": "val_00003",
+   "c_del": 2,
+   "N": 5,
+   "replayed_chunks_B": 3,
+   "state_err_A": 0.9674552083015442,
+   "state_err_B": 0.0,
+   "nll_full": 15.8125,
+   "nll_ref": 18.5,
+   "nll_A": 17.625,
+   "nll_B": 18.5,
+   "nll_no_memory": 17.75
+  },
+  {
+   "episode_id": "val_00004",
+   "c_del": 1,
+   "N": 5,
+   "replayed_chunks_B": 4,
+   "state_err_A": 1.074278473854065,
+   "state_err_B": 0.0,
+   "nll_full": 12.4375,
+   "nll_ref": 14.8125,
+   "nll_A": 13.25,
+   "nll_B": 14.8125,
+   "nll_no_memory": 11.125
+  },
+  {
+   "episode_id": "val_00005",
+   "c_del": 0,
+   "N": 5,
+   "replayed_chunks_B": 5,
+   "state_err_A": 1.4814633131027222,
+   "state_err_B": 0.0,
+   "nll_full": 15.875,
+   "nll_ref": 18.875,
+   "nll_A": 19.0,
+   "nll_B": 18.875,
+   "nll_no_memory": 17.0
+  },
+  {
+   "episode_id": "val_00006",
+   "c_del": 0,
+   "N": 5,
+   "replayed_chunks_B": 5,
+   "state_err_A": 1.3828456401824951,
+   "state_err_B": 0.0,
+   "nll_full": 16.5,
+   "nll_ref": 15.625,
+   "nll_A": 16.125,
+   "nll_B": 15.625,
+   "nll_no_memory": 15.4375
+  },
+  {
+   "episode_id": "val_00007",
+   "c_del": 2,
+   "N": 5,
+   "replayed_chunks_B": 3,
+   "state_err_A": 0.9855917096138,
+   "state_err_B": 0.0,
+   "nll_full": 15.8125,
+   "nll_ref": 14.625,
+   "nll_A": 13.25,
+   "nll_B": 14.625,
+   "nll_no_memory": 13.75
+  },
+  {
+   "episode_id": "val_00008",
+   "c_del": 4,
+   "N": 5,
+   "replayed_chunks_B": 1,
+   "state_err_A": 0.0004911694559268653,
+   "state_err_B": 0.0,
+   "nll_full": 14.5,
+   "nll_ref": 16.875,
+   "nll_A": 16.625,
+   "nll_B": 16.875,
+   "nll_no_memory": 14.1875
+  },
+  {
+   "episode_id": "val_00009",
+   "c_del": 4,
+   "N": 5,
+   "replayed_chunks_B": 1,
+   "state_err_A": 0.0005056177615188062,
+   "state_err_B": 0.0,
+   "nll_full": 15.375,
+   "nll_ref": 16.875,
+   "nll_A": 17.0,
+   "nll_B": 16.875,
+   "nll_no_memory": 14.0
+  },
+  {
+   "episode_id": "val_00010",
+   "c_del": 3,
+   "N": 5,
+   "replayed_chunks_B": 2,
+   "state_err_A": 0.6070256233215332,
+   "state_err_B": 0.0,
+   "nll_full": 15.625,
+   "nll_ref": 15.125,
+   "nll_A": 19.25,
+   "nll_B": 15.125,
+   "nll_no_memory": 14.125
+  },
+  {
+   "episode_id": "val_00011",
+   "c_del": 2,
+   "N": 5,
+   "replayed_chunks_B": 3,
+   "state_err_A": 812228378886144.0,
+   "state_err_B": 0.0,
+   "nll_full": 7.84375,
+   "nll_ref": 11.4375,
+   "nll_A": 12.125,
+   "nll_B": 11.4375,
+   "nll_no_memory": 11.625
+  },
+  {
+   "episode_id": "val_00012",
+   "c_del": 1,
+   "N": 5,
+   "replayed_chunks_B": 4,
+   "state_err_A": 0.9970075488090515,
+   "state_err_B": 0.0,
+   "nll_full": 12.25,
+   "nll_ref": 11.75,
+   "nll_A": 10.9375,
+   "nll_B": 11.75,
+   "nll_no_memory": 13.0625
+  },
+  {
+   "episode_id": "val_00013",
+   "c_del": 2,
+   "N": 5,
+   "replayed_chunks_B": 3,
+   "state_err_A": 0.8429946899414062,
+   "state_err_B": 0.0,
+   "nll_full": 17.0,
+   "nll_ref": 15.625,
+   "nll_A": 16.375,
+   "nll_B": 15.625,
+   "nll_no_memory": 14.1875
+  },
+  {
+   "episode_id": "val_00014",
+   "c_del": 1,
+   "N": 5,
+   "replayed_chunks_B": 4,
+   "state_err_A": 1.0444512367248535,
+   "state_err_B": 0.0,
+   "nll_full": 13.75,
+   "nll_ref": 16.875,
+   "nll_A": 14.75,
+   "nll_B": 16.875,
+   "nll_no_memory": 13.9375
+  },
+  {
+   "episode_id": "val_00015",
+   "c_del": 4,
+   "N": 5,
+   "replayed_chunks_B": 1,
+   "state_err_A": 0.00028556809411384165,
+   "state_err_B": 0.0,
+   "nll_full": 10.9375,
+   "nll_ref": 12.1875,
+   "nll_A": 12.875,
+   "nll_B": 12.1875,
+   "nll_no_memory": 12.75
+  },
+  {
+   "episode_id": "val_00016",
+   "c_del": 1,
+   "N": 5,
+   "replayed_chunks_B": 4,
+   "state_err_A": 1.018078327178955,
+   "state_err_B": 0.0,
+   "nll_full": 12.6875,
+   "nll_ref": 14.125,
+   "nll_A": 13.8125,
+   "nll_B": 14.125,
+   "nll_no_memory": 9.6875
+  },
+  {
+   "episode_id": "val_00017",
+   "c_del": 2,
+   "N": 5,
+   "replayed_chunks_B": 3,
+   "state_err_A": 1960112256.0,
+   "state_err_B": 0.0,
+   "nll_full": 18.25,
+   "nll_ref": 18.75,
+   "nll_A": 19.0,
+   "nll_B": 18.75,
+   "nll_no_memory": 18.625
+  },
+  {
+   "episode_id": "val_00018",
+   "c_del": 3,
+   "N": 5,
+   "replayed_chunks_B": 2,
+   "state_err_A": 0.7221017479896545,
+   "state_err_B": 0.0,
+   "nll_full": 13.5625,
+   "nll_ref": 12.875,
+   "nll_A": 13.1875,
+   "nll_B": 12.875,
+   "nll_no_memory": 13.625
+  },
+  {
+   "episode_id": "val_00019",
+   "c_del": 3,
+   "N": 5,
+   "replayed_chunks_B": 2,
+   "state_err_A": 0.5968234539031982,
+   "state_err_B": 0.0,
+   "nll_full": 16.75,
+   "nll_ref": 16.625,
+   "nll_A": 16.875,
+   "nll_B": 16.625,
+   "nll_no_memory": 13.6875
+  }
+ ]
+}

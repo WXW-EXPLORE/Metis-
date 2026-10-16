@@ -1,0 +1,19 @@
+{
+  "D": 64,
+  "DV": 64,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "torch": "2.5.1+cu124",
+  "update_rule": "rls (lambda=alpha per bank, p0=1, no p_max)",
+  "baseline_E006": "GDN form",
+  "arms": {
+    "K1": "K=1, d_b=d",
+    "i": "K=4, d_b=d/4 (equal total state)",
+    "ii": "K=4, d_b=d (capacity-confounded reference)"
+  }
+}
