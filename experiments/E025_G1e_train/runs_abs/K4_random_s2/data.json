@@ -1,0 +1,9 @@
+{
+ "n_fit_rows": 712,
+ "n_test_rows": 771,
+ "n_val": 100,
+ "seed": 2,
+ "arm": "K4_random",
+ "max_train_tokens": 3000,
+ "readout_den": "abs"
+}

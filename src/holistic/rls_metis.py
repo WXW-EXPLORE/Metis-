@@ -44,6 +44,34 @@ def rls_commit_update(M, P, z, kappa, v, w, lam, p_max=None):
     return M_new, P_new, z_new
 
 
+def readout_denominator(qz, mode="orig"):
+    """读出分母（设计：docs/design_readout_norm.md）。
+    orig：1 + q·z，与原版 metis_local_memory.read 相同（q·z 可为负，分母可穿过零）。
+    abs ：1 + |q·z|，恒 >= 1（读出幅值有界，梯度不经过奇点）。状态递推不受影响，只改读出归一化。
+    """
+    if mode == "orig":
+        return qz + 1.0
+    if mode == "abs":
+        return 1.0 + qz.abs()
+    raise ValueError(f"unknown readout_den mode: {mode}")
+
+
+def rls_read(lm, q, mode="orig"):
+    """RLS 读出，形式与原版 metis_local_memory.read 相同（num_kv_groups=1 与 >1 两个分支），分母由 mode 决定。
+    q: (bsz, h, seq, d) 原始查询。状态 lm._state（M）与 lm._key_state（z）须已存在。"""
+    bsz, _h, seq_len, _d = q.shape
+    q = F.normalize(q, dim=-1)
+    q_flat = q.transpose(1, 2).reshape(bsz, seq_len, -1)
+    if lm.num_kv_groups > 1:
+        q_2d = q_flat.view(bsz, seq_len * lm.num_kv_groups, lm.kv_dim)
+        num = torch.matmul(q_2d, lm._state)
+        den = readout_denominator(torch.matmul(q_2d, lm._key_state), mode)
+        return (num / den).view(bsz, seq_len, lm.q_dim).contiguous()
+    num = torch.matmul(q_flat, lm._state)
+    den = readout_denominator(torch.matmul(q_flat, lm._key_state), mode)
+    return (num / den).contiguous()
+
+
 def _rls_apply(mod, lam, kv):
     """返回替换 _apply_gated_delta_rule_update 的函数（实例方法形式）。
 
@@ -71,8 +99,8 @@ def _ensure_rls_state(local_memory, bsz, kv, device):
         local_memory._P = (kv * torch.eye(kv, device=device, dtype=torch.float32)).expand(bsz, kv, kv).clone()
 
 
-def install_rls(model, lam=0.9):
-    """把模型的记忆换为 RLS。返回被替换的层数。"""
+def install_rls(model, lam=0.9, readout_den="orig"):
+    """把模型的记忆换为 RLS。返回被替换的层数。readout_den 见 readout_denominator（默认 orig，与原版一致）。"""
     n = 0
     for block in model.model.metis_blocks:
         lm = block.local_memory
@@ -92,10 +120,12 @@ def install_rls(model, lam=0.9):
 
         orig_read = type(lm).read.__get__(lm, type(lm))
 
-        def read(q, _lm=lm, _orig=orig_read, _kv=kv):
+        def read(q, _lm=lm, _orig=orig_read, _kv=kv, _mode=readout_den):
             # 读出在 fp32 下计算，输出转回查询的 dtype（与原版接口一致）；空状态时先初始化 fp32 零状态
             _ensure_rls_state(_lm, q.shape[0], _kv, q.device)
-            return _orig(q.float()).to(q.dtype)
+            if _mode == "orig":
+                return _orig(q.float()).to(q.dtype)
+            return rls_read(_lm, q.float(), _mode).to(q.dtype)
 
         def reset(_lm=lm):
             _lm._state = None

@@ -1,0 +1,21 @@
+{
+ "arm": "K4_random",
+ "seed": 2,
+ "init_val_nll": 10.538125,
+ "final_val_nll": 3.0217578125,
+ "final_n_nonfinite": 0,
+ "trainable_params": 125884416,
+ "steps": 300,
+ "accum": 4,
+ "lr": 0.0001,
+ "lam": 0.9,
+ "n_val": 100,
+ "post_train_bank_share": [
+  0.27201223373413086,
+  0.24726831912994385,
+  0.2194313257932663,
+  0.2612881064414978
+ ],
+ "max_bank_share": 0.27201223373413086,
+ "elapsed_s": 2231.0205166339874
+}

@@ -61,9 +61,10 @@ def _make_apply(lm_ref, hm, Q, centers, lam, kd, dv, K):
     return apply
 
 
-def read_rows(lm, rows_kv, Q, centers, kd, K):
+def read_rows(lm, rows_kv, Q, centers, kd, K, mode="orig"):
     """rows_kv: (N, kv) 查询行（已在每个头的维度上归一化，与父类一致；不再对整行归一化）。返回 (N, dv)。
     路由使用单位化的行；读出使用原始行（K=1 且 Q=None 时与父类读出完全一致）。
+    mode：读出分母（R.readout_denominator）；默认 orig 与原版一致。
     """
     b_idx = _route(F.normalize(rows_kv.float(), dim=-1), centers)
     dv = lm._banks[0][0].shape[-1]
@@ -76,16 +77,17 @@ def read_rows(lm, rows_kv, Q, centers, kd, K):
             continue
         qb = qr[sel] if Q is None else qr[sel] @ Q
         num = qb @ M[0]
-        den = qb @ z[0] + 1.0
+        den = R.readout_denominator(qb @ z[0], mode)
         out[sel] = num / den
     return out
 
 
-def install_banked(model, Q=None, centers=None, lam=0.9, K=1, kd=None, _force_banked_path=False):
+def install_banked(model, Q=None, centers=None, lam=0.9, K=1, kd=None, _force_banked_path=False, readout_den="orig"):
     """把模型的记忆换为（分库的）RLS。K=1 且 Q=None 时默认调用 install_rls（回归路径）。
-    _force_banked_path=True 时强制使用分库代码路径（用于 G2b-0 回归检验）。返回安装的层数。"""
+    _force_banked_path=True 时强制使用分库代码路径（用于 G2b-0 回归检验）。返回安装的层数。
+    Q 与 centers 可以是按记忆层顺序排列的列表（每层各自的基与中心，E025）；单个张量时所有层共用。"""
     if K == 1 and Q is None and not _force_banked_path:
-        R.install_rls(model, lam=lam)
+        R.install_rls(model, lam=lam, readout_den=readout_den)
         return sum(1 for b in model.model.metis_blocks if b.local_memory is not None)
     n = 0
     for block in model.model.metis_blocks:
@@ -93,22 +95,24 @@ def install_banked(model, Q=None, centers=None, lam=0.9, K=1, kd=None, _force_ba
         hm = getattr(block, "hyper_memory", None)
         if lm is None or hm is None:
             continue
+        Q_l = Q[n] if isinstance(Q, (list, tuple)) else Q
+        c_l = centers[n] if isinstance(centers, (list, tuple)) else centers
         kv = lm.kv_dim
         kd_ = kd if kd is not None else kv
         dv = kv
-        if Q is not None and Q.shape[0] != kv:
+        if Q_l is not None and Q_l.shape[0] != kv:
             raise ValueError("Q must have kv rows")
         lm._banks = None
-        hm._apply_gated_delta_rule_update = _make_apply(lm, hm, Q, centers, lam, kd_, dv, K)
+        hm._apply_gated_delta_rule_update = _make_apply(lm, hm, Q_l, c_l, lam, kd_, dv, K)
 
-        def read(q, _lm=lm, _Q=Q, _c=centers, _kd=kd_, _K=K, _dv=dv, _kv=kv):
+        def read(q, _lm=lm, _Q=Q_l, _c=c_l, _kd=kd_, _K=K, _dv=dv, _kv=kv, _mode=readout_den):
             bsz, heads, seq, d = q.shape
             orig_dtype = q.dtype
             q = F.normalize(q.float(), dim=-1)                          # 与父类一致：先转 fp32，再在每个头的维度上归一化
             qf = q.transpose(1, 2).reshape(bsz, seq, -1)               # (bsz, seq, q_dim)
             rows = qf.reshape(-1, _kv)                                  # 每个 kv 向量一行（与原版 view 一致）
             _ensure(_lm, _K, _kd, _dv, q.device)
-            out = read_rows(_lm, rows, _Q, _c, _kd, _K)
+            out = read_rows(_lm, rows, _Q, _c, _kd, _K, _mode)
             return out.reshape(bsz, seq, -1).to(orig_dtype)
 
         def reset(_lm=lm):

@@ -1,0 +1,319 @@
+Current Triton version 3.1.0 is below the recommended 3.2.0 version. Errors may occur and these issues will not be fixed. Please consider upgrading Triton.
+Loading checkpoint: /hy-tmp/metis-models/Metis-4B
+Device: cuda; dtype: torch.bfloat16
+Loading weights:   0%|          | 0/507 [00:00<?, ?it/s]Loading weights: 100%|██████████| 507/507 [00:00<00:00, 7176.89it/s]
+Loading tokenizer: /hy-tmp/metis-models/Metis-4B
+Parameters: total=4,967,375,888; trainable=4,967,375,888
+arm=K1_full seed=0 trainable tensors=48 params=125,884,416
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (28) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (28) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (29) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (29) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (29) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (29) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (27) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (27) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (29) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (29) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (30) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (30) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (27) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (27) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (28) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (28) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (23) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (23) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (27) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (27) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (22) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (22) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (31) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (31) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (24) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (24) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (31) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (31) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (24) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (24) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (26) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (26) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (31) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (31) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (24) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (24) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (31) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (31) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (25) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (25) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (27) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (27) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (31) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (31) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (24) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (24) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (29) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (29) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (21) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (21) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (20) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (20) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (30) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (30) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (25) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (25) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (28) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (28) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (23) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (23) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (26) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (26) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+step 0 val nll=9.6955
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (22) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (22) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (29) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (29) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (28) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (28) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+step 1 train nll=10.2500 gnorm=5600.000 t=230s
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (25) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (25) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (24) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (24) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (25) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (25) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (28) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (28) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+step 2 train nll=10.0625 gnorm=39424.000 t=295s
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (28) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (28) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (25) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (25) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+step 3 train nll=11.0781 gnorm=11008.000 t=331s
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (24) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (24) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+step 4 train nll=9.0469 gnorm=25472.000 t=385s
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (27) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (27) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (26) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (26) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+step 5 train nll=9.9375 gnorm=204800.000 t=417s
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (25) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (25) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (29) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (29) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+step 6 train nll=7.6406 gnorm=26752.000 t=441s
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (21) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (21) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (29) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (29) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+step 7 train nll=7.8906 gnorm=5408.000 t=448s
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (30) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (30) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (30) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (30) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (27) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (27) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+step 8 train nll=8.9219 gnorm=231424.000 t=455s
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (27) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (27) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+step 9 train nll=7.9297 gnorm=116736.000 t=463s
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (25) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (25) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (27) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (27) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (26) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (26) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+step 10 train nll=8.2109 gnorm=22784.000 t=472s
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (23) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (23) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (25) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (25) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (21) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (21) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+step 11 train nll=8.8750 gnorm=83968.000 t=479s
+Traceback (most recent call last):
+  File "/root/Metis-/experiments/E025_G1e_train/train.py", line 185, in <module>
+    main()
+  File "/root/Metis-/experiments/E025_G1e_train/train.py", line 151, in main
+    loss = E13.episode_loss(model, tok, dev, train_eps[ep_idx]); ep_idx += 1
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Metis-/experiments/E013_1b_train/train.py", line 73, in episode_loss
+    model(input_ids=ids, attention_mask=mask, commit_memory=True, use_cache=False, logits_to_keep=1)
+  File "/usr/local/lib/python3.11/dist-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Metis-/metis/modeling_metis.py", line 108, in forward
+    outputs: BaseModelOutputWithPast = self.model(
+                                       ^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Metis-/metis/modeling_metis.py", line 45, in forward
+    return self.metis_backbone.forward_with_memory(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/hy-tmp/venv-metis/lib/python3.11/site-packages/transformers/utils/generic.py", line 931, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/hy-tmp/venv-metis/lib/python3.11/site-packages/transformers/utils/output_capturing.py", line 248, in wrapper
+    outputs = func(self, *args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Metis-/metis/backbone_wrappers/Qwen3_5_wrapper.py", line 378, in forward_with_memory
+    hidden_states = self._metis_blocks_ref[layer_idx](
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/hy-tmp/venv-metis/lib/python3.11/site-packages/transformers/modeling_layers.py", line 93, in __call__
+    return super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Metis-/metis/dev_beta/metis_block.py", line 120, in forward
+    return self.backbone_decoder.after_mixin(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/Metis-/metis/backbone_wrappers/Qwen3_5_wrapper.py", line 256, in after_mixin
+    hidden_states = self.raw_decoder.linear_attn(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/hy-tmp/venv-metis/lib/python3.11/site-packages/transformers/models/qwen3_5/modeling_qwen3_5.py", line 553, in forward
+    mixed_qkv = self.causal_conv1d_fn(
+                ^^^^^^^^^^^^^^^^^^^^^^
+  File "/hy-tmp/venv-metis/lib/python3.11/site-packages/causal_conv1d/causal_conv1d_interface.py", line 120, in causal_conv1d_fn
+    return CausalConv1dFn.apply(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/torch/autograd/function.py", line 575, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/hy-tmp/venv-metis/lib/python3.11/site-packages/causal_conv1d/causal_conv1d_interface.py", line 56, in forward
+    out = causal_conv1d_fwd_function(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/hy-tmp/venv-metis/lib/python3.11/site-packages/causal_conv1d/cpp_functions.py", line 103, in causal_conv1d_fwd_function
+    out = torch.empty_like(x)
+          ^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 14.00 MiB. GPU 0 has a total capacity of 31.47 GiB of which 13.62 MiB is free. Process 2201179 has 31.45 GiB memory in use. Of the allocated memory 29.95 GiB is allocated by PyTorch, and 700.96 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

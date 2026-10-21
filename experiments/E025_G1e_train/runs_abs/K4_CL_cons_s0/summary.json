@@ -1,0 +1,21 @@
+{
+ "arm": "K4_CL_cons",
+ "seed": 0,
+ "init_val_nll": 10.8284375,
+ "final_val_nll": 2.8667041015625,
+ "final_n_nonfinite": 0,
+ "trainable_params": 125884416,
+ "steps": 300,
+ "accum": 4,
+ "lr": 0.0001,
+ "lam": 0.9,
+ "n_val": 100,
+ "post_train_bank_share": [
+  0.2311156988143921,
+  0.2734111547470093,
+  0.2214665412902832,
+  0.27400660514831543
+ ],
+ "max_bank_share": 0.27400660514831543,
+ "elapsed_s": 2242.378478050232
+}

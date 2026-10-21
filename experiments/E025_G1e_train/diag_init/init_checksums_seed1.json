@@ -1,0 +1,14 @@
+{
+ "K1_full": {
+  "sha256_16": "2a561b12ab968b8b",
+  "n_trainable_values": 125884416
+ },
+ "K4_CL_cons": {
+  "sha256_16": "2a561b12ab968b8b",
+  "n_trainable_values": 125884416
+ },
+ "K4_random": {
+  "sha256_16": "2a561b12ab968b8b",
+  "n_trainable_values": 125884416
+ }
+}
