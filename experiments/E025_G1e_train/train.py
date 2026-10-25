@@ -80,7 +80,7 @@ def write_only_counts(model, tok, dev, episodes):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--checkpoint_path", default="/hy-tmp/metis-models/Metis-4B")
-    ap.add_argument("--arm", choices=["K1_full", "K4_CL_cons", "K4_random"], required=True)
+    ap.add_argument("--arm", choices=["K1_full", "K4_CL_cons", "K4_random", "GDN"], required=True)
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--prototypes", default=str(ROOT / "experiments/E025_G1e_train/prototypes.pt"))
     ap.add_argument("--steps", type=int, default=300)
@@ -118,7 +118,9 @@ def main():
                                                "max_train_tokens": args.max_train_tokens, "readout_den": args.readout_den}, indent=1))
 
     freeze_backbone(model)
-    if args.arm == "K1_full":
+    if args.arm == "GDN":
+        pass   # 原版 GDN 记忆（不替换），门控参数保持可训练
+    elif args.arm == "K1_full":
         install_banked(model, lam=args.lam, readout_den=args.readout_den)
     else:
         proto = torch.load(args.prototypes, weights_only=False)
@@ -131,7 +133,7 @@ def main():
     for name, p in model.named_parameters():
         if not p.requires_grad:
             continue
-        if any(g in name for g in GATE_NAMES):
+        if args.arm != "GDN" and any(g in name for g in GATE_NAMES):
             p.requires_grad = False
             continue
         params.append(p)
