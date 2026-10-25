@@ -1,0 +1,147 @@
+Current Triton version 3.1.0 is below the recommended 3.2.0 version. Errors may occur and these issues will not be fixed. Please consider upgrading Triton.
+Loading checkpoint: /hy-tmp/metis-models/Metis-4B
+Device: cuda; dtype: torch.bfloat16
+Loading weights:   0%|          | 0/507 [00:00<?, ?it/s]Loading weights:  94%|█████████▍| 478/507 [00:00<00:00, 4768.10it/s]Loading weights: 100%|██████████| 507/507 [00:00<00:00, 4785.34it/s]
+Loading tokenizer: /hy-tmp/metis-models/Metis-4B
+Parameters: total=4,967,375,888; trainable=4,967,375,888
+locomo_conv-44__evidence_sessions_1 N=2 j=0 err=0.00e+00 D=-0.38766
+locomo_conv-44__evidence_sessions_1 N=2 j=1 err=0.00e+00 D=+0.00237
+locomo_conv-44__evidence_sessions_13-19-23-25 N=6 j=0 err=0.00e+00 D=-0.06114
+locomo_conv-44__evidence_sessions_13-19-23-25 N=6 j=1 err=0.00e+00 D=-0.03376
+locomo_conv-44__evidence_sessions_13-19-23-25 N=6 j=2 err=0.00e+00 D=-0.01838
+locomo_conv-44__evidence_sessions_13-19-23-25 N=6 j=3 err=0.00e+00 D=-0.01476
+locomo_conv-44__evidence_sessions_13-19-23-25 N=6 j=4 err=0.00e+00 D=-0.00663
+locomo_conv-44__evidence_sessions_13-19-23-25 N=6 j=5 err=0.00e+00 D=+0.00074
+locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27 N=11 j=0 err=0.00e+00 D=-0.03908
+locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27 N=11 j=1 err=0.00e+00 D=-0.02488
+locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27 N=11 j=2 err=0.00e+00 D=-0.02344
+locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27 N=11 j=3 err=0.00e+00 D=-0.01795
+locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27 N=11 j=4 err=0.00e+00 D=-0.01627
+locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27 N=11 j=5 err=0.00e+00 D=-0.01334
+locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27 N=11 j=6 err=0.00e+00 D=-0.00815
+locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27 N=11 j=7 err=0.00e+00 D=-0.00509
+locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27 N=11 j=8 err=0.00e+00 D=-0.00267
+locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27 N=11 j=9 err=0.00e+00 D=+0.00058
+locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27 N=11 j=10 err=0.00e+00 D=+0.00015
+locomo_conv-44__evidence_sessions_3 N=2 j=0 err=0.00e+00 D=-0.34692
+locomo_conv-44__evidence_sessions_3 N=2 j=1 err=0.00e+00 D=+0.00358
+locomo_conv-44__evidence_sessions_4 N=2 j=0 err=0.00e+00 D=-0.35623
+locomo_conv-44__evidence_sessions_4 N=2 j=1 err=0.00e+00 D=+0.00419
+locomo_conv-44__evidence_sessions_2 N=2 j=0 err=0.00e+00 D=-0.36632
+locomo_conv-44__evidence_sessions_2 N=2 j=1 err=0.00e+00 D=+0.00251
+locomo_conv-44__evidence_sessions_1-2 N=4 j=0 err=0.00e+00 D=-0.10017
+locomo_conv-44__evidence_sessions_1-2 N=4 j=1 err=0.00e+00 D=-0.04057
+locomo_conv-44__evidence_sessions_1-2 N=4 j=2 err=0.00e+00 D=-0.02747
+locomo_conv-44__evidence_sessions_1-2 N=4 j=3 err=0.00e+00 D=+0.00080
+locomo_conv-44__evidence_sessions_6-10-14-16-27 N=9 j=0 err=0.00e+00 D=-0.05619
+locomo_conv-44__evidence_sessions_6-10-14-16-27 N=9 j=1 err=0.00e+00 D=-0.03597
+locomo_conv-44__evidence_sessions_6-10-14-16-27 N=9 j=2 err=0.00e+00 D=-0.02175
+locomo_conv-44__evidence_sessions_6-10-14-16-27 N=9 j=3 err=0.00e+00 D=-0.01896
+locomo_conv-44__evidence_sessions_6-10-14-16-27 N=9 j=4 err=0.00e+00 D=-0.01084
+locomo_conv-44__evidence_sessions_6-10-14-16-27 N=9 j=5 err=0.00e+00 D=-0.00718
+locomo_conv-44__evidence_sessions_6-10-14-16-27 N=9 j=6 err=0.00e+00 D=-0.00318
+locomo_conv-44__evidence_sessions_6-10-14-16-27 N=9 j=7 err=0.00e+00 D=+0.00072
+locomo_conv-44__evidence_sessions_6-10-14-16-27 N=9 j=8 err=0.00e+00 D=+0.00017
+locomo_conv-44__evidence_sessions_8 N=2 j=0 err=0.00e+00 D=-0.39460
+locomo_conv-44__evidence_sessions_8 N=2 j=1 err=0.00e+00 D=+0.00287
+locomo_conv-44__evidence_sessions_8-14-17 N=6 j=0 err=0.00e+00 D=-0.06966
+locomo_conv-44__evidence_sessions_8-14-17 N=6 j=1 err=0.00e+00 D=-0.03275
+locomo_conv-44__evidence_sessions_8-14-17 N=6 j=2 err=0.00e+00 D=-0.03013
+locomo_conv-44__evidence_sessions_8-14-17 N=6 j=3 err=0.00e+00 D=-0.01227
+locomo_conv-44__evidence_sessions_8-14-17 N=6 j=4 err=0.00e+00 D=-0.00171
+locomo_conv-44__evidence_sessions_8-14-17 N=6 j=5 err=0.00e+00 D=+0.00018
+locomo_conv-44__evidence_sessions_9 N=2 j=0 err=0.00e+00 D=-0.35649
+locomo_conv-44__evidence_sessions_9 N=2 j=1 err=0.00e+00 D=+0.00346
+locomo_conv-44__evidence_sessions_3-9 N=4 j=0 err=0.00e+00 D=-0.08980
+locomo_conv-44__evidence_sessions_3-9 N=4 j=1 err=0.00e+00 D=-0.03991
+locomo_conv-44__evidence_sessions_3-9 N=4 j=2 err=0.00e+00 D=-0.01805
+locomo_conv-44__evidence_sessions_3-9 N=4 j=3 err=0.00e+00 D=+0.00068
+locomo_conv-44__evidence_sessions_7-10 N=3 j=0 err=0.00e+00 D=-0.11368
+locomo_conv-44__evidence_sessions_7-10 N=3 j=1 err=0.00e+00 D=-0.05578
+locomo_conv-44__evidence_sessions_7-10 N=3 j=2 err=0.00e+00 D=+0.00107
+locomo_conv-44__evidence_sessions_11 N=3 j=0 err=0.00e+00 D=-0.14611
+locomo_conv-44__evidence_sessions_11 N=3 j=1 err=0.00e+00 D=-0.02051
+locomo_conv-44__evidence_sessions_11 N=3 j=2 err=0.00e+00 D=+0.00052
+locomo_conv-44__evidence_sessions_11-24-26 N=8 j=0 err=0.00e+00 D=-0.05713
+locomo_conv-44__evidence_sessions_11-24-26 N=8 j=1 err=0.00e+00 D=-0.03128
+locomo_conv-44__evidence_sessions_11-24-26 N=8 j=2 err=0.00e+00 D=-0.01777
+locomo_conv-44__evidence_sessions_11-24-26 N=8 j=3 err=0.00e+00 D=-0.02206
+locomo_conv-44__evidence_sessions_11-24-26 N=8 j=4 err=0.00e+00 D=-0.01062
+locomo_conv-44__evidence_sessions_11-24-26 N=8 j=5 err=0.00e+00 D=-0.01239
+locomo_conv-44__evidence_sessions_11-24-26 N=8 j=6 err=0.00e+00 D=-0.00383
+locomo_conv-44__evidence_sessions_11-24-26 N=8 j=7 err=0.00e+00 D=+0.00048
+locomo_conv-44__evidence_sessions_2-11 N=5 j=0 err=0.00e+00 D=-0.07548
+locomo_conv-44__evidence_sessions_2-11 N=5 j=1 err=0.00e+00 D=-0.03699
+locomo_conv-44__evidence_sessions_2-11 N=5 j=2 err=0.00e+00 D=-0.02672
+locomo_conv-44__evidence_sessions_2-11 N=5 j=3 err=0.00e+00 D=-0.00512
+locomo_conv-44__evidence_sessions_2-11 N=5 j=4 err=0.00e+00 D=+0.00013
+locomo_conv-44__evidence_sessions_10-12 N=4 j=0 err=0.00e+00 D=-0.11592
+locomo_conv-44__evidence_sessions_10-12 N=4 j=1 err=0.00e+00 D=-0.03580
+locomo_conv-44__evidence_sessions_10-12 N=4 j=2 err=0.00e+00 D=-0.00074
+locomo_conv-44__evidence_sessions_10-12 N=4 j=3 err=0.00e+00 D=+0.00015
+locomo_conv-44__evidence_sessions_10 N=2 j=0 err=0.00e+00 D=-0.35979
+locomo_conv-44__evidence_sessions_10 N=2 j=1 err=0.00e+00 D=+0.00400
+locomo_conv-44__evidence_sessions_6-10-14 N=5 j=0 err=0.00e+00 D=-0.07636
+locomo_conv-44__evidence_sessions_6-10-14 N=5 j=1 err=0.00e+00 D=-0.04333
+locomo_conv-44__evidence_sessions_6-10-14 N=5 j=2 err=0.00e+00 D=-0.01986
+locomo_conv-44__evidence_sessions_6-10-14 N=5 j=3 err=0.00e+00 D=-0.00945
+locomo_conv-44__evidence_sessions_6-10-14 N=5 j=4 err=0.00e+00 D=+0.00057
+locomo_conv-44__evidence_sessions_14 N=2 j=0 err=0.00e+00 D=-0.35972
+locomo_conv-44__evidence_sessions_14 N=2 j=1 err=0.00e+00 D=+0.00347
+locomo_conv-44__evidence_sessions_2-5 N=4 j=0 err=0.00e+00 D=-0.09640
+locomo_conv-44__evidence_sessions_2-5 N=4 j=1 err=0.00e+00 D=-0.04146
+locomo_conv-44__evidence_sessions_2-5 N=4 j=2 err=0.00e+00 D=-0.00918
+locomo_conv-44__evidence_sessions_2-5 N=4 j=3 err=0.00e+00 D=+0.00022
+locomo_conv-44__evidence_sessions_2-13 N=3 j=0 err=0.00e+00 D=-0.10286
+locomo_conv-44__evidence_sessions_2-13 N=3 j=1 err=0.00e+00 D=-0.04493
+locomo_conv-44__evidence_sessions_2-13 N=3 j=2 err=0.00e+00 D=+0.00215
+locomo_conv-44__evidence_sessions_17 N=2 j=0 err=0.00e+00 D=-0.38904
+locomo_conv-44__evidence_sessions_17 N=2 j=1 err=0.00e+00 D=+0.00161
+locomo_conv-44__evidence_sessions_10-12-16-18 N=8 j=0 err=0.00e+00 D=-0.06567
+locomo_conv-44__evidence_sessions_10-12-16-18 N=8 j=1 err=0.00e+00 D=-0.03259
+locomo_conv-44__evidence_sessions_10-12-16-18 N=8 j=2 err=0.00e+00 D=-0.02341
+locomo_conv-44__evidence_sessions_10-12-16-18 N=8 j=3 err=0.00e+00 D=-0.00739
+locomo_conv-44__evidence_sessions_10-12-16-18 N=8 j=4 err=0.00e+00 D=-0.01383
+locomo_conv-44__evidence_sessions_10-12-16-18 N=8 j=5 err=0.00e+00 D=-0.00511
+locomo_conv-44__evidence_sessions_10-12-16-18 N=8 j=6 err=0.00e+00 D=-0.00121
+locomo_conv-44__evidence_sessions_10-12-16-18 N=8 j=7 err=0.00e+00 D=+0.00036
+locomo_conv-44__evidence_sessions_4-19 N=4 j=0 err=0.00e+00 D=-0.08020
+locomo_conv-44__evidence_sessions_4-19 N=4 j=1 err=0.00e+00 D=-0.04034
+locomo_conv-44__evidence_sessions_4-19 N=4 j=2 err=0.00e+00 D=-0.01679
+locomo_conv-44__evidence_sessions_4-19 N=4 j=3 err=0.00e+00 D=+0.00011
+locomo_conv-44__evidence_sessions_1-2-19 N=6 j=0 err=0.00e+00 D=-0.06851
+locomo_conv-44__evidence_sessions_1-2-19 N=6 j=1 err=0.00e+00 D=-0.03446
+locomo_conv-44__evidence_sessions_1-2-19 N=6 j=2 err=0.00e+00 D=-0.03569
+locomo_conv-44__evidence_sessions_1-2-19 N=6 j=3 err=0.00e+00 D=-0.02016
+locomo_conv-44__evidence_sessions_1-2-19 N=6 j=4 err=0.00e+00 D=-0.01203
+locomo_conv-44__evidence_sessions_1-2-19 N=6 j=5 err=0.00e+00 D=+0.00070
+locomo_conv-44__evidence_sessions_20 N=3 j=0 err=0.00e+00 D=-0.12956
+locomo_conv-44__evidence_sessions_20 N=3 j=1 err=0.00e+00 D=-0.02476
+locomo_conv-44__evidence_sessions_20 N=3 j=2 err=0.00e+00 D=+0.00062
+locomo_conv-44__evidence_sessions_14-24 N=4 j=0 err=0.00e+00 D=-0.10643
+locomo_conv-44__evidence_sessions_14-24 N=4 j=1 err=0.00e+00 D=-0.03570
+locomo_conv-44__evidence_sessions_14-24 N=4 j=2 err=0.00e+00 D=-0.00678
+locomo_conv-44__evidence_sessions_14-24 N=4 j=3 err=0.00e+00 D=+0.00034
+locomo_conv-44__evidence_sessions_3-15-23 N=6 j=0 err=0.00e+00 D=-0.06352
+locomo_conv-44__evidence_sessions_3-15-23 N=6 j=1 err=0.00e+00 D=-0.03640
+locomo_conv-44__evidence_sessions_3-15-23 N=6 j=2 err=0.00e+00 D=-0.02677
+locomo_conv-44__evidence_sessions_3-15-23 N=6 j=3 err=0.00e+00 D=-0.00884
+locomo_conv-44__evidence_sessions_3-15-23 N=6 j=4 err=0.00e+00 D=-0.00995
+locomo_conv-44__evidence_sessions_3-15-23 N=6 j=5 err=0.00e+00 D=+0.00044
+{
+ "arm": "K4_CL_cons",
+ "seed": 0,
+ "readout_den": "abs",
+ "n_episodes": 29,
+ "n_deletions": 124,
+ "G2c_a_max_err": 0.0,
+ "G2c_a_passed": true,
+ "D_mean": -0.07954695164410922,
+ "D_ci95": [
+  -0.1055359509360613,
+  -0.05599295720788311
+ ],
+ "G2c_b_passed": false,
+ "max_share_median_per_commit": 0.29623765337772373,
+ "G2c_c_passed": true
+}

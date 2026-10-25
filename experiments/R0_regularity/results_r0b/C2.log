@@ -1,0 +1,58 @@
+seed 0: D_T1=0.7022 angle@final=0.9965 drift=0.6352 D_null=-0.00066
+seed 1: D_T1=0.6594 angle@final=0.9965 drift=0.5804 D_null=-0.00043
+seed 2: D_T1=0.6950 angle@final=0.9972 drift=0.6143 D_null=0.00168
+seed 3: D_T1=0.6931 angle@final=0.9973 drift=0.5079 D_null=0.00100
+seed 4: D_T1=0.7008 angle@final=0.9973 drift=0.5596 D_null=0.00068
+seed 5: D_T1=0.7151 angle@final=0.9965 drift=0.5787 D_null=0.00099
+seed 6: D_T1=0.6377 angle@final=0.9968 drift=0.6101 D_null=0.00010
+seed 7: D_T1=0.6984 angle@final=0.9967 drift=0.5278 D_null=0.00068
+seed 8: D_T1=0.7135 angle@final=0.9963 drift=0.5269 D_null=-0.00076
+seed 9: D_T1=0.7051 angle@final=0.9967 drift=0.4671 D_null=0.00155
+seed 10: D_T1=0.7130 angle@final=0.9960 drift=0.5715 D_null=0.00164
+seed 11: D_T1=0.6975 angle@final=0.9967 drift=0.5065 D_null=-0.00021
+seed 12: D_T1=0.6933 angle@final=0.9971 drift=0.5409 D_null=0.00038
+seed 13: D_T1=0.6928 angle@final=0.9967 drift=0.4967 D_null=-0.00113
+seed 14: D_T1=0.6825 angle@final=0.9973 drift=0.5394 D_null=-0.00050
+seed 15: D_T1=0.6540 angle@final=0.9970 drift=0.5000 D_null=0.00027
+seed 16: D_T1=0.6821 angle@final=0.9954 drift=0.4885 D_null=-0.00142
+seed 17: D_T1=0.6561 angle@final=0.9973 drift=0.5206 D_null=-0.00041
+seed 18: D_T1=0.6854 angle@final=0.9968 drift=0.5544 D_null=-0.00097
+seed 19: D_T1=0.6604 angle@final=0.9972 drift=0.5864 D_null=-0.00121
+{
+ "n_train": 5000,
+ "sched": "decay",
+ "T1": {
+  "D_mean": 0.686873520426471,
+  "ci95": [
+   0.6774443989880882,
+   0.6959011730675345
+  ],
+  "frac_oracle": 0.9953175043151551,
+  "passed": true
+ },
+ "T2": {
+  "D_null": 6.372775555095745e-05,
+  "ci95": [
+   -0.0003647964924107051,
+   0.0004852836334036274
+  ],
+  "passed": true
+ },
+ "T3": {
+  "drift_angle_mean": 0.5456504956485857,
+  "passed": false
+ },
+ "T4": {
+  "curve_mean": {
+   "100": 0.16762396875468247,
+   "500": 0.8089134611869444,
+   "1000": 0.9852978904485756,
+   "2000": 0.9938896795224583,
+   "5000": 0.9967667314657053
+  },
+  "max_drop": 0.0,
+  "tol": 0.001,
+  "passed": true
+ },
+ "all_passed": false
+}

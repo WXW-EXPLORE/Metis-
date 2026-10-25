@@ -1,0 +1,1118 @@
+[
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_1",
+  "N": 2,
+  "j": 0,
+  "err_max": 0.0,
+  "sr_before": 0.9102845775287517,
+  "sr_after": 0.5221183977875707,
+  "D": -0.38816617974118095
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_1",
+  "N": 2,
+  "j": 1,
+  "err_max": 0.0,
+  "sr_before": 0.9244043952056104,
+  "sr_after": 0.9267355794560196,
+  "D": 0.002331184250409235
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_13-19-23-25",
+  "N": 6,
+  "j": 0,
+  "err_max": 0.0,
+  "sr_before": 0.9099108759516663,
+  "sr_after": 0.848478143993323,
+  "D": -0.06143273195834331
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_13-19-23-25",
+  "N": 6,
+  "j": 1,
+  "err_max": 0.0,
+  "sr_before": 0.9128277377407136,
+  "sr_after": 0.8790116287362861,
+  "D": -0.03381610900442744
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_13-19-23-25",
+  "N": 6,
+  "j": 2,
+  "err_max": 0.0,
+  "sr_before": 0.910226398295377,
+  "sr_after": 0.8917313331556624,
+  "D": -0.01849506513971455
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_13-19-23-25",
+  "N": 6,
+  "j": 3,
+  "err_max": 0.0,
+  "sr_before": 0.9096663853852456,
+  "sr_after": 0.8948890984994617,
+  "D": -0.014777286885783836
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_13-19-23-25",
+  "N": 6,
+  "j": 4,
+  "err_max": 0.0,
+  "sr_before": 0.9096107090239418,
+  "sr_after": 0.9029211539473075,
+  "D": -0.006689555076634268
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_13-19-23-25",
+  "N": 6,
+  "j": 5,
+  "err_max": 0.0,
+  "sr_before": 0.9091989295618708,
+  "sr_after": 0.9100149019751007,
+  "D": 0.0008159724132299484
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27",
+  "N": 11,
+  "j": 0,
+  "err_max": 0.0,
+  "sr_before": 0.9157820996961171,
+  "sr_after": 0.8769940829998755,
+  "D": -0.038788016696241656
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27",
+  "N": 11,
+  "j": 1,
+  "err_max": 0.0,
+  "sr_before": 0.9157375851486638,
+  "sr_after": 0.8909793571969737,
+  "D": -0.024758227951690026
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27",
+  "N": 11,
+  "j": 2,
+  "err_max": 0.0,
+  "sr_before": 0.915839086303763,
+  "sr_after": 0.8929706616750005,
+  "D": -0.022868424628762485
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27",
+  "N": 11,
+  "j": 3,
+  "err_max": 0.0,
+  "sr_before": 0.9150550715907501,
+  "sr_after": 0.8971270972815973,
+  "D": -0.017927974309152717
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27",
+  "N": 11,
+  "j": 4,
+  "err_max": 0.0,
+  "sr_before": 0.9146525076183117,
+  "sr_after": 0.8988038163571137,
+  "D": -0.015848691261198034
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27",
+  "N": 11,
+  "j": 5,
+  "err_max": 0.0,
+  "sr_before": 0.9143117218559945,
+  "sr_after": 0.9010112115160566,
+  "D": -0.013300510339937954
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27",
+  "N": 11,
+  "j": 6,
+  "err_max": 0.0,
+  "sr_before": 0.9136607105727982,
+  "sr_after": 0.9054939626079286,
+  "D": -0.008166747964869603
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27",
+  "N": 11,
+  "j": 7,
+  "err_max": 0.0,
+  "sr_before": 0.9137861260487009,
+  "sr_after": 0.9089142404941106,
+  "D": -0.004871885554590283
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27",
+  "N": 11,
+  "j": 8,
+  "err_max": 0.0,
+  "sr_before": 0.9134469184940572,
+  "sr_after": 0.9108105037192958,
+  "D": -0.0026364147747613975
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27",
+  "N": 11,
+  "j": 9,
+  "err_max": 0.0,
+  "sr_before": 0.9132336730665069,
+  "sr_after": 0.9138377474084033,
+  "D": 0.0006040743418963546
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27",
+  "N": 11,
+  "j": 10,
+  "err_max": 0.0,
+  "sr_before": 0.9143593774773154,
+  "sr_after": 0.9145141191488716,
+  "D": 0.0001547416715561578
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3",
+  "N": 2,
+  "j": 0,
+  "err_max": 0.0,
+  "sr_before": 0.9062036028888354,
+  "sr_after": 0.5582347618238075,
+  "D": -0.3479688410650279
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3",
+  "N": 2,
+  "j": 1,
+  "err_max": 0.0,
+  "sr_before": 0.9222307814966092,
+  "sr_after": 0.9258344752545843,
+  "D": 0.0036036937579750905
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_4",
+  "N": 2,
+  "j": 0,
+  "err_max": 0.0,
+  "sr_before": 0.9034769187043846,
+  "sr_after": 0.5466669957649629,
+  "D": -0.3568099229394217
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_4",
+  "N": 2,
+  "j": 1,
+  "err_max": 0.0,
+  "sr_before": 0.9205492807892546,
+  "sr_after": 0.924701508148134,
+  "D": 0.0041522273588794345
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_2",
+  "N": 2,
+  "j": 0,
+  "err_max": 0.0,
+  "sr_before": 0.9058889556740344,
+  "sr_after": 0.5390996358061605,
+  "D": -0.3667893198678739
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_2",
+  "N": 2,
+  "j": 1,
+  "err_max": 0.0,
+  "sr_before": 0.9242661043114881,
+  "sr_after": 0.92677997393469,
+  "D": 0.002513869623201881
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_1-2",
+  "N": 4,
+  "j": 0,
+  "err_max": 0.0,
+  "sr_before": 0.9107951946336555,
+  "sr_after": 0.8104222338767807,
+  "D": -0.10037296075687485
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_1-2",
+  "N": 4,
+  "j": 1,
+  "err_max": 0.0,
+  "sr_before": 0.9133891183572747,
+  "sr_after": 0.8726578174445732,
+  "D": -0.040731300912701496
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_1-2",
+  "N": 4,
+  "j": 2,
+  "err_max": 0.0,
+  "sr_before": 0.914731606325519,
+  "sr_after": 0.8865609654442067,
+  "D": -0.02817064088131227
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_1-2",
+  "N": 4,
+  "j": 3,
+  "err_max": 0.0,
+  "sr_before": 0.9124357058669043,
+  "sr_after": 0.9132702928313923,
+  "D": 0.0008345869644880155
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_6-10-14-16-27",
+  "N": 9,
+  "j": 0,
+  "err_max": 0.0,
+  "sr_before": 0.9102044517631649,
+  "sr_after": 0.8554175899591044,
+  "D": -0.05478686180406045
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_6-10-14-16-27",
+  "N": 9,
+  "j": 1,
+  "err_max": 0.0,
+  "sr_before": 0.9119150587943587,
+  "sr_after": 0.876542582267499,
+  "D": -0.03537247652685971
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_6-10-14-16-27",
+  "N": 9,
+  "j": 2,
+  "err_max": 0.0,
+  "sr_before": 0.9099173167049622,
+  "sr_after": 0.8880214669220441,
+  "D": -0.021895849782918142
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_6-10-14-16-27",
+  "N": 9,
+  "j": 3,
+  "err_max": 0.0,
+  "sr_before": 0.909442964694063,
+  "sr_after": 0.8908560087586536,
+  "D": -0.018586955935409488
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_6-10-14-16-27",
+  "N": 9,
+  "j": 4,
+  "err_max": 0.0,
+  "sr_before": 0.9092245448294219,
+  "sr_after": 0.8984765299947763,
+  "D": -0.010748014834645603
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_6-10-14-16-27",
+  "N": 9,
+  "j": 5,
+  "err_max": 0.0,
+  "sr_before": 0.9087736553368722,
+  "sr_after": 0.9016491228698419,
+  "D": -0.0071245324670302645
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_6-10-14-16-27",
+  "N": 9,
+  "j": 6,
+  "err_max": 0.0,
+  "sr_before": 0.9089826742303587,
+  "sr_after": 0.9059880213246876,
+  "D": -0.0029946529056711357
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_6-10-14-16-27",
+  "N": 9,
+  "j": 7,
+  "err_max": 0.0,
+  "sr_before": 0.9074886747669692,
+  "sr_after": 0.9081199457390761,
+  "D": 0.0006312709721069121
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_6-10-14-16-27",
+  "N": 9,
+  "j": 8,
+  "err_max": 0.0,
+  "sr_before": 0.9091354576817049,
+  "sr_after": 0.9093242356382951,
+  "D": 0.00018877795659022478
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_8",
+  "N": 2,
+  "j": 0,
+  "err_max": 0.0,
+  "sr_before": 0.9060190653773239,
+  "sr_after": 0.5105681621645944,
+  "D": -0.39545090321272947
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_8",
+  "N": 2,
+  "j": 1,
+  "err_max": 0.0,
+  "sr_before": 0.9203084078180966,
+  "sr_after": 0.9230959830255949,
+  "D": 0.002787575207498283
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_8-14-17",
+  "N": 6,
+  "j": 0,
+  "err_max": 0.0,
+  "sr_before": 0.9121025105678329,
+  "sr_after": 0.8426697105012687,
+  "D": -0.06943280006656416
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_8-14-17",
+  "N": 6,
+  "j": 1,
+  "err_max": 0.0,
+  "sr_before": 0.9127976057177788,
+  "sr_after": 0.8806920980673191,
+  "D": -0.03210550765045972
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_8-14-17",
+  "N": 6,
+  "j": 2,
+  "err_max": 0.0,
+  "sr_before": 0.9128094075195092,
+  "sr_after": 0.8830141011911271,
+  "D": -0.02979530632838212
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_8-14-17",
+  "N": 6,
+  "j": 3,
+  "err_max": 0.0,
+  "sr_before": 0.912103265799634,
+  "sr_after": 0.9000729979893661,
+  "D": -0.012030267810267836
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_8-14-17",
+  "N": 6,
+  "j": 4,
+  "err_max": 0.0,
+  "sr_before": 0.9108774641710008,
+  "sr_after": 0.9091423973639691,
+  "D": -0.0017350668070317266
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_8-14-17",
+  "N": 6,
+  "j": 5,
+  "err_max": 0.0,
+  "sr_before": 0.911247646893944,
+  "sr_after": 0.911431209609503,
+  "D": 0.0001835627155589714
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_9",
+  "N": 2,
+  "j": 0,
+  "err_max": 0.0,
+  "sr_before": 0.9034688180111855,
+  "sr_after": 0.54648866169982,
+  "D": -0.3569801563113655
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_9",
+  "N": 2,
+  "j": 1,
+  "err_max": 0.0,
+  "sr_before": 0.922484694238639,
+  "sr_after": 0.9259686206349786,
+  "D": 0.003483926396339654
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-9",
+  "N": 4,
+  "j": 0,
+  "err_max": 0.0,
+  "sr_before": 0.9084429508093388,
+  "sr_after": 0.8191714432506318,
+  "D": -0.08927150755870694
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-9",
+  "N": 4,
+  "j": 1,
+  "err_max": 0.0,
+  "sr_before": 0.9125316951558408,
+  "sr_after": 0.8720643347306124,
+  "D": -0.04046736042522836
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-9",
+  "N": 4,
+  "j": 2,
+  "err_max": 0.0,
+  "sr_before": 0.911524661892284,
+  "sr_after": 0.8929105029747241,
+  "D": -0.01861415891755991
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-9",
+  "N": 4,
+  "j": 3,
+  "err_max": 0.0,
+  "sr_before": 0.9113028910615396,
+  "sr_after": 0.9120445461877895,
+  "D": 0.0007416551262499071
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_7-10",
+  "N": 3,
+  "j": 0,
+  "err_max": 0.0,
+  "sr_before": 0.90686739020535,
+  "sr_after": 0.7927388535315161,
+  "D": -0.11412853667383394
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_7-10",
+  "N": 3,
+  "j": 1,
+  "err_max": 0.0,
+  "sr_before": 0.9120937872475235,
+  "sr_after": 0.8562736264524132,
+  "D": -0.05582016079511032
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_7-10",
+  "N": 3,
+  "j": 2,
+  "err_max": 0.0,
+  "sr_before": 0.9109134525944169,
+  "sr_after": 0.9121273670602519,
+  "D": 0.0012139144658349643
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_11",
+  "N": 3,
+  "j": 0,
+  "err_max": 0.0,
+  "sr_before": 0.9084483932516534,
+  "sr_after": 0.7623037415427697,
+  "D": -0.1461446517088837
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_11",
+  "N": 3,
+  "j": 1,
+  "err_max": 0.0,
+  "sr_before": 0.9199104080222982,
+  "sr_after": 0.8986715177362532,
+  "D": -0.021238890286044976
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_11",
+  "N": 3,
+  "j": 2,
+  "err_max": 0.0,
+  "sr_before": 0.916131658080757,
+  "sr_after": 0.9166845784921233,
+  "D": 0.0005529204113662312
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_11-24-26",
+  "N": 8,
+  "j": 0,
+  "err_max": 0.0,
+  "sr_before": 0.9171309689221798,
+  "sr_after": 0.8603231649449428,
+  "D": -0.05680780397723706
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_11-24-26",
+  "N": 8,
+  "j": 1,
+  "err_max": 0.0,
+  "sr_before": 0.9182241313578194,
+  "sr_after": 0.8870967821411818,
+  "D": -0.031127349216637623
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_11-24-26",
+  "N": 8,
+  "j": 2,
+  "err_max": 0.0,
+  "sr_before": 0.9166724777503562,
+  "sr_after": 0.8988061589403069,
+  "D": -0.017866318810049298
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_11-24-26",
+  "N": 8,
+  "j": 3,
+  "err_max": 0.0,
+  "sr_before": 0.9174455830360622,
+  "sr_after": 0.895439054780028,
+  "D": -0.022006528256034108
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_11-24-26",
+  "N": 8,
+  "j": 4,
+  "err_max": 0.0,
+  "sr_before": 0.9159457387795165,
+  "sr_after": 0.9053741024166716,
+  "D": -0.01057163636284486
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_11-24-26",
+  "N": 8,
+  "j": 5,
+  "err_max": 0.0,
+  "sr_before": 0.9161081021368396,
+  "sr_after": 0.9037539999852766,
+  "D": -0.012354102151562962
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_11-24-26",
+  "N": 8,
+  "j": 6,
+  "err_max": 0.0,
+  "sr_before": 0.9147130866286229,
+  "sr_after": 0.9107197542786056,
+  "D": -0.003993332350017309
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_11-24-26",
+  "N": 8,
+  "j": 7,
+  "err_max": 0.0,
+  "sr_before": 0.9146411395350058,
+  "sr_after": 0.9151233573518368,
+  "D": 0.00048221781683099874
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_2-11",
+  "N": 5,
+  "j": 0,
+  "err_max": 0.0,
+  "sr_before": 0.91435042566012,
+  "sr_after": 0.8392666400686903,
+  "D": -0.0750837855914297
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_2-11",
+  "N": 5,
+  "j": 1,
+  "err_max": 0.0,
+  "sr_before": 0.9165261056603027,
+  "sr_after": 0.8801083452276921,
+  "D": -0.03641776043261058
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_2-11",
+  "N": 5,
+  "j": 2,
+  "err_max": 0.0,
+  "sr_before": 0.9156040205903999,
+  "sr_after": 0.8886642100539052,
+  "D": -0.026939810536494746
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_2-11",
+  "N": 5,
+  "j": 3,
+  "err_max": 0.0,
+  "sr_before": 0.9142238767653583,
+  "sr_after": 0.9090276975448297,
+  "D": -0.005196179220528618
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_2-11",
+  "N": 5,
+  "j": 4,
+  "err_max": 0.0,
+  "sr_before": 0.9147324983438299,
+  "sr_after": 0.9148528651835733,
+  "D": 0.00012036683974347984
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_10-12",
+  "N": 4,
+  "j": 0,
+  "err_max": 0.0,
+  "sr_before": 0.9059482169881192,
+  "sr_after": 0.7896620938896778,
+  "D": -0.11628612309844144
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_10-12",
+  "N": 4,
+  "j": 1,
+  "err_max": 0.0,
+  "sr_before": 0.912015132602161,
+  "sr_after": 0.875865055569645,
+  "D": -0.03615007703251605
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_10-12",
+  "N": 4,
+  "j": 2,
+  "err_max": 0.0,
+  "sr_before": 0.9103021959553765,
+  "sr_after": 0.9095686266148971,
+  "D": -0.0007335693404794119
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_10-12",
+  "N": 4,
+  "j": 3,
+  "err_max": 0.0,
+  "sr_before": 0.9089926066662325,
+  "sr_after": 0.9091279399196803,
+  "D": 0.00013533325344783353
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_10",
+  "N": 2,
+  "j": 0,
+  "err_max": 0.0,
+  "sr_before": 0.902379652880374,
+  "sr_after": 0.5421158260254016,
+  "D": -0.3602638268549724
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_10",
+  "N": 2,
+  "j": 1,
+  "err_max": 0.0,
+  "sr_before": 0.9181615931742574,
+  "sr_after": 0.9222555790045478,
+  "D": 0.004093985830290414
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_6-10-14",
+  "N": 5,
+  "j": 0,
+  "err_max": 0.0,
+  "sr_before": 0.907141503301976,
+  "sr_after": 0.8311504939340084,
+  "D": -0.07599100936796754
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_6-10-14",
+  "N": 5,
+  "j": 1,
+  "err_max": 0.0,
+  "sr_before": 0.9101432420058979,
+  "sr_after": 0.8670787816988279,
+  "D": -0.04306446030707001
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_6-10-14",
+  "N": 5,
+  "j": 2,
+  "err_max": 0.0,
+  "sr_before": 0.907694302546957,
+  "sr_after": 0.8873217426753447,
+  "D": -0.02037255987161235
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_6-10-14",
+  "N": 5,
+  "j": 3,
+  "err_max": 0.0,
+  "sr_before": 0.9068239467844659,
+  "sr_after": 0.8974578503518699,
+  "D": -0.009366096432596005
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_6-10-14",
+  "N": 5,
+  "j": 4,
+  "err_max": 0.0,
+  "sr_before": 0.9070774528637122,
+  "sr_after": 0.9076887991604125,
+  "D": 0.0006113462967002325
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_14",
+  "N": 2,
+  "j": 0,
+  "err_max": 0.0,
+  "sr_before": 0.902592035596643,
+  "sr_after": 0.5398147168165165,
+  "D": -0.36277731878012653
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_14",
+  "N": 2,
+  "j": 1,
+  "err_max": 0.0,
+  "sr_before": 0.9211580156585166,
+  "sr_after": 0.9246350498075063,
+  "D": 0.0034770341489896994
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_2-5",
+  "N": 4,
+  "j": 0,
+  "err_max": 0.0,
+  "sr_before": 0.9091672959266459,
+  "sr_after": 0.8134988020027604,
+  "D": -0.09566849392388554
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_2-5",
+  "N": 4,
+  "j": 1,
+  "err_max": 0.0,
+  "sr_before": 0.9143527922613547,
+  "sr_after": 0.8729277389662659,
+  "D": -0.04142505329508883
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_2-5",
+  "N": 4,
+  "j": 2,
+  "err_max": 0.0,
+  "sr_before": 0.9151861269418351,
+  "sr_after": 0.9058515514638948,
+  "D": -0.009334575477940255
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_2-5",
+  "N": 4,
+  "j": 3,
+  "err_max": 0.0,
+  "sr_before": 0.9126218898270555,
+  "sr_after": 0.9128774787116822,
+  "D": 0.000255588884626734
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_2-13",
+  "N": 3,
+  "j": 0,
+  "err_max": 0.0,
+  "sr_before": 0.9102914577139368,
+  "sr_after": 0.8076420680594821,
+  "D": -0.10264938965445469
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_2-13",
+  "N": 3,
+  "j": 1,
+  "err_max": 0.0,
+  "sr_before": 0.9149338886856306,
+  "sr_after": 0.8703734873961726,
+  "D": -0.04456040128945804
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_2-13",
+  "N": 3,
+  "j": 2,
+  "err_max": 0.0,
+  "sr_before": 0.9149370310550017,
+  "sr_after": 0.9170542115606752,
+  "D": 0.002117180505673555
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_17",
+  "N": 2,
+  "j": 0,
+  "err_max": 0.0,
+  "sr_before": 0.9072727283329414,
+  "sr_after": 0.5181515675574052,
+  "D": -0.38912116077553616
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_17",
+  "N": 2,
+  "j": 1,
+  "err_max": 0.0,
+  "sr_before": 0.9237486387906051,
+  "sr_after": 0.9253548399235899,
+  "D": 0.0016062011329848191
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_10-12-16-18",
+  "N": 8,
+  "j": 0,
+  "err_max": 0.0,
+  "sr_before": 0.912656034194597,
+  "sr_after": 0.8469032159649673,
+  "D": -0.06575281822962964
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_10-12-16-18",
+  "N": 8,
+  "j": 1,
+  "err_max": 0.0,
+  "sr_before": 0.9139213958835476,
+  "sr_after": 0.8811735199792311,
+  "D": -0.03274787590431649
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_10-12-16-18",
+  "N": 8,
+  "j": 2,
+  "err_max": 0.0,
+  "sr_before": 0.9124622229322262,
+  "sr_after": 0.8890788580140456,
+  "D": -0.023383364918180605
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_10-12-16-18",
+  "N": 8,
+  "j": 3,
+  "err_max": 0.0,
+  "sr_before": 0.9112916575081421,
+  "sr_after": 0.9037692230712249,
+  "D": -0.007522434436917247
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_10-12-16-18",
+  "N": 8,
+  "j": 4,
+  "err_max": 0.0,
+  "sr_before": 0.9108477195480768,
+  "sr_after": 0.8968833887600142,
+  "D": -0.013964330788062584
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_10-12-16-18",
+  "N": 8,
+  "j": 5,
+  "err_max": 0.0,
+  "sr_before": 0.9110596763292739,
+  "sr_after": 0.9057770897377152,
+  "D": -0.005282586591558669
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_10-12-16-18",
+  "N": 8,
+  "j": 6,
+  "err_max": 0.0,
+  "sr_before": 0.9098758124013117,
+  "sr_after": 0.9087216263586708,
+  "D": -0.0011541860426408368
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_10-12-16-18",
+  "N": 8,
+  "j": 7,
+  "err_max": 0.0,
+  "sr_before": 0.9108327762569375,
+  "sr_after": 0.9111860924005167,
+  "D": 0.000353316143579252
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_4-19",
+  "N": 4,
+  "j": 0,
+  "err_max": 0.0,
+  "sr_before": 0.9109892582606712,
+  "sr_after": 0.8305968940033386,
+  "D": -0.08039236425733265
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_4-19",
+  "N": 4,
+  "j": 1,
+  "err_max": 0.0,
+  "sr_before": 0.9146498218712127,
+  "sr_after": 0.8742611043710347,
+  "D": -0.04038871750017803
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_4-19",
+  "N": 4,
+  "j": 2,
+  "err_max": 0.0,
+  "sr_before": 0.9124017495210959,
+  "sr_after": 0.8958066262911749,
+  "D": -0.01659512322992096
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_4-19",
+  "N": 4,
+  "j": 3,
+  "err_max": 0.0,
+  "sr_before": 0.9105001424502228,
+  "sr_after": 0.9105429069236994,
+  "D": 4.276447347661971e-05
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_1-2-19",
+  "N": 6,
+  "j": 0,
+  "err_max": 0.0,
+  "sr_before": 0.9131708515883348,
+  "sr_after": 0.8445393436966435,
+  "D": -0.06863150789169126
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_1-2-19",
+  "N": 6,
+  "j": 1,
+  "err_max": 0.0,
+  "sr_before": 0.9135163786012945,
+  "sr_after": 0.8788542911643926,
+  "D": -0.03466208743690191
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_1-2-19",
+  "N": 6,
+  "j": 2,
+  "err_max": 0.0,
+  "sr_before": 0.9143780615894345,
+  "sr_after": 0.8787390907778161,
+  "D": -0.035638970811618376
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_1-2-19",
+  "N": 6,
+  "j": 3,
+  "err_max": 0.0,
+  "sr_before": 0.9126779064834362,
+  "sr_after": 0.8934679556787337,
+  "D": -0.019209950804702447
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_1-2-19",
+  "N": 6,
+  "j": 4,
+  "err_max": 0.0,
+  "sr_before": 0.9125170092052801,
+  "sr_after": 0.9011560967245069,
+  "D": -0.0113609124807732
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_1-2-19",
+  "N": 6,
+  "j": 5,
+  "err_max": 0.0,
+  "sr_before": 0.911502524831584,
+  "sr_after": 0.912149165486687,
+  "D": 0.0006466406551030035
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_20",
+  "N": 3,
+  "j": 0,
+  "err_max": 0.0,
+  "sr_before": 0.9091637894474498,
+  "sr_after": 0.7788877948391644,
+  "D": -0.13027599460828543
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_20",
+  "N": 3,
+  "j": 1,
+  "err_max": 0.0,
+  "sr_before": 0.9175616383361151,
+  "sr_after": 0.8931378557149794,
+  "D": -0.02442378262113576
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_20",
+  "N": 3,
+  "j": 2,
+  "err_max": 0.0,
+  "sr_before": 0.9151379256860755,
+  "sr_after": 0.9157954902375413,
+  "D": 0.0006575645514657058
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_14-24",
+  "N": 4,
+  "j": 0,
+  "err_max": 0.0,
+  "sr_before": 0.9077225641043912,
+  "sr_after": 0.8020481951985707,
+  "D": -0.10567436890582049
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_14-24",
+  "N": 4,
+  "j": 1,
+  "err_max": 0.0,
+  "sr_before": 0.9140605191125675,
+  "sr_after": 0.8782521150616743,
+  "D": -0.03580840405089314
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_14-24",
+  "N": 4,
+  "j": 2,
+  "err_max": 0.0,
+  "sr_before": 0.9126730248897903,
+  "sr_after": 0.9056582525476173,
+  "D": -0.007014772342172959
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_14-24",
+  "N": 4,
+  "j": 3,
+  "err_max": 0.0,
+  "sr_before": 0.9108098208538817,
+  "sr_after": 0.9111517098566894,
+  "D": 0.00034188900280762713
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-15-23",
+  "N": 6,
+  "j": 0,
+  "err_max": 0.0,
+  "sr_before": 0.9128280245168892,
+  "sr_after": 0.8492889486394474,
+  "D": -0.06353907587744179
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-15-23",
+  "N": 6,
+  "j": 1,
+  "err_max": 0.0,
+  "sr_before": 0.9141499516015484,
+  "sr_after": 0.877683591533451,
+  "D": -0.03646636006809745
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-15-23",
+  "N": 6,
+  "j": 2,
+  "err_max": 0.0,
+  "sr_before": 0.9137254357020275,
+  "sr_after": 0.8869932215872899,
+  "D": -0.026732214114737585
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-15-23",
+  "N": 6,
+  "j": 3,
+  "err_max": 0.0,
+  "sr_before": 0.9125080094662912,
+  "sr_after": 0.903501051969098,
+  "D": -0.009006957497193158
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-15-23",
+  "N": 6,
+  "j": 4,
+  "err_max": 0.0,
+  "sr_before": 0.9119245777093697,
+  "sr_after": 0.901890068617087,
+  "D": -0.010034509092282762
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-15-23",
+  "N": 6,
+  "j": 5,
+  "err_max": 0.0,
+  "sr_before": 0.9117554762517782,
+  "sr_after": 0.9121575704227318,
+  "D": 0.0004020941709536041
+ }
+]

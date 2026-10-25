@@ -1,0 +1,165 @@
+Current Triton version 3.1.0 is below the recommended 3.2.0 version. Errors may occur and these issues will not be fixed. Please consider upgrading Triton.
+Loading checkpoint: /hy-tmp/metis-models/Metis-4B
+Device: cuda; dtype: torch.bfloat16
+Loading weights:   0%|          | 0/507 [00:00<?, ?it/s]Loading weights:  85%|████████▌ | 432/507 [00:00<00:00, 4317.42it/s]Loading weights: 100%|██████████| 507/507 [00:00<00:00, 4275.10it/s]
+Loading tokenizer: /hy-tmp/metis-models/Metis-4B
+Parameters: total=4,967,375,888; trainable=4,967,375,888
+{"episode_id": "locomo_conv-44__evidence_sessions_1", "N": 2, "j": 0, "D_lt": NaN, "D_gt_live": 0.026121760743610944, "D_gt_stale": -0.38816617974118106, "key_shift": 0.0411416906863451}
+{"episode_id": "locomo_conv-44__evidence_sessions_1", "N": 2, "j": 1, "D_lt": 0.002331184250409235, "D_gt_live": NaN, "D_gt_stale": NaN, "key_shift": NaN}
+{"episode_id": "locomo_conv-44__evidence_sessions_13-19-23-25", "N": 6, "j": 0, "D_lt": NaN, "D_gt_live": -0.002033476673123147, "D_gt_stale": -0.060946065090144066, "key_shift": 0.023770600063289748}
+{"episode_id": "locomo_conv-44__evidence_sessions_13-19-23-25", "N": 6, "j": 1, "D_lt": 0.002171166991359774, "D_gt_live": -0.0031726841253773563, "D_gt_stale": -0.04550976100034007, "key_shift": 0.017110175916059234}
+{"episode_id": "locomo_conv-44__evidence_sessions_13-19-23-25", "N": 6, "j": 2, "D_lt": 0.0012639106942194944, "D_gt_live": -0.003392734464601236, "D_gt_stale": -0.034318610638833125, "key_shift": 0.014951422204831033}
+{"episode_id": "locomo_conv-44__evidence_sessions_13-19-23-25", "N": 6, "j": 3, "D_lt": 0.0009678123706084637, "D_gt_live": -0.0016828933052738804, "D_gt_stale": -0.040518218624036706, "key_shift": 0.01654204709120677}
+{"episode_id": "locomo_conv-44__evidence_sessions_13-19-23-25", "N": 6, "j": 4, "D_lt": 0.0007290480051286574, "D_gt_live": -0.001635844225345573, "D_gt_stale": -0.035639728448589314, "key_shift": 0.014580610135453753}
+{"episode_id": "locomo_conv-44__evidence_sessions_13-19-23-25", "N": 6, "j": 5, "D_lt": 0.0006674366344694871, "D_gt_live": NaN, "D_gt_stale": NaN, "key_shift": NaN}
+{"episode_id": "locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27", "N": 11, "j": 0, "D_lt": NaN, "D_gt_live": -0.004444963251322542, "D_gt_stale": -0.03833506056250543, "key_shift": 0.01881452218576669}
+{"episode_id": "locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27", "N": 11, "j": 1, "D_lt": 0.002195997688293705, "D_gt_live": -0.0026518898460730447, "D_gt_stale": -0.027591853915543554, "key_shift": 0.014296475116326392}
+{"episode_id": "locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27", "N": 11, "j": 2, "D_lt": 0.0014450425375283071, "D_gt_live": -0.002698200665825684, "D_gt_stale": -0.02806171659362633, "key_shift": 0.014167941794994476}
+{"episode_id": "locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27", "N": 11, "j": 3, "D_lt": 0.001123681246611959, "D_gt_live": -0.0035379513577459753, "D_gt_stale": -0.025479282519398412, "key_shift": 0.014085349324237282}
+{"episode_id": "locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27", "N": 11, "j": 4, "D_lt": 0.001503542682296688, "D_gt_live": 0.00030884627508729706, "D_gt_stale": -0.026715776247281258, "key_shift": 0.014888882252610832}
+{"episode_id": "locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27", "N": 11, "j": 5, "D_lt": 0.0013102841117895946, "D_gt_live": -0.0013905175772716215, "D_gt_stale": -0.028420559860156725, "key_shift": 0.015038289430958685}
+{"episode_id": "locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27", "N": 11, "j": 6, "D_lt": 0.001354483725727181, "D_gt_live": -0.00017903066353078256, "D_gt_stale": -0.024689975671521036, "key_shift": 0.013602710027669218}
+{"episode_id": "locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27", "N": 11, "j": 7, "D_lt": 0.000926048276598368, "D_gt_live": -0.0015371736972848622, "D_gt_stale": -0.02129299195019389, "key_shift": 0.011717518604806779}
+{"episode_id": "locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27", "N": 11, "j": 8, "D_lt": 0.0012014474563440541, "D_gt_live": -0.0005824600004286085, "D_gt_stale": -0.024741946823390648, "key_shift": 0.013377027311435086}
+{"episode_id": "locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27", "N": 11, "j": 9, "D_lt": 0.0009910878991838956, "D_gt_live": -0.0016703884270364844, "D_gt_stale": -0.025080003790322047, "key_shift": 0.010480062002898194}
+{"episode_id": "locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27", "N": 11, "j": 10, "D_lt": 0.000160269745593955, "D_gt_live": NaN, "D_gt_stale": NaN, "key_shift": NaN}
+{"episode_id": "locomo_conv-44__evidence_sessions_3", "N": 2, "j": 0, "D_lt": NaN, "D_gt_live": 0.01956644165093302, "D_gt_stale": -0.3479688410650279, "key_shift": 0.04319546348415315}
+{"episode_id": "locomo_conv-44__evidence_sessions_3", "N": 2, "j": 1, "D_lt": 0.0036036937579750905, "D_gt_live": NaN, "D_gt_stale": NaN, "key_shift": NaN}
+{"episode_id": "locomo_conv-44__evidence_sessions_4", "N": 2, "j": 0, "D_lt": NaN, "D_gt_live": 0.020375032096753842, "D_gt_stale": -0.3568099229394218, "key_shift": 0.04358044732362032}
+{"episode_id": "locomo_conv-44__evidence_sessions_4", "N": 2, "j": 1, "D_lt": 0.0041522273588795455, "D_gt_live": NaN, "D_gt_stale": NaN, "key_shift": NaN}
+{"episode_id": "locomo_conv-44__evidence_sessions_2", "N": 2, "j": 0, "D_lt": NaN, "D_gt_live": 0.02424780634397039, "D_gt_stale": -0.3667893198678741, "key_shift": 0.040588057818240486}
+{"episode_id": "locomo_conv-44__evidence_sessions_2", "N": 2, "j": 1, "D_lt": 0.002513869623201992, "D_gt_live": NaN, "D_gt_stale": NaN, "key_shift": NaN}
+{"episode_id": "locomo_conv-44__evidence_sessions_1-2", "N": 4, "j": 0, "D_lt": NaN, "D_gt_live": 0.005367954702389303, "D_gt_stale": -0.09922051189611199, "key_shift": 0.027534932567505166}
+{"episode_id": "locomo_conv-44__evidence_sessions_1-2", "N": 4, "j": 1, "D_lt": 0.002033322009142635, "D_gt_live": -0.0029077763477550755, "D_gt_stale": -0.06232000273198168, "key_shift": 0.016336095533915795}
+{"episode_id": "locomo_conv-44__evidence_sessions_1-2", "N": 4, "j": 2, "D_lt": 0.0024954524901607544, "D_gt_live": -0.005973570797426664, "D_gt_stale": -0.08666877269825757, "key_shift": 0.017689778236672282}
+{"episode_id": "locomo_conv-44__evidence_sessions_1-2", "N": 4, "j": 3, "D_lt": 0.0008221175528931127, "D_gt_live": NaN, "D_gt_stale": NaN, "key_shift": NaN}
+{"episode_id": "locomo_conv-44__evidence_sessions_6-10-14-16-27", "N": 9, "j": 0, "D_lt": NaN, "D_gt_live": 0.0004661196049611238, "D_gt_stale": -0.05224085939374147, "key_shift": 0.019787069874610097}
+{"episode_id": "locomo_conv-44__evidence_sessions_6-10-14-16-27", "N": 9, "j": 1, "D_lt": 0.003047867320875808, "D_gt_live": -0.0012713958615808865, "D_gt_stale": -0.04120390884659201, "key_shift": 0.015909755848432332}
+{"episode_id": "locomo_conv-44__evidence_sessions_6-10-14-16-27", "N": 9, "j": 2, "D_lt": 0.0012620591828003125, "D_gt_live": -0.001363697612334125, "D_gt_stale": -0.03298910252301233, "key_shift": 0.014277056920036557}
+{"episode_id": "locomo_conv-44__evidence_sessions_6-10-14-16-27", "N": 9, "j": 3, "D_lt": 0.001380155113638944, "D_gt_live": -0.0014947326008986294, "D_gt_stale": -0.03562510373985184, "key_shift": 0.013927227665226383}
+{"episode_id": "locomo_conv-44__evidence_sessions_6-10-14-16-27", "N": 9, "j": 4, "D_lt": 0.0011639652522254795, "D_gt_live": -0.0008014985038873879, "D_gt_stale": -0.0295228176837031, "key_shift": 0.01330469368986087}
+{"episode_id": "locomo_conv-44__evidence_sessions_6-10-14-16-27", "N": 9, "j": 5, "D_lt": 0.00103916649264153, "D_gt_live": -0.0027751526495110404, "D_gt_stale": -0.03118840698084735, "key_shift": 0.012938336719040914}
+{"episode_id": "locomo_conv-44__evidence_sessions_6-10-14-16-27", "N": 9, "j": 6, "D_lt": 0.000482735322972531, "D_gt_live": -0.002639655233020066, "D_gt_stale": -0.018360064990570135, "key_shift": 0.010404804084828356}
+{"episode_id": "locomo_conv-44__evidence_sessions_6-10-14-16-27", "N": 9, "j": 7, "D_lt": 0.0010602229591835893, "D_gt_live": -0.0015589650618662576, "D_gt_stale": -0.03258644330037097, "key_shift": 0.011239584840950556}
+{"episode_id": "locomo_conv-44__evidence_sessions_6-10-14-16-27", "N": 9, "j": 8, "D_lt": 9.616435511390631e-05, "D_gt_live": NaN, "D_gt_stale": NaN, "key_shift": NaN}
+{"episode_id": "locomo_conv-44__evidence_sessions_8", "N": 2, "j": 0, "D_lt": NaN, "D_gt_live": 0.024521665240133883, "D_gt_stale": -0.3954509032127297, "key_shift": 0.045906955579994246}
+{"episode_id": "locomo_conv-44__evidence_sessions_8", "N": 2, "j": 1, "D_lt": 0.002787575207498283, "D_gt_live": NaN, "D_gt_stale": NaN, "key_shift": NaN}
+{"episode_id": "locomo_conv-44__evidence_sessions_8-14-17", "N": 6, "j": 0, "D_lt": NaN, "D_gt_live": -0.0017223273413499607, "D_gt_stale": -0.06730306482978624, "key_shift": 0.024273920083942357}
+{"episode_id": "locomo_conv-44__evidence_sessions_8-14-17", "N": 6, "j": 1, "D_lt": 0.0015635976244705585, "D_gt_live": -0.0039435431734291815, "D_gt_stale": -0.04187585996749085, "key_shift": 0.015333228087911266}
+{"episode_id": "locomo_conv-44__evidence_sessions_8-14-17", "N": 6, "j": 2, "D_lt": 0.0012674906664685293, "D_gt_live": -0.005442872733415889, "D_gt_stale": -0.05335348284916478, "key_shift": 0.017141504188051233}
+{"episode_id": "locomo_conv-44__evidence_sessions_8-14-17", "N": 6, "j": 3, "D_lt": 0.001151977039971978, "D_gt_live": -0.004084329739726, "D_gt_stale": -0.039380764344786934, "key_shift": 0.014874591350235278}
+{"episode_id": "locomo_conv-44__evidence_sessions_8-14-17", "N": 6, "j": 4, "D_lt": 0.000669186729046034, "D_gt_live": -0.006169208185278219, "D_gt_stale": -0.04029071330232714, "key_shift": 0.015062041074997978}
+{"episode_id": "locomo_conv-44__evidence_sessions_8-14-17", "N": 6, "j": 5, "D_lt": 0.0001656963348637186, "D_gt_live": NaN, "D_gt_stale": NaN, "key_shift": NaN}
+{"episode_id": "locomo_conv-44__evidence_sessions_9", "N": 2, "j": 0, "D_lt": NaN, "D_gt_live": 0.022123378777482383, "D_gt_stale": -0.3569801563113655, "key_shift": 0.04403685974830296}
+{"episode_id": "locomo_conv-44__evidence_sessions_9", "N": 2, "j": 1, "D_lt": 0.003483926396339876, "D_gt_live": NaN, "D_gt_stale": NaN, "key_shift": NaN}
+{"episode_id": "locomo_conv-44__evidence_sessions_3-9", "N": 4, "j": 0, "D_lt": NaN, "D_gt_live": 0.0005859058170486486, "D_gt_stale": -0.0890863592145252, "key_shift": 0.028410794378335897}
+{"episode_id": "locomo_conv-44__evidence_sessions_3-9", "N": 4, "j": 1, "D_lt": 0.0021102025036379146, "D_gt_live": -0.0032716039814545406, "D_gt_stale": -0.06574845927155265, "key_shift": 0.018021833209786564}
+{"episode_id": "locomo_conv-44__evidence_sessions_3-9", "N": 4, "j": 2, "D_lt": 0.0012952703838775004, "D_gt_live": -0.004340500177451356, "D_gt_stale": -0.0686744598429333, "key_shift": 0.01717990244515022}
+{"episode_id": "locomo_conv-44__evidence_sessions_3-9", "N": 4, "j": 3, "D_lt": 0.000707051214657417, "D_gt_live": NaN, "D_gt_stale": NaN, "key_shift": NaN}
+{"episode_id": "locomo_conv-44__evidence_sessions_7-10", "N": 3, "j": 0, "D_lt": NaN, "D_gt_live": 0.0033648108676050392, "D_gt_stale": -0.11364724824862882, "key_shift": 0.030795355756708886}
+{"episode_id": "locomo_conv-44__evidence_sessions_7-10", "N": 3, "j": 1, "D_lt": 0.0040818894950089835, "D_gt_live": -0.0012096289993693832, "D_gt_stale": -0.11521139200941843, "key_shift": 0.021244729106228988}
+{"episode_id": "locomo_conv-44__evidence_sessions_7-10", "N": 3, "j": 2, "D_lt": 0.0015230675088300782, "D_gt_live": NaN, "D_gt_stale": NaN, "key_shift": NaN}
+{"episode_id": "locomo_conv-44__evidence_sessions_11", "N": 3, "j": 0, "D_lt": NaN, "D_gt_live": 0.008877470495617823, "D_gt_stale": -0.1411162800290202, "key_shift": 0.03194835872272961}
+{"episode_id": "locomo_conv-44__evidence_sessions_11", "N": 3, "j": 1, "D_lt": 0.0026942181627654938, "D_gt_live": -0.004979348543726281, "D_gt_stale": -0.1029517752372372, "key_shift": 0.018233909358968958}
+{"episode_id": "locomo_conv-44__evidence_sessions_11", "N": 3, "j": 2, "D_lt": 0.0004362392471305432, "D_gt_live": NaN, "D_gt_stale": NaN, "key_shift": NaN}
+{"episode_id": "locomo_conv-44__evidence_sessions_11-24-26", "N": 8, "j": 0, "D_lt": NaN, "D_gt_live": -0.0005996524955087988, "D_gt_stale": -0.05574688609532633, "key_shift": 0.021699270584836734}
+{"episode_id": "locomo_conv-44__evidence_sessions_11-24-26", "N": 8, "j": 1, "D_lt": 0.0017045025167463645, "D_gt_live": -0.0027904994312862494, "D_gt_stale": -0.038951998452283865, "key_shift": 0.015540859340338406}
+{"episode_id": "locomo_conv-44__evidence_sessions_11-24-26", "N": 8, "j": 2, "D_lt": 0.0013131557204131838, "D_gt_live": -0.0010189240537269884, "D_gt_stale": -0.026612961585616567, "key_shift": 0.013432754063251196}
+{"episode_id": "locomo_conv-44__evidence_sessions_11-24-26", "N": 8, "j": 3, "D_lt": 0.0011630312442057662, "D_gt_live": -0.004153935520217256, "D_gt_stale": -0.03880062532586792, "key_shift": 0.01644412273526541}
+{"episode_id": "locomo_conv-44__evidence_sessions_11-24-26", "N": 8, "j": 4, "D_lt": 0.0007349294731043565, "D_gt_live": -0.0038360287758103886, "D_gt_stale": -0.024747804290707293, "key_shift": 0.012252300634524241}
+{"episode_id": "locomo_conv-44__evidence_sessions_11-24-26", "N": 8, "j": 5, "D_lt": 0.0013263148517447699, "D_gt_live": -0.0028084039535200556, "D_gt_stale": -0.042621356947006306, "key_shift": 0.015649990911697387}
+{"episode_id": "locomo_conv-44__evidence_sessions_11-24-26", "N": 8, "j": 6, "D_lt": 0.0007586011722818623, "D_gt_live": -0.004154866374795119, "D_gt_stale": -0.03707484674387185, "key_shift": 0.014652451274741907}
+{"episode_id": "locomo_conv-44__evidence_sessions_11-24-26", "N": 8, "j": 7, "D_lt": 0.0003745487404514763, "D_gt_live": NaN, "D_gt_stale": NaN, "key_shift": NaN}
+{"episode_id": "locomo_conv-44__evidence_sessions_2-11", "N": 5, "j": 0, "D_lt": NaN, "D_gt_live": 0.0010650558727720305, "D_gt_stale": -0.07481801215162859, "key_shift": 0.02498943936370779}
+{"episode_id": "locomo_conv-44__evidence_sessions_2-11", "N": 5, "j": 1, "D_lt": 0.0015595961978427386, "D_gt_live": -0.004547594975916762, "D_gt_stale": -0.05158837607628227, "key_shift": 0.016233413597243878}
+{"episode_id": "locomo_conv-44__evidence_sessions_2-11", "N": 5, "j": 2, "D_lt": 0.0013102714820444894, "D_gt_live": -0.003836706980338722, "D_gt_stale": -0.06471341550314902, "key_shift": 0.01714353444549488}
+{"episode_id": "locomo_conv-44__evidence_sessions_2-11", "N": 5, "j": 3, "D_lt": 0.00044384315032908184, "D_gt_live": -0.00420935367587727, "D_gt_stale": -0.052368350588905654, "key_shift": 0.013917122792918235}
+{"episode_id": "locomo_conv-44__evidence_sessions_2-11", "N": 5, "j": 4, "D_lt": 0.00010850077713714379, "D_gt_live": NaN, "D_gt_stale": NaN, "key_shift": NaN}
+{"episode_id": "locomo_conv-44__evidence_sessions_10-12", "N": 4, "j": 0, "D_lt": NaN, "D_gt_live": 0.003426360176329172, "D_gt_stale": -0.10550480315336279, "key_shift": 0.026833178326342022}
+{"episode_id": "locomo_conv-44__evidence_sessions_10-12", "N": 4, "j": 1, "D_lt": 0.002303640563008469, "D_gt_live": -0.007377990660338729, "D_gt_stale": -0.07105970066813161, "key_shift": 0.015280181967682438}
+{"episode_id": "locomo_conv-44__evidence_sessions_10-12", "N": 4, "j": 2, "D_lt": 0.0014375270175198684, "D_gt_live": -0.014729628074523493, "D_gt_stale": -0.06248863078631539, "key_shift": 0.0130505496817932}
+{"episode_id": "locomo_conv-44__evidence_sessions_10-12", "N": 4, "j": 3, "D_lt": 0.00011977831693014511, "D_gt_live": NaN, "D_gt_stale": NaN, "key_shift": NaN}
+{"episode_id": "locomo_conv-44__evidence_sessions_10", "N": 2, "j": 0, "D_lt": NaN, "D_gt_live": 0.02391497696464584, "D_gt_stale": -0.3602638268549724, "key_shift": 0.04519539955072105}
+{"episode_id": "locomo_conv-44__evidence_sessions_10", "N": 2, "j": 1, "D_lt": 0.004093985830290192, "D_gt_live": NaN, "D_gt_stale": NaN, "key_shift": NaN}
+{"episode_id": "locomo_conv-44__evidence_sessions_6-10-14", "N": 5, "j": 0, "D_lt": NaN, "D_gt_live": 0.0008519577485484042, "D_gt_stale": -0.0751439836543934, "key_shift": 0.025058388924207975}
+{"episode_id": "locomo_conv-44__evidence_sessions_6-10-14", "N": 5, "j": 1, "D_lt": 0.003485091986206612, "D_gt_live": -0.002632832166221196, "D_gt_stale": -0.059922536529706104, "key_shift": 0.018289055476998328}
+{"episode_id": "locomo_conv-44__evidence_sessions_6-10-14", "N": 5, "j": 2, "D_lt": 0.001602825866359625, "D_gt_live": -0.0021574338613346566, "D_gt_stale": -0.04610905658783926, "key_shift": 0.015637791249901056}
+{"episode_id": "locomo_conv-44__evidence_sessions_6-10-14", "N": 5, "j": 3, "D_lt": 0.0012636022300844079, "D_gt_live": -0.003935308132244741, "D_gt_stale": -0.0536491047580272, "key_shift": 0.01570293406257406}
+{"episode_id": "locomo_conv-44__evidence_sessions_6-10-14", "N": 5, "j": 4, "D_lt": 0.0006241531286861612, "D_gt_live": NaN, "D_gt_stale": NaN, "key_shift": NaN}
+{"episode_id": "locomo_conv-44__evidence_sessions_14", "N": 2, "j": 0, "D_lt": NaN, "D_gt_live": 0.02246194067439855, "D_gt_stale": -0.36277731878012653, "key_shift": 0.04250468569807708}
+{"episode_id": "locomo_conv-44__evidence_sessions_14", "N": 2, "j": 1, "D_lt": 0.0034770341489896994, "D_gt_live": NaN, "D_gt_stale": NaN, "key_shift": NaN}
+{"episode_id": "locomo_conv-44__evidence_sessions_2-5", "N": 4, "j": 0, "D_lt": NaN, "D_gt_live": 0.004358620224628111, "D_gt_stale": -0.09192258803123414, "key_shift": 0.02639653400304572}
+{"episode_id": "locomo_conv-44__evidence_sessions_2-5", "N": 4, "j": 1, "D_lt": 0.0016801726019091134, "D_gt_live": -0.0034027088461748844, "D_gt_stale": -0.0694475688012699, "key_shift": 0.017771281697605446}
+{"episode_id": "locomo_conv-44__evidence_sessions_2-5", "N": 4, "j": 2, "D_lt": 0.0007689095893856357, "D_gt_live": -0.004962599931223388, "D_gt_stale": -0.07768193699570436, "key_shift": 0.015195290514384396}
+{"episode_id": "locomo_conv-44__evidence_sessions_2-5", "N": 4, "j": 3, "D_lt": 0.00022225521200943307, "D_gt_live": NaN, "D_gt_stale": NaN, "key_shift": NaN}
+{"episode_id": "locomo_conv-44__evidence_sessions_2-13", "N": 3, "j": 0, "D_lt": NaN, "D_gt_live": 0.00822647507433899, "D_gt_stale": -0.1020169830263507, "key_shift": 0.03149841293998179}
+{"episode_id": "locomo_conv-44__evidence_sessions_2-13", "N": 3, "j": 1, "D_lt": 0.002164513783824762, "D_gt_live": -0.003383221160060512, "D_gt_stale": -0.07750111297501006, "key_shift": 0.020169995972537436}
+{"episode_id": "locomo_conv-44__evidence_sessions_2-13", "N": 3, "j": 2, "D_lt": 0.0014537315050440203, "D_gt_live": NaN, "D_gt_stale": NaN, "key_shift": NaN}
+{"episode_id": "locomo_conv-44__evidence_sessions_17", "N": 2, "j": 0, "D_lt": NaN, "D_gt_live": 0.03086088154645905, "D_gt_stale": -0.38912116077553616, "key_shift": 0.039390577614540234}
+{"episode_id": "locomo_conv-44__evidence_sessions_17", "N": 2, "j": 1, "D_lt": 0.0016062011329848191, "D_gt_live": NaN, "D_gt_stale": NaN, "key_shift": NaN}
+{"episode_id": "locomo_conv-44__evidence_sessions_10-12-16-18", "N": 8, "j": 0, "D_lt": NaN, "D_gt_live": 0.0012268032366307452, "D_gt_stale": -0.06159030840868794, "key_shift": 0.02092801175162354}
+{"episode_id": "locomo_conv-44__evidence_sessions_10-12-16-18", "N": 8, "j": 1, "D_lt": 0.0016171791893819787, "D_gt_live": -0.004346695724488407, "D_gt_stale": -0.04136774697136484, "key_shift": 0.014974990341822073}
+{"episode_id": "locomo_conv-44__evidence_sessions_10-12-16-18", "N": 8, "j": 2, "D_lt": 0.001665731105758128, "D_gt_live": -0.004026581740290291, "D_gt_stale": -0.03945192617889002, "key_shift": 0.014121788533429935}
+{"episode_id": "locomo_conv-44__evidence_sessions_10-12-16-18", "N": 8, "j": 3, "D_lt": 0.0007863616920004146, "D_gt_live": -0.0028599830149491634, "D_gt_stale": -0.01696488725145731, "key_shift": 0.009772234764568566}
+{"episode_id": "locomo_conv-44__evidence_sessions_10-12-16-18", "N": 8, "j": 4, "D_lt": 0.0015114774613353144, "D_gt_live": -0.0009568709736041218, "D_gt_stale": -0.041643102409752296, "key_shift": 0.014455684130249816}
+{"episode_id": "locomo_conv-44__evidence_sessions_10-12-16-18", "N": 8, "j": 5, "D_lt": 0.00040624715781312215, "D_gt_live": -0.00373272640206207, "D_gt_stale": -0.02299161187301496, "key_shift": 0.0105811702869687}
+{"episode_id": "locomo_conv-44__evidence_sessions_10-12-16-18", "N": 8, "j": 6, "D_lt": 0.0012654460835826258, "D_gt_live": 0.0020368339718890294, "D_gt_stale": -0.044479639481481814, "key_shift": 0.013506432900612708}
+{"episode_id": "locomo_conv-44__evidence_sessions_10-12-16-18", "N": 8, "j": 7, "D_lt": 7.768486109999933e-05, "D_gt_live": NaN, "D_gt_stale": NaN, "key_shift": NaN}
+{"episode_id": "locomo_conv-44__evidence_sessions_4-19", "N": 4, "j": 0, "D_lt": NaN, "D_gt_live": 0.0010539236485715235, "D_gt_stale": -0.08007733507505828, "key_shift": 0.026887404160030808}
+{"episode_id": "locomo_conv-44__evidence_sessions_4-19", "N": 4, "j": 1, "D_lt": 0.0018578638333173192, "D_gt_live": -0.009056859646192461, "D_gt_stale": -0.05965256990959866, "key_shift": 0.019900541817150952}
+{"episode_id": "locomo_conv-44__evidence_sessions_4-19", "N": 4, "j": 2, "D_lt": 0.0014992415275382753, "D_gt_live": -0.006592099631493875, "D_gt_stale": -0.06027881944747371, "key_shift": 0.01823612808220787}
+{"episode_id": "locomo_conv-44__evidence_sessions_4-19", "N": 4, "j": 3, "D_lt": 0.0002022310914565987, "D_gt_live": NaN, "D_gt_stale": NaN, "key_shift": NaN}
+{"episode_id": "locomo_conv-44__evidence_sessions_1-2-19", "N": 6, "j": 0, "D_lt": NaN, "D_gt_live": 0.002305788582590207, "D_gt_stale": -0.06837268550947673, "key_shift": 0.023267633974319323}
+{"episode_id": "locomo_conv-44__evidence_sessions_1-2-19", "N": 6, "j": 1, "D_lt": 0.001998695742441714, "D_gt_live": -0.0014073320597839944, "D_gt_stale": -0.04228051228559654, "key_shift": 0.014903075922120479}
+{"episode_id": "locomo_conv-44__evidence_sessions_1-2-19", "N": 6, "j": 2, "D_lt": 0.002046142248557925, "D_gt_live": -0.003723119887283799, "D_gt_stale": -0.05120918977498238, "key_shift": 0.016122809782852226}
+{"episode_id": "locomo_conv-44__evidence_sessions_1-2-19", "N": 6, "j": 3, "D_lt": 0.0012522584075158605, "D_gt_live": -0.002628580639566558, "D_gt_stale": -0.039467262506838185, "key_shift": 0.01442508987383917}
+{"episode_id": "locomo_conv-44__evidence_sessions_1-2-19", "N": 6, "j": 4, "D_lt": 0.0017499887749820586, "D_gt_live": -0.004297271541328085, "D_gt_stale": -0.05580404340282841, "key_shift": 0.018967130250530317}
+{"episode_id": "locomo_conv-44__evidence_sessions_1-2-19", "N": 6, "j": 5, "D_lt": 0.0007849328735097582, "D_gt_live": NaN, "D_gt_stale": NaN, "key_shift": NaN}
+{"episode_id": "locomo_conv-44__evidence_sessions_20", "N": 3, "j": 0, "D_lt": NaN, "D_gt_live": 0.005742665638591327, "D_gt_stale": -0.1268267718231606, "key_shift": 0.031879836722509935}
+{"episode_id": "locomo_conv-44__evidence_sessions_20", "N": 3, "j": 1, "D_lt": 0.0026395348752183967, "D_gt_live": -0.00701763242013953, "D_gt_stale": -0.09020489392186115, "key_shift": 0.01882301550358534}
+{"episode_id": "locomo_conv-44__evidence_sessions_20", "N": 3, "j": 2, "D_lt": 0.0005115326663335251, "D_gt_live": NaN, "D_gt_stale": NaN, "key_shift": NaN}
+{"episode_id": "locomo_conv-44__evidence_sessions_14-24", "N": 4, "j": 0, "D_lt": NaN, "D_gt_live": 0.001312491383575698, "D_gt_stale": -0.10094286431086208, "key_shift": 0.02713438337923435}
+{"episode_id": "locomo_conv-44__evidence_sessions_14-24", "N": 4, "j": 1, "D_lt": 0.0022744198156052775, "D_gt_live": -0.003904331087110968, "D_gt_stale": -0.06844806348799531, "key_shift": 0.01738238952384563}
+{"episode_id": "locomo_conv-44__evidence_sessions_14-24", "N": 4, "j": 2, "D_lt": 0.0010585141964424838, "D_gt_live": -0.006667613571107678, "D_gt_stale": -0.06761471032299293, "key_shift": 0.015842420656554168}
+{"episode_id": "locomo_conv-44__evidence_sessions_14-24", "N": 4, "j": 3, "D_lt": 0.0003114953694416389, "D_gt_live": NaN, "D_gt_stale": NaN, "key_shift": NaN}
+{"episode_id": "locomo_conv-44__evidence_sessions_3-15-23", "N": 6, "j": 0, "D_lt": NaN, "D_gt_live": -0.002477692230693873, "D_gt_stale": -0.061992910830044726, "key_shift": 0.022448203735984863}
+{"episode_id": "locomo_conv-44__evidence_sessions_3-15-23", "N": 6, "j": 1, "D_lt": 0.0020405303503436834, "D_gt_live": -0.0036172286405544984, "D_gt_stale": -0.045410654244204984, "key_shift": 0.015168252512012259}
+{"episode_id": "locomo_conv-44__evidence_sessions_3-15-23", "N": 6, "j": 2, "D_lt": 0.0016602503795273282, "D_gt_live": -0.0038423923211712654, "D_gt_stale": -0.04742283663384202, "key_shift": 0.01652150187874213}
+{"episode_id": "locomo_conv-44__evidence_sessions_3-15-23", "N": 6, "j": 3, "D_lt": 0.0008326634559770266, "D_gt_live": -0.004061464884159205, "D_gt_stale": -0.023510014916382604, "key_shift": 0.011669872490529087}
+{"episode_id": "locomo_conv-44__evidence_sessions_3-15-23", "N": 6, "j": 4, "D_lt": 0.0011491537464878299, "D_gt_live": -0.0032895530477782264, "D_gt_stale": -0.04889855475162985, "key_shift": 0.01642434087989386}
+{"episode_id": "locomo_conv-44__evidence_sessions_3-15-23", "N": 6, "j": 5, "D_lt": -3.728171732908514e-06, "D_gt_live": NaN, "D_gt_stale": NaN, "key_shift": NaN}
+{
+ "arm": "K4_CL_cons",
+ "seed": 2,
+ "n_episodes": 29,
+ "n_deletions": 124,
+ "D_lt": {
+  "mean": 0.0019128898211494276,
+  "ci95": [
+   0.0015756884003355974,
+   0.0022997828804998855
+  ]
+ },
+ "D_gt_live": {
+  "mean": 0.00604207867078685,
+  "ci95": [
+   0.0019385164929535072,
+   0.010590568738751069
+  ]
+ },
+ "D_gt_stale": {
+  "mean": -0.16093204588664486,
+  "ci95": [
+   -0.21349548743266464,
+   -0.11324130763676729
+  ]
+ },
+ "key_shift": {
+  "mean": 0.026645602337504095,
+  "ci95": [
+   0.022694375146385552,
+   0.030882361715589546
+  ]
+ },
+ "G2c_b_prime_passed": true
+}

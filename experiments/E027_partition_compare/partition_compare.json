@@ -1,0 +1,63 @@
+{
+ "blocks": [
+  3,
+  7,
+  11,
+  15,
+  19,
+  23,
+  27,
+  31
+ ],
+ "note": "\u5339\u914d\u4f59\u5f26 \u2248 1 \u8868\u793a\u540c\u4e00\u5212\u5206\uff08\u4ec5\u5e93\u7f16\u53f7\u4e0d\u540c\uff09\uff1b\u8d8a\u4f4e\u8868\u793a\u5212\u5206\u8d8a\u4e0d\u540c\u3002",
+ "comparisons": {
+  "CL_abs_s0 vs CL_orig_s0": {
+   "mean_over_layers": 0.9830286726355553,
+   "min_over_layers": 0.8913419246673584
+  },
+  "CL_abs_s1 vs CL_orig_s1": {
+   "mean_over_layers": 0.9830286875367165,
+   "min_over_layers": 0.8913419842720032
+  },
+  "CL_abs_s2 vs CL_orig_s2": {
+   "mean_over_layers": 0.9830287098884583,
+   "min_over_layers": 0.891342043876648
+  },
+  "CL_abs_s0 vs CL_abs_s1": {
+   "mean_over_layers": 0.9999999850988388,
+   "min_over_layers": 0.9999996423721313
+  },
+  "CL_abs_s0 vs CL_abs_s2": {
+   "mean_over_layers": 0.9999999552965164,
+   "min_over_layers": 0.9999996423721313
+  },
+  "CL_abs_s1 vs CL_abs_s2": {
+   "mean_over_layers": 0.999999962747097,
+   "min_over_layers": 0.9999996423721313
+  },
+  "RND_abs_s0 vs RND_abs_s1": {
+   "mean_over_layers": 0.09677915088832378,
+   "min_over_layers": -0.01695840060710907
+  },
+  "RND_abs_s0 vs RND_abs_s2": {
+   "mean_over_layers": 0.0666827792301774,
+   "min_over_layers": -0.059888530522584915
+  },
+  "RND_abs_s1 vs RND_abs_s2": {
+   "mean_over_layers": 0.028594621224328876,
+   "min_over_layers": -0.023775426670908928
+  },
+  "CL_abs_s0 vs RND_abs_s0": {
+   "mean_over_layers": 0.030163159361109138,
+   "min_over_layers": -0.09640917181968689
+  },
+  "CL_abs_s1 vs RND_abs_s1": {
+   "mean_over_layers": 0.06832745159044862,
+   "min_over_layers": -0.09672188758850098
+  },
+  "CL_abs_s2 vs RND_abs_s2": {
+   "mean_over_layers": 0.033385680813807994,
+   "min_over_layers": -0.10355569422245026
+  }
+ }
+}

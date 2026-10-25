@@ -1,0 +1,1118 @@
+[
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_1",
+  "N": 2,
+  "j": 0,
+  "D_lt": NaN,
+  "D_gt_live": 0.011584046624699362,
+  "D_gt_stale": -0.338854000687969,
+  "key_shift": 0.007124423980712891
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_1",
+  "N": 2,
+  "j": 1,
+  "D_lt": 0.0013020433018967603,
+  "D_gt_live": NaN,
+  "D_gt_stale": NaN,
+  "key_shift": NaN
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_13-19-23-25",
+  "N": 6,
+  "j": 0,
+  "D_lt": NaN,
+  "D_gt_live": -0.00550809375073027,
+  "D_gt_stale": -0.04597309706668586,
+  "key_shift": 0.004404473304748535
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_13-19-23-25",
+  "N": 6,
+  "j": 1,
+  "D_lt": -0.0006111298540721899,
+  "D_gt_live": -0.0038413740052143375,
+  "D_gt_stale": -0.025433055723259268,
+  "key_shift": 0.0027417168021202087
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_13-19-23-25",
+  "N": 6,
+  "j": 2,
+  "D_lt": -0.0005986895504501155,
+  "D_gt_live": -0.0018107994283781774,
+  "D_gt_stale": -0.014850009643485818,
+  "key_shift": 0.0021601865688959756
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_13-19-23-25",
+  "N": 6,
+  "j": 3,
+  "D_lt": -0.0015928341474553687,
+  "D_gt_live": -0.0035837667952471897,
+  "D_gt_stale": -0.020518465549143217,
+  "key_shift": 0.0025907568633556366
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_13-19-23-25",
+  "N": 6,
+  "j": 4,
+  "D_lt": -0.001406541599689476,
+  "D_gt_live": -0.0029476171115370153,
+  "D_gt_stale": -0.015883098649312588,
+  "key_shift": 0.0023204684257507324
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_13-19-23-25",
+  "N": 6,
+  "j": 5,
+  "D_lt": -0.0024344541974849363,
+  "D_gt_live": NaN,
+  "D_gt_stale": NaN,
+  "key_shift": NaN
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27",
+  "N": 11,
+  "j": 0,
+  "D_lt": NaN,
+  "D_gt_live": -0.0042589928263717216,
+  "D_gt_stale": -0.02490625253617278,
+  "key_shift": 0.0033850312232971192
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27",
+  "N": 11,
+  "j": 1,
+  "D_lt": -0.0004502040214364733,
+  "D_gt_live": -0.0028124710266559504,
+  "D_gt_stale": -0.013050075565244327,
+  "key_shift": 0.0022891792986128065
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27",
+  "N": 11,
+  "j": 2,
+  "D_lt": -0.0002946824025394923,
+  "D_gt_live": -0.0015351253604407589,
+  "D_gt_stale": -0.013387631797536478,
+  "key_shift": 0.0023999009281396866
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27",
+  "N": 11,
+  "j": 3,
+  "D_lt": -0.0004742312468344334,
+  "D_gt_live": -0.0018929760926244305,
+  "D_gt_stale": -0.013130756636785455,
+  "key_shift": 0.0025176661355154856
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27",
+  "N": 11,
+  "j": 4,
+  "D_lt": -0.0006328198511914296,
+  "D_gt_live": -0.001426067605630336,
+  "D_gt_stale": -0.013441372574300467,
+  "key_shift": 0.002502282460530599
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27",
+  "N": 11,
+  "j": 5,
+  "D_lt": -0.0009512574055642764,
+  "D_gt_live": -0.00037712756313921234,
+  "D_gt_stale": -0.01847821925947677,
+  "key_shift": 0.0030525922775268555
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27",
+  "N": 11,
+  "j": 6,
+  "D_lt": -0.0008848309628926391,
+  "D_gt_live": -0.0021537212063382494,
+  "D_gt_stale": -0.012955372884821709,
+  "key_shift": 0.0025149285793304443
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27",
+  "N": 11,
+  "j": 7,
+  "D_lt": -0.000746234797465479,
+  "D_gt_live": -0.0028377800012368746,
+  "D_gt_stale": -0.009732863623124421,
+  "key_shift": 0.002057234446207682
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27",
+  "N": 11,
+  "j": 8,
+  "D_lt": -0.001001926566929115,
+  "D_gt_live": -0.000942629422773511,
+  "D_gt_stale": -0.013956478949724682,
+  "key_shift": 0.0025592446327209473
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27",
+  "N": 11,
+  "j": 9,
+  "D_lt": -0.0013846277633202675,
+  "D_gt_live": -0.004265563960604735,
+  "D_gt_stale": -0.014161197370258671,
+  "key_shift": 0.0020604729652404785
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-4-6-13-23-25-27",
+  "N": 11,
+  "j": 10,
+  "D_lt": 5.639134509527466e-06,
+  "D_gt_live": NaN,
+  "D_gt_stale": NaN,
+  "key_shift": NaN
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3",
+  "N": 2,
+  "j": 0,
+  "D_lt": NaN,
+  "D_gt_live": 0.001885976857949223,
+  "D_gt_stale": -0.28117506882363585,
+  "key_shift": 0.007758140563964844
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3",
+  "N": 2,
+  "j": 1,
+  "D_lt": 0.0008667346513308027,
+  "D_gt_live": NaN,
+  "D_gt_stale": NaN,
+  "key_shift": NaN
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_4",
+  "N": 2,
+  "j": 0,
+  "D_lt": NaN,
+  "D_gt_live": -0.004571128929875434,
+  "D_gt_stale": -0.2924905973924141,
+  "key_shift": 0.007805347442626953
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_4",
+  "N": 2,
+  "j": 1,
+  "D_lt": -0.00021788346739404219,
+  "D_gt_live": NaN,
+  "D_gt_stale": NaN,
+  "key_shift": NaN
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_2",
+  "N": 2,
+  "j": 0,
+  "D_lt": NaN,
+  "D_gt_live": 0.0037073179208109153,
+  "D_gt_stale": -0.3110163917894423,
+  "key_shift": 0.007757425308227539
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_2",
+  "N": 2,
+  "j": 1,
+  "D_lt": 0.0005073272882267776,
+  "D_gt_live": NaN,
+  "D_gt_stale": NaN,
+  "key_shift": NaN
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_1-2",
+  "N": 4,
+  "j": 0,
+  "D_lt": NaN,
+  "D_gt_live": -0.006694392099760564,
+  "D_gt_stale": -0.0752108707596945,
+  "key_shift": 0.004709402720133464
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_1-2",
+  "N": 4,
+  "j": 1,
+  "D_lt": 0.0003642477518506215,
+  "D_gt_live": -0.00335120335466621,
+  "D_gt_stale": -0.0292654923149408,
+  "key_shift": 0.002333343029022217
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_1-2",
+  "N": 4,
+  "j": 2,
+  "D_lt": -0.0025415228067535156,
+  "D_gt_live": -0.008910145923405999,
+  "D_gt_stale": -0.0552935004172308,
+  "key_shift": 0.0028662681579589844
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_1-2",
+  "N": 4,
+  "j": 3,
+  "D_lt": -0.00231034632362385,
+  "D_gt_live": NaN,
+  "D_gt_stale": NaN,
+  "key_shift": NaN
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_6-10-14-16-27",
+  "N": 9,
+  "j": 0,
+  "D_lt": NaN,
+  "D_gt_live": -0.004011508125473351,
+  "D_gt_stale": -0.03572517490550309,
+  "key_shift": 0.0036550499498844147
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_6-10-14-16-27",
+  "N": 9,
+  "j": 1,
+  "D_lt": -0.0005190294843623322,
+  "D_gt_live": -0.003008358933078048,
+  "D_gt_stale": -0.02239285817283229,
+  "key_shift": 0.00266140273639134
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_6-10-14-16-27",
+  "N": 9,
+  "j": 2,
+  "D_lt": -0.000703704796714888,
+  "D_gt_live": -0.003053017152660986,
+  "D_gt_stale": -0.015205647637954864,
+  "key_shift": 0.002254347006479899
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_6-10-14-16-27",
+  "N": 9,
+  "j": 3,
+  "D_lt": -0.0013895554434198247,
+  "D_gt_live": -0.0034949920491600395,
+  "D_gt_stale": -0.016347558585045864,
+  "key_shift": 0.0022664666175842285
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_6-10-14-16-27",
+  "N": 9,
+  "j": 4,
+  "D_lt": -0.000873309149020729,
+  "D_gt_live": -0.0022892052482721414,
+  "D_gt_stale": -0.012299903491769903,
+  "key_shift": 0.0019535720348358154
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_6-10-14-16-27",
+  "N": 9,
+  "j": 5,
+  "D_lt": -0.0014238679356238793,
+  "D_gt_live": -0.004279956659628252,
+  "D_gt_stale": -0.013551827174404138,
+  "key_shift": 0.0020841360092163086
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_6-10-14-16-27",
+  "N": 9,
+  "j": 6,
+  "D_lt": -0.00019489267254520679,
+  "D_gt_live": -0.002489280885697387,
+  "D_gt_stale": -0.0041269040548043145,
+  "key_shift": 0.0010911226272583008
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_6-10-14-16-27",
+  "N": 9,
+  "j": 7,
+  "D_lt": -0.002571789365484221,
+  "D_gt_live": -0.004918453363933373,
+  "D_gt_stale": -0.016373925786315913,
+  "key_shift": 0.0020492076873779297
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_6-10-14-16-27",
+  "N": 9,
+  "j": 8,
+  "D_lt": -0.00016893261474849874,
+  "D_gt_live": NaN,
+  "D_gt_stale": NaN,
+  "key_shift": NaN
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_8",
+  "N": 2,
+  "j": 0,
+  "D_lt": NaN,
+  "D_gt_live": 0.003965201569656962,
+  "D_gt_stale": -0.32833007159326877,
+  "key_shift": 0.007818222045898438
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_8",
+  "N": 2,
+  "j": 1,
+  "D_lt": 0.0007534953693763002,
+  "D_gt_live": NaN,
+  "D_gt_stale": NaN,
+  "key_shift": NaN
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_8-14-17",
+  "N": 6,
+  "j": 0,
+  "D_lt": NaN,
+  "D_gt_live": -0.008021893878758646,
+  "D_gt_stale": -0.048369673778475605,
+  "key_shift": 0.004253357276320457
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_8-14-17",
+  "N": 6,
+  "j": 1,
+  "D_lt": 0.00013997685330346954,
+  "D_gt_live": -0.0043265809292835355,
+  "D_gt_stale": -0.01905199972893415,
+  "key_shift": 0.0023417100310325623
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_8-14-17",
+  "N": 6,
+  "j": 2,
+  "D_lt": -0.0022020305409777285,
+  "D_gt_live": -0.004282334970538056,
+  "D_gt_stale": -0.027641342710291023,
+  "key_shift": 0.0025470852851867676
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_8-14-17",
+  "N": 6,
+  "j": 3,
+  "D_lt": -0.001247301544765785,
+  "D_gt_live": -0.0025172057013936877,
+  "D_gt_stale": -0.02011601641475219,
+  "key_shift": 0.002154231071472168
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_8-14-17",
+  "N": 6,
+  "j": 4,
+  "D_lt": -0.0027328139300043797,
+  "D_gt_live": -0.006705813719412479,
+  "D_gt_stale": -0.022432527471654584,
+  "key_shift": 0.0020449161529541016
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_8-14-17",
+  "N": 6,
+  "j": 5,
+  "D_lt": -0.00034861796573066873,
+  "D_gt_live": NaN,
+  "D_gt_stale": NaN,
+  "key_shift": NaN
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_9",
+  "N": 2,
+  "j": 0,
+  "D_lt": NaN,
+  "D_gt_live": 0.002761976878623229,
+  "D_gt_stale": -0.29418727090544083,
+  "key_shift": 0.007767975330352783
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_9",
+  "N": 2,
+  "j": 1,
+  "D_lt": 0.0006770762816755704,
+  "D_gt_live": NaN,
+  "D_gt_stale": NaN,
+  "key_shift": NaN
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-9",
+  "N": 4,
+  "j": 0,
+  "D_lt": NaN,
+  "D_gt_live": -0.007137848475222253,
+  "D_gt_stale": -0.06653191138873966,
+  "key_shift": 0.0049254099527994795
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-9",
+  "N": 4,
+  "j": 1,
+  "D_lt": 0.0003663067295569533,
+  "D_gt_live": -0.006453858490209408,
+  "D_gt_stale": -0.03594785910103321,
+  "key_shift": 0.0028757452964782715
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-9",
+  "N": 4,
+  "j": 2,
+  "D_lt": -0.0023274885484838026,
+  "D_gt_live": -0.005667210153742941,
+  "D_gt_stale": -0.03928873446692238,
+  "key_shift": 0.0028171539306640625
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-9",
+  "N": 4,
+  "j": 3,
+  "D_lt": -0.002566506333082641,
+  "D_gt_live": NaN,
+  "D_gt_stale": NaN,
+  "key_shift": NaN
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_7-10",
+  "N": 3,
+  "j": 0,
+  "D_lt": NaN,
+  "D_gt_live": -0.011722921393071961,
+  "D_gt_stale": -0.083477046930796,
+  "key_shift": 0.005860090255737305
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_7-10",
+  "N": 3,
+  "j": 1,
+  "D_lt": -0.00012818470413855643,
+  "D_gt_live": -0.005311991875855293,
+  "D_gt_stale": -0.07521808964495247,
+  "key_shift": 0.003455042839050293
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_7-10",
+  "N": 3,
+  "j": 2,
+  "D_lt": -0.002295116022748789,
+  "D_gt_live": NaN,
+  "D_gt_stale": NaN,
+  "key_shift": NaN
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_11",
+  "N": 3,
+  "j": 0,
+  "D_lt": NaN,
+  "D_gt_live": -0.008133644272319718,
+  "D_gt_stale": -0.10026610643496325,
+  "key_shift": 0.005461454391479492
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_11",
+  "N": 3,
+  "j": 1,
+  "D_lt": -6.150881440569744e-05,
+  "D_gt_live": -0.01866321751428124,
+  "D_gt_stale": -0.05692463223781452,
+  "key_shift": 0.003223896026611328
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_11",
+  "N": 3,
+  "j": 2,
+  "D_lt": -0.0011882827491165315,
+  "D_gt_live": NaN,
+  "D_gt_stale": NaN,
+  "key_shift": NaN
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_11-24-26",
+  "N": 8,
+  "j": 0,
+  "D_lt": NaN,
+  "D_gt_live": -0.006221232754245132,
+  "D_gt_stale": -0.034525167171302,
+  "key_shift": 0.0037069437759263174
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_11-24-26",
+  "N": 8,
+  "j": 1,
+  "D_lt": -0.000538148415125006,
+  "D_gt_live": -0.005334251905178315,
+  "D_gt_stale": -0.016963797284321458,
+  "key_shift": 0.002398959050575892
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_11-24-26",
+  "N": 8,
+  "j": 2,
+  "D_lt": -0.0002575334772054183,
+  "D_gt_live": -0.0015391870385015106,
+  "D_gt_stale": -0.007574247413792113,
+  "key_shift": 0.0015304498374462128
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_11-24-26",
+  "N": 8,
+  "j": 3,
+  "D_lt": -0.0011125438966690382,
+  "D_gt_live": -0.00212064283755109,
+  "D_gt_stale": -0.017801763979836932,
+  "key_shift": 0.0025079846382141113
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_11-24-26",
+  "N": 8,
+  "j": 4,
+  "D_lt": -0.00030350760227695894,
+  "D_gt_live": -0.0024698384428961293,
+  "D_gt_stale": -0.006142424996651667,
+  "key_shift": 0.0015260974566141765
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_11-24-26",
+  "N": 8,
+  "j": 5,
+  "D_lt": -0.0017186257454800957,
+  "D_gt_live": 0.00016986688857795196,
+  "D_gt_stale": -0.019694641944171365,
+  "key_shift": 0.0024576187133789062
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_11-24-26",
+  "N": 8,
+  "j": 6,
+  "D_lt": -0.0015342577161436461,
+  "D_gt_live": -0.002846857330712882,
+  "D_gt_stale": -0.01716105596064299,
+  "key_shift": 0.0022957324981689453
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_11-24-26",
+  "N": 8,
+  "j": 7,
+  "D_lt": -0.0012729041905468832,
+  "D_gt_live": NaN,
+  "D_gt_stale": NaN,
+  "key_shift": NaN
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_2-11",
+  "N": 5,
+  "j": 0,
+  "D_lt": NaN,
+  "D_gt_live": -0.006730368072505655,
+  "D_gt_stale": -0.057580406897474345,
+  "key_shift": 0.00441327691078186
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_2-11",
+  "N": 5,
+  "j": 1,
+  "D_lt": -4.434634996319797e-05,
+  "D_gt_live": -0.0052985205475296615,
+  "D_gt_stale": -0.026458508431705607,
+  "key_shift": 0.0027440388997395835
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_2-11",
+  "N": 5,
+  "j": 2,
+  "D_lt": -0.002457794466873109,
+  "D_gt_live": -0.004580554233555856,
+  "D_gt_stale": -0.03571360332286039,
+  "key_shift": 0.002783622592687607
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_2-11",
+  "N": 5,
+  "j": 3,
+  "D_lt": -0.0023058670756976505,
+  "D_gt_live": -0.003981020489659537,
+  "D_gt_stale": -0.026174273005515225,
+  "key_shift": 0.002192974090576172
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_2-11",
+  "N": 5,
+  "j": 4,
+  "D_lt": -0.000797583311161032,
+  "D_gt_live": NaN,
+  "D_gt_stale": NaN,
+  "key_shift": NaN
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_10-12",
+  "N": 4,
+  "j": 0,
+  "D_lt": NaN,
+  "D_gt_live": -0.006499133829358479,
+  "D_gt_stale": -0.07301722357355407,
+  "key_shift": 0.004644234975179036
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_10-12",
+  "N": 4,
+  "j": 1,
+  "D_lt": -0.0004757581118189913,
+  "D_gt_live": -0.01050127888133906,
+  "D_gt_stale": -0.040724521353524445,
+  "key_shift": 0.0028627216815948486
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_10-12",
+  "N": 4,
+  "j": 2,
+  "D_lt": -0.0034480837985702006,
+  "D_gt_live": -0.010281864891622527,
+  "D_gt_stale": -0.03728030949263661,
+  "key_shift": 0.0019326210021972656
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_10-12",
+  "N": 4,
+  "j": 3,
+  "D_lt": -1.7313386272014657e-05,
+  "D_gt_live": NaN,
+  "D_gt_stale": NaN,
+  "key_shift": NaN
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_10",
+  "N": 2,
+  "j": 0,
+  "D_lt": NaN,
+  "D_gt_live": 0.0046260952460130955,
+  "D_gt_stale": -0.2889124680710321,
+  "key_shift": 0.007400140166282654
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_10",
+  "N": 2,
+  "j": 1,
+  "D_lt": 1.719152826884507e-05,
+  "D_gt_live": NaN,
+  "D_gt_stale": NaN,
+  "key_shift": NaN
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_6-10-14",
+  "N": 5,
+  "j": 0,
+  "D_lt": NaN,
+  "D_gt_live": -0.005864743358351049,
+  "D_gt_stale": -0.05599207702102488,
+  "key_shift": 0.0046172961592674255
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_6-10-14",
+  "N": 5,
+  "j": 1,
+  "D_lt": -0.0004413077255760456,
+  "D_gt_live": -0.003970727164067174,
+  "D_gt_stale": -0.035981609250148074,
+  "key_shift": 0.003071943918863932
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_6-10-14",
+  "N": 5,
+  "j": 2,
+  "D_lt": -0.000992150945464565,
+  "D_gt_live": -0.004464953607453026,
+  "D_gt_stale": -0.022522373440788612,
+  "key_shift": 0.002558290958404541
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_6-10-14",
+  "N": 5,
+  "j": 3,
+  "D_lt": -0.0025245915154298673,
+  "D_gt_live": -0.005268077034291663,
+  "D_gt_stale": -0.03017233878027903,
+  "key_shift": 0.0025222301483154297
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_6-10-14",
+  "N": 5,
+  "j": 4,
+  "D_lt": -0.0017335803009999873,
+  "D_gt_live": NaN,
+  "D_gt_stale": NaN,
+  "key_shift": NaN
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_14",
+  "N": 2,
+  "j": 0,
+  "D_lt": NaN,
+  "D_gt_live": -0.002193013218624973,
+  "D_gt_stale": -0.2956537302592437,
+  "key_shift": 0.007586032152175903
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_14",
+  "N": 2,
+  "j": 1,
+  "D_lt": 0.0002927599938585823,
+  "D_gt_live": NaN,
+  "D_gt_stale": NaN,
+  "key_shift": NaN
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_2-5",
+  "N": 4,
+  "j": 0,
+  "D_lt": NaN,
+  "D_gt_live": -0.007906147157304052,
+  "D_gt_stale": -0.07069774340293862,
+  "key_shift": 0.004900197188059489
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_2-5",
+  "N": 4,
+  "j": 1,
+  "D_lt": 2.2470268992047515e-05,
+  "D_gt_live": -0.007039315926279099,
+  "D_gt_stale": -0.037224728268444085,
+  "key_shift": 0.002865910530090332
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_2-5",
+  "N": 4,
+  "j": 2,
+  "D_lt": -0.00447935720743875,
+  "D_gt_live": -0.006749936387175137,
+  "D_gt_stale": -0.04569621424055925,
+  "key_shift": 0.002592623233795166
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_2-5",
+  "N": 4,
+  "j": 3,
+  "D_lt": -0.0007037669309146363,
+  "D_gt_live": NaN,
+  "D_gt_stale": NaN,
+  "key_shift": NaN
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_2-13",
+  "N": 3,
+  "j": 0,
+  "D_lt": NaN,
+  "D_gt_live": -0.007464080141029061,
+  "D_gt_stale": -0.0875838312134411,
+  "key_shift": 0.005804657936096191
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_2-13",
+  "N": 3,
+  "j": 1,
+  "D_lt": -1.6005625880000096e-05,
+  "D_gt_live": -0.006289438158611604,
+  "D_gt_stale": -0.05239704229387743,
+  "key_shift": 0.0035833120346069336
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_2-13",
+  "N": 3,
+  "j": 2,
+  "D_lt": -0.006080941403986295,
+  "D_gt_live": NaN,
+  "D_gt_stale": NaN,
+  "key_shift": NaN
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_17",
+  "N": 2,
+  "j": 0,
+  "D_lt": NaN,
+  "D_gt_live": 0.01499057562472872,
+  "D_gt_stale": -0.3283194359500504,
+  "key_shift": 0.007057547569274902
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_17",
+  "N": 2,
+  "j": 1,
+  "D_lt": 0.0007081892377645005,
+  "D_gt_live": NaN,
+  "D_gt_stale": NaN,
+  "key_shift": NaN
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_10-12-16-18",
+  "N": 8,
+  "j": 0,
+  "D_lt": NaN,
+  "D_gt_live": -0.003926281970485247,
+  "D_gt_stale": -0.040000994900531835,
+  "key_shift": 0.0036533091749463764
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_10-12-16-18",
+  "N": 8,
+  "j": 1,
+  "D_lt": -0.0003587440410167675,
+  "D_gt_live": -0.004909789072343111,
+  "D_gt_stale": -0.01929394026246752,
+  "key_shift": 0.002418545385201772
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_10-12-16-18",
+  "N": 8,
+  "j": 2,
+  "D_lt": -0.0009455785668390781,
+  "D_gt_live": -0.0025032437209963287,
+  "D_gt_stale": -0.018143604722677197,
+  "key_shift": 0.0020778656005859377
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_10-12-16-18",
+  "N": 8,
+  "j": 3,
+  "D_lt": 7.667336779445163e-06,
+  "D_gt_live": -0.0017748094992745544,
+  "D_gt_stale": -0.003206439435167213,
+  "key_shift": 0.000900018960237503
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_10-12-16-18",
+  "N": 8,
+  "j": 4,
+  "D_lt": -0.0013107016849104314,
+  "D_gt_live": -0.003933855519975456,
+  "D_gt_stale": -0.01796679867222987,
+  "key_shift": 0.0021169185638427734
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_10-12-16-18",
+  "N": 8,
+  "j": 5,
+  "D_lt": -0.00040469302845473897,
+  "D_gt_live": -0.002232672106381728,
+  "D_gt_stale": -0.00458986722078103,
+  "key_shift": 0.0011436566710472107
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_10-12-16-18",
+  "N": 8,
+  "j": 6,
+  "D_lt": -0.00279644974301535,
+  "D_gt_live": -0.002275432603433436,
+  "D_gt_stale": -0.01912289974538317,
+  "key_shift": 0.0021413862705230713
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_10-12-16-18",
+  "N": 8,
+  "j": 7,
+  "D_lt": -0.0006702805744139363,
+  "D_gt_live": NaN,
+  "D_gt_stale": NaN,
+  "key_shift": NaN
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_4-19",
+  "N": 4,
+  "j": 0,
+  "D_lt": NaN,
+  "D_gt_live": -0.009507144710841686,
+  "D_gt_stale": -0.05826976594690044,
+  "key_shift": 0.005019545555114746
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_4-19",
+  "N": 4,
+  "j": 1,
+  "D_lt": -0.0002805905368232775,
+  "D_gt_live": -0.006007891752951688,
+  "D_gt_stale": -0.033083386139828364,
+  "key_shift": 0.0030175447463989258
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_4-19",
+  "N": 4,
+  "j": 2,
+  "D_lt": -0.002709976165162886,
+  "D_gt_live": -0.0028038390872922037,
+  "D_gt_stale": -0.039169634401221676,
+  "key_shift": 0.0027773380279541016
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_4-19",
+  "N": 4,
+  "j": 3,
+  "D_lt": -0.0019443049328634239,
+  "D_gt_live": NaN,
+  "D_gt_stale": NaN,
+  "key_shift": NaN
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_1-2-19",
+  "N": 6,
+  "j": 0,
+  "D_lt": NaN,
+  "D_gt_live": -0.005212740128101778,
+  "D_gt_stale": -0.049693708522424385,
+  "key_shift": 0.004051497124601155
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_1-2-19",
+  "N": 6,
+  "j": 1,
+  "D_lt": 0.00041431748433706783,
+  "D_gt_live": -0.0017063689779010238,
+  "D_gt_stale": -0.018082385915994814,
+  "key_shift": 0.0021857917308807373
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_1-2-19",
+  "N": 6,
+  "j": 2,
+  "D_lt": -0.0010306754214305935,
+  "D_gt_live": -0.004208020338416718,
+  "D_gt_stale": -0.02804246787927737,
+  "key_shift": 0.002688248952229818
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_1-2-19",
+  "N": 6,
+  "j": 3,
+  "D_lt": -0.0008690350082050472,
+  "D_gt_live": -0.002923524373810882,
+  "D_gt_stale": -0.017304478305842474,
+  "key_shift": 0.0020900145173072815
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_1-2-19",
+  "N": 6,
+  "j": 4,
+  "D_lt": -0.0027644587943473076,
+  "D_gt_live": -0.0037325466039939137,
+  "D_gt_stale": -0.03458976668413605,
+  "key_shift": 0.0028014183044433594
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_1-2-19",
+  "N": 6,
+  "j": 5,
+  "D_lt": -0.001689388750802112,
+  "D_gt_live": NaN,
+  "D_gt_stale": NaN,
+  "key_shift": NaN
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_20",
+  "N": 3,
+  "j": 0,
+  "D_lt": NaN,
+  "D_gt_live": -0.00817478567648866,
+  "D_gt_stale": -0.10559193901681291,
+  "key_shift": 0.005861043930053711
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_20",
+  "N": 3,
+  "j": 1,
+  "D_lt": 0.0002691115126683963,
+  "D_gt_live": -0.009320256145782357,
+  "D_gt_stale": -0.06430572612019136,
+  "key_shift": 0.003494739532470703
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_20",
+  "N": 3,
+  "j": 2,
+  "D_lt": -0.00150430220661657,
+  "D_gt_live": NaN,
+  "D_gt_stale": NaN,
+  "key_shift": NaN
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_14-24",
+  "N": 4,
+  "j": 0,
+  "D_lt": NaN,
+  "D_gt_live": -0.0099177762378622,
+  "D_gt_stale": -0.07442931916320172,
+  "key_shift": 0.00497850775718689
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_14-24",
+  "N": 4,
+  "j": 1,
+  "D_lt": 4.351917851863618e-06,
+  "D_gt_live": -0.003161338877798847,
+  "D_gt_stale": -0.04024032670033295,
+  "key_shift": 0.002843141555786133
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_14-24",
+  "N": 4,
+  "j": 2,
+  "D_lt": -0.003099350233495113,
+  "D_gt_live": -0.009028279273747608,
+  "D_gt_stale": -0.04019723318416091,
+  "key_shift": 0.0023123621940612793
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_14-24",
+  "N": 4,
+  "j": 3,
+  "D_lt": -0.000731156344902321,
+  "D_gt_live": NaN,
+  "D_gt_stale": NaN,
+  "key_shift": NaN
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-15-23",
+  "N": 6,
+  "j": 0,
+  "D_lt": NaN,
+  "D_gt_live": -0.0053193430267820755,
+  "D_gt_stale": -0.04736884306988951,
+  "key_shift": 0.004075098037719727
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-15-23",
+  "N": 6,
+  "j": 1,
+  "D_lt": 4.6325761949850275e-05,
+  "D_gt_live": -0.003994126476583065,
+  "D_gt_stale": -0.024490499096892993,
+  "key_shift": 0.0024583637714385986
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-15-23",
+  "N": 6,
+  "j": 2,
+  "D_lt": -0.0013280692015576467,
+  "D_gt_live": -0.005471009791745085,
+  "D_gt_stale": -0.028316587520110237,
+  "key_shift": 0.002778857946395874
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-15-23",
+  "N": 6,
+  "j": 3,
+  "D_lt": -6.221745668107588e-05,
+  "D_gt_live": -0.0022166148785800477,
+  "D_gt_stale": -0.005320316546860271,
+  "key_shift": 0.0012921392917633057
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-15-23",
+  "N": 6,
+  "j": 4,
+  "D_lt": -0.00264200465051298,
+  "D_gt_live": -0.004025737125311735,
+  "D_gt_stale": -0.029837077941224033,
+  "key_shift": 0.002766132354736328
+ },
+ {
+  "episode_id": "locomo_conv-44__evidence_sessions_3-15-23",
+  "N": 6,
+  "j": 5,
+  "D_lt": -0.002584552500927839,
+  "D_gt_live": NaN,
+  "D_gt_stale": NaN,
+  "key_shift": NaN
+ }
+]

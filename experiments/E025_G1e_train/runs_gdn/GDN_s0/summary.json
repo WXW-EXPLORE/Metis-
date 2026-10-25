@@ -1,0 +1,21 @@
+{
+ "arm": "GDN",
+ "seed": 0,
+ "init_val_nll": 9.4315625,
+ "final_val_nll": 2.661982421875,
+ "final_n_nonfinite": 0,
+ "trainable_params": 125925392,
+ "steps": 300,
+ "accum": 4,
+ "lr": 0.0001,
+ "lam": 0.9,
+ "n_val": 100,
+ "post_train_bank_share": [
+  NaN,
+  NaN,
+  NaN,
+  NaN
+ ],
+ "max_bank_share": NaN,
+ "elapsed_s": 1422.6579236984253
+}

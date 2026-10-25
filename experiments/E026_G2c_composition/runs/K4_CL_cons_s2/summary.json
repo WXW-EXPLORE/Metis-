@@ -1,0 +1,17 @@
+{
+ "arm": "K4_CL_cons",
+ "seed": 2,
+ "readout_den": "abs",
+ "n_episodes": 29,
+ "n_deletions": 124,
+ "G2c_a_max_err": 0.0,
+ "G2c_a_passed": true,
+ "D_mean": -0.07954695164410923,
+ "D_ci95": [
+  -0.10553595093606133,
+  -0.0559929572078831
+ ],
+ "G2c_b_passed": false,
+ "max_share_median_per_commit": 0.3257674690514573,
+ "G2c_c_passed": true
+}
