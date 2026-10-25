@@ -1,6 +1,6 @@
 # PROGRESS.md（会话交接）
 
-最后更新：2026-10-24（集成 v1 完成，待你执行 git 命令）
+最后更新：2026-10-25（已提交 89ecc7b、99996bf、b74dae7；未推送）
 
 ## 一、主线目标（锚定）
 最终目标：得出一个在相同参数与状态预算下，**优于原版 Metis 记忆（GDN）** 的记忆机制设计。衡量对象是下游任务（LoCoMo 问答的答案 NLL），不是中间指标。
@@ -42,7 +42,7 @@
 1a. **(b) 解码缺口待决**：残差 v − M_v κ_prev 依赖前驱键，读出无法精确还原。需在实现慢层前在 (b1) 读出端补偿 与 (b2) 存前驱键 之间选择（`docs/design_integrated.md` §3）。
 1b. **模型级检验（需 GPU）**：默认开关下，集成路径与 `install_rls` 的模型输出逐位一致（设计 §5 第 5 项，未做）。
 2. **诊断 RLS 相对 GDN 的差距原因**（测试性，先不改判据）：例如调 λ、步长、学习率预算；这一步需要单独登记。
-3. 决定是否提交当前改动（需要用户确认 git 操作与推送权限）。本轮新增的 `src/holistic/integrated.py`、`tests/test_integrated.py`、`docs/design_integrated.md` 改动也在此列。
+3. [已完成] 提交改动，分支 `feature/control-theory-memory`（已快进到 `main` 的 `f580739`）。新增提交 `89ecc7b`（文档）、`99996bf`（代码与测试）、`b74dae7`（实验记录）。**未推送**：远程 feature 分支仍停在 `09a050b`，推送需你确认。测试：`PYTHONPATH=src python -m unittest discover -s tests`，98 项通过（约 100 秒）。
 
 ## 七、文件索引
 - 主线锚点：`docs/mainline_anchor.md`；主线记录：`docs/MASTER_PLAN.md`（§0 为提议章节，§8 修改记录）。
