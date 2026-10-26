@@ -1,6 +1,6 @@
 # PROGRESS.md（会话交接）
 
-最后更新：2026-10-25（已提交 89ecc7b、99996bf、b74dae7；未推送）
+最后更新：2026-10-25（A 解码 b1 初步采用；B pilot 完成，未提交）
 
 ## 一、主线目标（锚定）
 最终目标：得出一个在相同参数与状态预算下，**优于原版 Metis 记忆（GDN）** 的记忆机制设计。衡量对象是下游任务（LoCoMo 问答的答案 NLL），不是中间指标。
@@ -39,9 +39,9 @@
 
 ## 六、下一步（具体动作，待用户确认）
 1. **[已完成] 接口选 (b)**；集成 v1（`src/holistic/integrated.py`，`tests/test_integrated.py` 7 项通过，全量 98 项通过）。
-1a. **(b) 解码缺口待决**：残差 v − M_v κ_prev 依赖前驱键，读出无法精确还原。需在实现慢层前在 (b1) 读出端补偿 与 (b2) 存前驱键 之间选择（`docs/design_integrated.md` §3）。
+1a. **[已完成，初步] 解码缺口（E030，`docs/design_E030_decode.md` §8）**：采用 (b1) 读出端补偿。载体级、年龄 0、tune 划分下，所有层 b1 − b0 ≤ 0.028（判据 0.05）；无补偿不可用（N23）；(b2) 只好 0.00–0.03 却需 2× 状态。**未做**：模型级检验（1b）与遗忘后的解码。
 1b. **模型级检验（需 GPU）**：默认开关下，集成路径与 `install_rls` 的模型输出逐位一致（设计 §5 第 5 项，未做）。
-2. **诊断 RLS 相对 GDN 的差距原因**（测试性，先不改判据）：例如调 λ、步长、学习率预算；这一步需要单独登记。
+2. **[已完成，pilot] 诊断差距（E029，`experiments/E029_gap_diagnosis/README.md`，N24）**：λ=0.99 与 lr=3e-4 均无效（d 区间含 0）；GDN 基线同向（d=−0.345）。新观察：RLS 初始 NLL 9.43 对 GDN 7.28，提示结构不匹配（猜想，未检验）。**E031（已完成，不训练）**：无记忆地板 6.05；GDN 初始 7.28、RLS 初始 9.43，两臂的记忆分支都有害（比值 29–38 倍）。S-R 缩放检验无效（推测 `mem_norm` 抵消）。详见 `docs/design_E031_init_mismatch.md` §6。**待你决定**：mem_norm_init 对两臂同时降低（需登记），或先核实 mem_norm 位置。
 3. [已完成] 提交改动，分支 `feature/control-theory-memory`（已快进到 `main` 的 `f580739`）。新增提交 `89ecc7b`（文档）、`99996bf`（代码与测试）、`b74dae7`（实验记录）。**未推送**：远程 feature 分支仍停在 `09a050b`，推送需你确认。测试：`PYTHONPATH=src python -m unittest discover -s tests`，98 项通过（约 100 秒）。
 
 ## 七、文件索引
@@ -54,3 +54,5 @@
 - 训练实验：`experiments/E025_G1e_train/`（`runs_abs/` 为 K1/K4；`runs_gdn/` 为 GDN 基线）。
 - 设计文档：`docs/design_*.md`（R0、R0b、R0c、R1、step4、step5、step5b、step5c、downstream、integrated 等）。
 - 模型与数据：`/hy-tmp/metis-models/Metis-4B`；`eval/data/memqa/`（LoCoMo，不入库）。
+
+**2026-10-26 新发现（E031b / E032，需你决定）**：`reinit_memory` 把 mem_norm 权重设为 1.0，而 Qwen3_5RMSNorm 的有效缩放是 1+weight，因此 E013–E031 全部使用缩放 2.0。缩放 1.0 时初始有害大幅减小（GDN −0.31 超出地板，RLS +0.15），两臂初始差距由 2.15 缩小到 0.46。训练后的差距是否随之改变尚未检验。E032：集成路径与 install_rls 损失逐位一致（✅ 设计 §5 第 5 项）。详见 `docs/design_E031_init_mismatch.md` §7–§8。

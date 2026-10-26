@@ -1,0 +1,20 @@
+Loading checkpoint: /hy-tmp/metis-models/Metis-4B
+Device: cuda; dtype: torch.bfloat16
+Current Triton version 3.1.0 is below the recommended 3.2.0 version. Errors may occur and these issues will not be fixed. Please consider upgrading Triton.
+Loading weights:   0%|          | 0/507 [00:00<?, ?it/s]Loading weights:  90%|█████████ | 458/507 [00:00<00:00, 4579.52it/s]Loading weights: 100%|██████████| 507/507 [00:00<00:00, 4792.08it/s]
+Loading tokenizer: /hy-tmp/metis-models/Metis-4B
+Parameters: total=4,967,375,888; trainable=4,967,375,888
+{
+ "episode_id": "locomo_conv-43__evidence_sessions_1-6-11__qa_0000",
+ "seed": 10,
+ "mem_norm_class": "Qwen3_5RMSNorm",
+ "mem_norm_scale_0p1_max_abs_diff": 0.03125,
+ "mem_norm_output_max_abs": 8.5625,
+ "loss_integrated_abs": 9.1875,
+ "loss_install_rls_abs": 9.1875,
+ "bitwise_equal_abs": true,
+ "loss_integrated_orig": 9.3125,
+ "loss_install_rls_orig": 9.3125,
+ "bitwise_equal_orig": true
+}
+EXIT=0

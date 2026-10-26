@@ -1,0 +1,21 @@
+{
+ "arm": "GDN",
+ "readout_den": "abs",
+ "read_scale": 0.0,
+ "seed": 10,
+ "n": 100,
+ "n_nonfinite": 0,
+ "nll_mean": 6.05203125,
+ "ratio_mem_over_attn": {
+  "3": {
+   "mean": 0.0,
+   "max": 0.0,
+   "n": 100
+  },
+  "31": {
+   "mean": 0.0,
+   "max": 0.0,
+   "n": 100
+  }
+ }
+}

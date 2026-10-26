@@ -1,0 +1,13 @@
+{
+ "episode_id": "locomo_conv-43__evidence_sessions_1-6-11__qa_0000",
+ "seed": 10,
+ "mem_norm_class": "Qwen3_5RMSNorm",
+ "mem_norm_scale_0p1_max_abs_diff": 0.03125,
+ "mem_norm_output_max_abs": 8.5625,
+ "loss_integrated_abs": 9.1875,
+ "loss_install_rls_abs": 9.1875,
+ "bitwise_equal_abs": true,
+ "loss_integrated_orig": 9.3125,
+ "loss_install_rls_orig": 9.3125,
+ "bitwise_equal_orig": true
+}
