@@ -1,0 +1,9 @@
+layer 3: b0 0.2802  b1 0.2909  b1naive 0.8765  b2 0.2785  comp 0.2817  b1_ok True
+layer 7: b0 0.2945  b1 0.3224  b1naive 0.7819  b2 0.2932  comp 0.3220  b1_ok True
+layer 11: b0 0.2800  b1 0.2944  b1naive 0.8175  b2 0.2776  comp 0.2848  b1_ok True
+layer 15: b0 0.3016  b1 0.3143  b1naive 0.8177  b2 0.2975  comp 0.2810  b1_ok True
+layer 19: b0 0.3987  b1 0.3940  b1naive 0.7017  b2 0.3910  comp 0.3000  b1_ok True
+layer 23: b0 0.4168  b1 0.4175  b1naive 0.6479  b2 0.4086  comp 0.3006  b1_ok True
+layer 27: b0 0.4024  b1 0.4081  b1naive 0.6167  b2 0.3964  comp 0.2843  b1_ok True
+layer 31: b0 0.3229  b1 0.3292  b1naive 0.7644  b2 0.3173  comp 0.2700  b1_ok True
+b1 adequate at all layers: True
