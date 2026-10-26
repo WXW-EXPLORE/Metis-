@@ -47,16 +47,24 @@ def _counting_route(kn, centers):
 BM._route = _counting_route
 
 
-def load_qa():
-    """按对话首次出现的顺序划分：前 5 个为 fit，其余为 test。返回 (fit_rows, test_rows)。"""
+def load_qa(pilot=False):
+    """按对话首次出现的顺序划分：前 5 个为 fit，其余为 test。返回 (fit_rows, test_rows)。
+    pilot=True（E029，见 docs/design_E029_gap_diagnosis.md）：fit 为前 4 个对话，第 5 个对话作为 pilot 评测，不读取测试集。"""
     rows = [json.loads(l) for l in open(LOCOMO, encoding="utf-8")]
     convs = list(dict.fromkeys(r["source_sample_id"] for r in rows))
-    fit_set = set(convs[:5])
+    fit_set = set(convs[:4]) if pilot else set(convs[:5])
+    eval_set = {convs[4]} if pilot else None
     out = {"fit": [], "test": []}
     for r in rows:
         ep = {"episode_id": r["instance_id"], "memory_chunks": [st["content"] for st in r["memory_steps"]],
               "question": r["question"], "answer": str(r["answer"])}
-        out["fit" if r["source_sample_id"] in fit_set else "test"].append(ep)
+        if r["source_sample_id"] in fit_set:
+            out["fit"].append(ep)
+        elif pilot:
+            if r["source_sample_id"] in eval_set:
+                out["test"].append(ep)
+        else:
+            out["test"].append(ep)
     return out["fit"], out["test"]
 
 
@@ -92,12 +100,13 @@ def main():
     ap.add_argument("--eval_every", type=int, default=100)
     ap.add_argument("--max_train_tokens", type=int, default=None)
     ap.add_argument("--readout_den", choices=["orig", "abs"], default="orig")
+    ap.add_argument("--pilot", action="store_true", help="E029：用第 5 个对话作 pilot 评测，不读测试集")
     ap.add_argument("--out", required=True)
     args = ap.parse_args()
     out = Path(args.out); out.mkdir(parents=True, exist_ok=True)
     torch.manual_seed(args.seed); random.seed(args.seed)
 
-    fit, test = load_qa()
+    fit, test = load_qa(pilot=args.pilot)
     load = argparse.Namespace(checkpoint_path=args.checkpoint_path, model_path=None, tokenizer_path=None,
                               backbone_type="qwen3_5", device="cuda", dtype="bf16")
     model, tok, dev = ri.load_model_and_tokenizer(load)

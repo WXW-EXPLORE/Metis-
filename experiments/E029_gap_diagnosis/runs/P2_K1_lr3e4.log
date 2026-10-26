@@ -1,0 +1,411 @@
+Current Triton version 3.1.0 is below the recommended 3.2.0 version. Errors may occur and these issues will not be fixed. Please consider upgrading Triton.
+Loading checkpoint: /hy-tmp/metis-models/Metis-4B
+Device: cuda; dtype: torch.bfloat16
+Loading weights:   0%|          | 0/507 [00:00<?, ?it/s]Loading weights: 100%|██████████| 507/507 [00:00<00:00, 5430.59it/s]
+Loading tokenizer: /hy-tmp/metis-models/Metis-4B
+Parameters: total=4,967,375,888; trainable=4,967,375,888
+max_train_tokens=3000: fit rows 579 -> 552
+arm=K1_full seed=10 trainable tensors=48 params=125,884,416
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (27) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (27) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (28) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (28) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (29) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (29) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (22) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (22) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (23) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (23) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (24) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (24) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (30) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (30) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (21) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (21) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (26) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (26) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (25) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (25) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (31) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (31) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+step 0 val nll=9.4302
+step 1 train nll=8.9922 gnorm=1528.000 t=188s
+step 2 train nll=8.4375 gnorm=868.000 t=214s
+step 3 train nll=8.7344 gnorm=1576.000 t=223s
+step 4 train nll=10.0703 gnorm=672.000 t=226s
+step 5 train nll=6.5391 gnorm=366.000 t=233s
+step 6 train nll=7.3672 gnorm=338.000 t=237s
+step 7 train nll=6.1758 gnorm=169.000 t=240s
+step 8 train nll=5.9062 gnorm=156.000 t=244s
+step 9 train nll=4.4961 gnorm=72.000 t=277s
+step 10 train nll=5.3438 gnorm=92.000 t=281s
+step 11 train nll=5.1602 gnorm=66.000 t=284s
+step 12 train nll=3.7910 gnorm=51.000 t=288s
+step 13 train nll=6.6016 gnorm=108.500 t=291s
+step 14 train nll=5.6211 gnorm=45.500 t=294s
+step 15 train nll=5.3750 gnorm=51.500 t=298s
+step 16 train nll=4.9688 gnorm=41.750 t=302s
+step 17 train nll=4.8672 gnorm=54.750 t=306s
+step 18 train nll=5.1719 gnorm=82.000 t=309s
+step 19 train nll=6.2812 gnorm=41.750 t=312s
+step 20 train nll=3.8320 gnorm=29.750 t=373s
+step 21 train nll=4.9844 gnorm=24.500 t=376s
+step 22 train nll=5.1172 gnorm=30.250 t=380s
+step 23 train nll=5.8359 gnorm=42.500 t=383s
+step 24 train nll=4.1758 gnorm=36.500 t=386s
+step 25 train nll=4.7031 gnorm=37.750 t=389s
+step 26 train nll=5.2188 gnorm=28.875 t=392s
+step 27 train nll=5.7930 gnorm=49.250 t=425s
+step 28 train nll=5.2656 gnorm=30.625 t=429s
+step 29 train nll=4.3164 gnorm=22.875 t=433s
+step 30 train nll=5.6680 gnorm=31.125 t=436s
+step 31 train nll=4.2246 gnorm=21.250 t=440s
+step 32 train nll=4.3965 gnorm=32.000 t=444s
+step 33 train nll=5.6914 gnorm=19.250 t=447s
+step 34 train nll=3.6797 gnorm=15.250 t=451s
+step 35 train nll=4.1289 gnorm=11.750 t=455s
+step 36 train nll=5.0391 gnorm=28.000 t=458s
+step 37 train nll=5.3438 gnorm=25.625 t=462s
+step 38 train nll=3.9902 gnorm=27.125 t=581s
+step 39 train nll=3.4043 gnorm=20.500 t=612s
+step 40 train nll=3.1348 gnorm=16.250 t=616s
+step 41 train nll=5.4473 gnorm=19.000 t=619s
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (19) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (19) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (19) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (27) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (27) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (24) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (24) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (21) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (21) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+step 42 train nll=2.9541 gnorm=34.250 t=622s
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (26) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (26) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (25) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (25) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+step 43 train nll=5.0781 gnorm=23.000 t=626s
+step 44 train nll=2.7979 gnorm=15.125 t=630s
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (30) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (30) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+step 45 train nll=3.3594 gnorm=14.312 t=632s
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (29) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (29) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+step 46 train nll=3.4023 gnorm=15.250 t=635s
+step 47 train nll=4.2568 gnorm=16.750 t=639s
+step 48 train nll=3.8359 gnorm=18.875 t=645s
+step 49 train nll=7.1484 gnorm=32.500 t=648s
+step 50 train nll=4.1523 gnorm=14.000 t=652s
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (31) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (31) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+step 51 train nll=4.5312 gnorm=16.250 t=655s
+step 52 train nll=2.8203 gnorm=7.656 t=659s
+step 53 train nll=2.8555 gnorm=8.875 t=662s
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (23) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (23) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+step 54 train nll=2.2236 gnorm=7.969 t=665s
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (28) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (28) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+step 55 train nll=4.5215 gnorm=17.250 t=669s
+step 56 train nll=4.3418 gnorm=11.500 t=672s
+step 57 train nll=4.1426 gnorm=18.500 t=675s
+step 58 train nll=4.3555 gnorm=12.062 t=679s
+step 59 train nll=3.9082 gnorm=14.062 t=682s
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (20) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (20) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+step 60 train nll=4.9922 gnorm=17.875 t=685s
+step 61 train nll=4.2031 gnorm=14.062 t=689s
+step 62 train nll=2.6641 gnorm=10.438 t=692s
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/gated_delta_rule/chunk.py:322: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (22) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+/hy-tmp/venv-metis/lib/python3.11/site-packages/fla/ops/utils/cumsum.py:397: UserWarning: Input tensor shape suggests potential format mismatch: seq_len (22) < num_heads (32). This may indicate the inputs were passed in head-first format [B, H, T, ...] when head_first=False was specified. Please verify your input tensor format matches the expected shape [B, T, H, ...].
+  warnings.warn(
+step 63 train nll=4.4277 gnorm=17.875 t=696s
+step 64 train nll=3.8730 gnorm=11.062 t=700s
+step 65 train nll=2.9941 gnorm=17.125 t=703s
+step 66 train nll=3.6797 gnorm=8.312 t=707s
+step 67 train nll=3.9336 gnorm=7.312 t=712s
+step 68 train nll=2.0254 gnorm=3.812 t=715s
+step 69 train nll=3.2852 gnorm=14.938 t=719s
+step 70 train nll=3.3945 gnorm=18.375 t=722s
+step 71 train nll=3.8027 gnorm=21.625 t=726s
+step 72 train nll=2.9648 gnorm=8.938 t=729s
+step 73 train nll=2.8691 gnorm=11.312 t=732s
+step 74 train nll=5.9883 gnorm=21.875 t=736s
+step 75 train nll=4.4297 gnorm=25.375 t=739s
+step 76 train nll=4.1562 gnorm=26.000 t=743s
+step 77 train nll=4.5332 gnorm=16.125 t=746s
+step 78 train nll=2.9648 gnorm=9.500 t=750s
+step 79 train nll=3.5410 gnorm=12.312 t=753s
+step 80 train nll=2.1787 gnorm=7.781 t=757s
+step 81 train nll=3.7109 gnorm=12.562 t=761s
+step 82 train nll=2.8867 gnorm=8.125 t=765s
+step 83 train nll=3.6953 gnorm=15.438 t=768s
+step 84 train nll=4.1543 gnorm=15.750 t=771s
+step 85 train nll=2.6299 gnorm=9.875 t=775s
+step 86 train nll=2.7969 gnorm=6.438 t=777s
+step 87 train nll=1.4570 gnorm=5.500 t=781s
+step 88 train nll=2.4307 gnorm=7.156 t=785s
+step 89 train nll=2.6016 gnorm=9.000 t=789s
+step 90 train nll=2.1992 gnorm=10.188 t=793s
+step 91 train nll=3.4961 gnorm=10.500 t=797s
+step 92 train nll=3.4707 gnorm=15.000 t=801s
+step 93 train nll=6.0703 gnorm=19.500 t=805s
+step 94 train nll=3.2686 gnorm=12.750 t=808s
+step 95 train nll=1.9199 gnorm=6.750 t=811s
+step 96 train nll=4.5859 gnorm=13.562 t=815s
+step 97 train nll=5.1172 gnorm=26.375 t=818s
+step 98 train nll=2.6484 gnorm=9.250 t=821s
+step 99 train nll=3.3750 gnorm=11.500 t=825s
+step 100 val nll=3.4693
+step 100 train nll=3.5000 gnorm=12.750 t=829s
+step 101 train nll=3.2500 gnorm=7.062 t=910s
+step 102 train nll=2.9883 gnorm=8.750 t=914s
+step 103 train nll=3.1289 gnorm=11.500 t=917s
+step 104 train nll=2.9727 gnorm=10.312 t=921s
+step 105 train nll=3.7227 gnorm=7.844 t=925s
+step 106 train nll=3.7852 gnorm=9.375 t=928s
+step 107 train nll=3.3594 gnorm=8.062 t=932s
+step 108 train nll=2.5586 gnorm=6.469 t=936s
+step 109 train nll=3.3750 gnorm=10.625 t=939s
+step 110 train nll=3.7148 gnorm=17.500 t=943s
+step 111 train nll=2.2617 gnorm=6.969 t=946s
+step 112 train nll=3.8955 gnorm=10.125 t=949s
+step 113 train nll=3.5547 gnorm=8.125 t=953s
+step 114 train nll=2.4668 gnorm=4.594 t=957s
+step 115 train nll=1.8066 gnorm=6.781 t=960s
+step 116 train nll=3.0762 gnorm=8.062 t=964s
+step 117 train nll=2.2461 gnorm=5.125 t=968s
+step 118 train nll=3.1016 gnorm=11.875 t=971s
+step 119 train nll=3.3535 gnorm=10.375 t=975s
+step 120 train nll=2.8633 gnorm=7.281 t=979s
+step 121 train nll=2.5605 gnorm=9.875 t=981s
+step 122 train nll=2.2334 gnorm=5.719 t=984s
+step 123 train nll=1.4336 gnorm=6.219 t=987s
+step 124 train nll=3.1055 gnorm=8.938 t=991s
+step 125 train nll=1.9277 gnorm=6.125 t=994s
+step 126 train nll=1.7822 gnorm=4.875 t=996s
+step 127 train nll=2.5400 gnorm=10.750 t=1000s
+step 128 train nll=3.1680 gnorm=6.312 t=1003s
+step 129 train nll=2.1465 gnorm=6.562 t=1006s
+step 130 train nll=2.1289 gnorm=5.219 t=1010s
+step 131 train nll=1.7168 gnorm=6.688 t=1013s
+step 132 train nll=3.1074 gnorm=5.594 t=1017s
+step 133 train nll=3.3789 gnorm=8.250 t=1021s
+step 134 train nll=3.0742 gnorm=7.188 t=1026s
+step 135 train nll=1.6094 gnorm=5.875 t=1029s
+step 136 train nll=4.3750 gnorm=11.562 t=1032s
+step 137 train nll=3.1343 gnorm=10.000 t=1037s
+step 138 train nll=1.8301 gnorm=4.156 t=1041s
+step 139 train nll=1.6436 gnorm=3.750 t=1045s
+step 140 train nll=1.3506 gnorm=3.328 t=1049s
+step 141 train nll=1.6855 gnorm=5.031 t=1054s
+step 142 train nll=2.2095 gnorm=5.469 t=1060s
+step 143 train nll=1.1543 gnorm=4.750 t=1063s
+step 144 train nll=2.0740 gnorm=6.500 t=1067s
+step 145 train nll=1.1875 gnorm=4.531 t=1070s
+step 146 train nll=1.2500 gnorm=7.969 t=1072s
+step 147 train nll=1.5332 gnorm=5.531 t=1076s
+step 148 train nll=2.9219 gnorm=8.812 t=1078s
+step 149 train nll=1.0166 gnorm=7.250 t=1081s
+step 150 train nll=1.9189 gnorm=9.375 t=1084s
+step 151 train nll=2.1211 gnorm=10.438 t=1087s
+step 152 train nll=1.7529 gnorm=6.469 t=1091s
+step 153 train nll=1.8486 gnorm=8.062 t=1094s
+step 154 train nll=2.0869 gnorm=8.062 t=1098s
+step 155 train nll=2.2683 gnorm=11.125 t=1101s
+step 156 train nll=2.0993 gnorm=9.125 t=1106s
+step 157 train nll=1.7656 gnorm=10.562 t=1110s
+step 158 train nll=2.1172 gnorm=9.938 t=1113s
+step 159 train nll=2.1367 gnorm=6.375 t=1116s
+step 160 train nll=1.2002 gnorm=8.750 t=1119s
+step 161 train nll=1.8906 gnorm=7.812 t=1122s
+step 162 train nll=1.8096 gnorm=5.938 t=1127s
+step 163 train nll=2.1738 gnorm=15.688 t=1131s
+step 164 train nll=2.6426 gnorm=7.969 t=1135s
+step 165 train nll=3.2344 gnorm=25.500 t=1139s
+step 166 train nll=1.6318 gnorm=7.875 t=1142s
+step 167 train nll=1.3428 gnorm=6.500 t=1146s
+step 168 train nll=2.4180 gnorm=10.188 t=1150s
+step 169 train nll=1.7021 gnorm=6.125 t=1154s
+step 170 train nll=1.6895 gnorm=6.312 t=1158s
+step 171 train nll=1.3086 gnorm=9.688 t=1162s
+step 172 train nll=2.6118 gnorm=8.125 t=1165s
+step 173 train nll=3.5430 gnorm=13.312 t=1169s
+step 174 train nll=2.0273 gnorm=7.312 t=1173s
+step 175 train nll=1.2773 gnorm=7.156 t=1177s
+step 176 train nll=2.4922 gnorm=10.688 t=1181s
+step 177 train nll=2.3242 gnorm=21.750 t=1185s
+step 178 train nll=1.8271 gnorm=7.812 t=1188s
+step 179 train nll=1.9258 gnorm=7.938 t=1193s
+step 180 train nll=1.7500 gnorm=6.000 t=1197s
+step 181 train nll=1.8438 gnorm=5.875 t=1200s
+step 182 train nll=1.4199 gnorm=5.188 t=1204s
+step 183 train nll=0.8218 gnorm=4.625 t=1207s
+step 184 train nll=1.0537 gnorm=4.469 t=1212s
+step 185 train nll=1.3828 gnorm=4.781 t=1215s
+step 186 train nll=1.5781 gnorm=6.375 t=1220s
+step 187 train nll=1.5332 gnorm=6.500 t=1224s
+step 188 train nll=2.2109 gnorm=7.094 t=1228s
+step 189 train nll=1.3867 gnorm=5.656 t=1231s
+step 190 train nll=1.9531 gnorm=9.188 t=1235s
+step 191 train nll=1.8301 gnorm=9.875 t=1239s
+step 192 train nll=1.2883 gnorm=4.188 t=1243s
+step 193 train nll=1.1584 gnorm=4.906 t=1247s
+step 194 train nll=1.7500 gnorm=6.125 t=1251s
+step 195 train nll=1.3083 gnorm=11.812 t=1254s
+step 196 train nll=1.2012 gnorm=6.281 t=1257s
+step 197 train nll=1.5449 gnorm=7.875 t=1261s
+step 198 train nll=1.1738 gnorm=7.375 t=1265s
+step 199 train nll=1.2705 gnorm=6.562 t=1268s
+step 200 val nll=3.3790
+step 200 train nll=3.0273 gnorm=15.188 t=1271s
+step 201 train nll=1.6650 gnorm=8.188 t=1354s
+step 202 train nll=1.1470 gnorm=7.719 t=1357s
+step 203 train nll=2.0391 gnorm=5.875 t=1361s
+step 204 train nll=3.0068 gnorm=12.438 t=1364s
+step 205 train nll=1.4805 gnorm=5.594 t=1367s
+step 206 train nll=1.6182 gnorm=8.062 t=1371s
+step 207 train nll=1.1147 gnorm=5.438 t=1374s
+step 208 train nll=2.3340 gnorm=8.938 t=1377s
+step 209 train nll=2.0781 gnorm=10.875 t=1380s
+step 210 train nll=1.4873 gnorm=6.625 t=1384s
+step 211 train nll=1.9043 gnorm=8.125 t=1387s
+step 212 train nll=2.3388 gnorm=14.625 t=1390s
+step 213 train nll=1.7523 gnorm=5.344 t=1393s
+step 214 train nll=0.7847 gnorm=6.750 t=1397s
+step 215 train nll=1.6641 gnorm=9.438 t=1400s
+step 216 train nll=1.5249 gnorm=9.500 t=1405s
+step 217 train nll=0.6653 gnorm=6.250 t=1408s
+step 218 train nll=1.8867 gnorm=7.031 t=1411s
+step 219 train nll=1.2905 gnorm=8.250 t=1414s
+step 220 train nll=0.8984 gnorm=5.219 t=1417s
+step 221 train nll=1.1436 gnorm=7.875 t=1420s
+step 222 train nll=1.4238 gnorm=6.344 t=1425s
+step 223 train nll=1.8467 gnorm=5.719 t=1428s
+step 224 train nll=2.0996 gnorm=6.500 t=1431s
+step 225 train nll=1.3271 gnorm=6.406 t=1435s
+step 226 train nll=1.9922 gnorm=7.844 t=1439s
+step 227 train nll=1.4717 gnorm=6.969 t=1442s
+step 228 train nll=0.8845 gnorm=4.000 t=1445s
+step 229 train nll=1.6152 gnorm=7.375 t=1448s
+step 230 train nll=1.2686 gnorm=5.000 t=1451s
+step 231 train nll=0.9678 gnorm=5.750 t=1454s
+step 232 train nll=1.5649 gnorm=10.438 t=1457s
+step 233 train nll=0.6332 gnorm=5.781 t=1460s
+step 234 train nll=2.2480 gnorm=9.125 t=1464s
+step 235 train nll=2.0410 gnorm=10.125 t=1467s
+step 236 train nll=1.8467 gnorm=7.469 t=1469s
+step 237 train nll=1.2628 gnorm=7.656 t=1472s
+step 238 train nll=2.5234 gnorm=14.062 t=1476s
+step 239 train nll=1.3662 gnorm=5.406 t=1480s
+step 240 train nll=1.3320 gnorm=6.875 t=1483s
+step 241 train nll=1.0251 gnorm=6.156 t=1485s
+step 242 train nll=1.4515 gnorm=7.812 t=1488s
+step 243 train nll=1.5391 gnorm=10.375 t=1491s
+step 244 train nll=1.8926 gnorm=6.594 t=1495s
+step 245 train nll=1.0065 gnorm=10.750 t=1499s
+step 246 train nll=1.5449 gnorm=12.375 t=1502s
+step 247 train nll=1.2557 gnorm=7.906 t=1506s
+step 248 train nll=1.8870 gnorm=13.125 t=1509s
+step 249 train nll=1.3984 gnorm=9.062 t=1512s
+step 250 train nll=1.1094 gnorm=6.031 t=1516s
+step 251 train nll=1.1895 gnorm=7.344 t=1519s
+step 252 train nll=0.9316 gnorm=6.031 t=1522s
+step 253 train nll=1.5771 gnorm=13.250 t=1525s
+step 254 train nll=1.3789 gnorm=8.125 t=1528s
+step 255 train nll=0.9050 gnorm=4.469 t=1531s
+step 256 train nll=2.3857 gnorm=9.000 t=1535s
+step 257 train nll=1.0596 gnorm=6.844 t=1538s
+step 258 train nll=1.6270 gnorm=8.812 t=1541s
+step 259 train nll=3.3135 gnorm=9.875 t=1545s
+step 260 train nll=1.6362 gnorm=7.094 t=1548s
+step 261 train nll=0.9883 gnorm=4.625 t=1552s
+step 262 train nll=1.8730 gnorm=8.562 t=1556s
+step 263 train nll=1.4580 gnorm=6.562 t=1559s
+step 264 train nll=1.3916 gnorm=8.688 t=1562s
+step 265 train nll=0.9203 gnorm=9.438 t=1567s
+step 266 train nll=1.0137 gnorm=5.812 t=1570s
+step 267 train nll=0.7793 gnorm=7.969 t=1573s
+step 268 train nll=1.0908 gnorm=5.344 t=1576s
+step 269 train nll=2.2236 gnorm=14.938 t=1580s
+step 270 train nll=0.6460 gnorm=4.031 t=1583s
+step 271 train nll=1.3730 gnorm=7.781 t=1586s
+step 272 train nll=2.4648 gnorm=13.125 t=1591s
+step 273 train nll=0.9776 gnorm=3.672 t=1595s
+step 274 train nll=1.8628 gnorm=7.281 t=1598s
+step 275 train nll=2.2158 gnorm=8.438 t=1602s
+step 276 train nll=1.1680 gnorm=8.250 t=1605s
+step 277 train nll=1.0088 gnorm=5.562 t=1610s
+step 278 train nll=0.8823 gnorm=3.625 t=1615s
+step 279 train nll=0.6504 gnorm=4.688 t=1618s
+step 280 train nll=0.6418 gnorm=4.000 t=1622s
+step 281 train nll=0.4242 gnorm=3.297 t=1624s
+step 282 train nll=0.4736 gnorm=2.719 t=1628s
+step 283 train nll=1.0527 gnorm=4.281 t=1631s
+step 284 train nll=0.8302 gnorm=5.219 t=1635s
+step 285 train nll=0.2945 gnorm=2.266 t=1638s
+step 286 train nll=0.8818 gnorm=7.500 t=1642s
+step 287 train nll=0.6287 gnorm=3.641 t=1645s
+step 288 train nll=0.4204 gnorm=3.188 t=1649s
+step 289 train nll=0.3561 gnorm=1.602 t=1652s
+step 290 train nll=0.4034 gnorm=3.125 t=1656s
+step 291 train nll=0.7817 gnorm=4.344 t=1660s
+step 292 train nll=0.6699 gnorm=3.703 t=1663s
+step 293 train nll=0.3706 gnorm=3.094 t=1667s
+step 294 train nll=0.3544 gnorm=2.375 t=1670s
+step 295 train nll=0.2245 gnorm=2.047 t=1674s
+step 296 train nll=0.4871 gnorm=2.688 t=1677s
+step 297 train nll=1.1221 gnorm=6.062 t=1681s
+step 298 train nll=0.3911 gnorm=2.891 t=1684s
+step 299 train nll=0.3503 gnorm=3.016 t=1687s
+step 300 val nll=3.3309
+step 300 train nll=0.7432 gnorm=3.891 t=1691s
+summary {"arm": "K1_full", "seed": 10, "init_val_nll": 9.43015625, "final_val_nll": 3.3308984375, "final_n_nonfinite": 0, "trainable_params": 125884416, "steps": 300, "accum": 4, "lr": 0.0003, "lam": 0.9, "n_val": 100, "post_train_bank_share": [1.0], "max_bank_share": 1.0, "elapsed_s": 1846.0922167301178}

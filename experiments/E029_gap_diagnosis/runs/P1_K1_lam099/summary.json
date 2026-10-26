@@ -1,0 +1,18 @@
+{
+ "arm": "K1_full",
+ "seed": 10,
+ "init_val_nll": 9.2834375,
+ "final_val_nll": 3.3925439453125,
+ "final_n_nonfinite": 0,
+ "trainable_params": 125884416,
+ "steps": 300,
+ "accum": 4,
+ "lr": 0.0001,
+ "lam": 0.99,
+ "n_val": 100,
+ "post_train_bank_share": [
+  1.0
+ ],
+ "max_bank_share": 1.0,
+ "elapsed_s": 1630.020297050476
+}

@@ -1,0 +1,402 @@
+[
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_1-6-11__qa_0000",
+  "nll": 3.890625
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_6-11__qa_0001",
+  "nll": 4.21875
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_1-12-27__qa_0002",
+  "nll": 5.28125
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_1__qa_0003",
+  "nll": 2.59375
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_1-2-6-11-20-22-26__qa_0004",
+  "nll": 2.21875
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_2__qa_0005",
+  "nll": 8.25
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_3__qa_0006",
+  "nll": 0.388671875
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_1-3-14__qa_0007",
+  "nll": 3.71875
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_3-25__qa_0008",
+  "nll": 2.875
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_3-25-29__qa_0009",
+  "nll": 5.03125
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_3-5__qa_0010",
+  "nll": 1.625
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_1-2-3__qa_0011",
+  "nll": 3.53125
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_3__qa_0012",
+  "nll": 1.234375
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_2-3__qa_0013",
+  "nll": 4.75
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_2-4-15__qa_0014",
+  "nll": 4.4375
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_4__qa_0015",
+  "nll": 4.84375
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_3-5__qa_0016",
+  "nll": 0.91015625
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_3-5-22-23-24__qa_0017",
+  "nll": 8.5
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_3-6__qa_0019",
+  "nll": 4.15625
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_3-5-6__qa_0020",
+  "nll": 0.90234375
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_3-6-9__qa_0021",
+  "nll": 1.59375
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_7__qa_0022",
+  "nll": 1.234375
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_7__qa_0023",
+  "nll": 0.64453125
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_6-7__qa_0024",
+  "nll": 6.21875
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_7-16__qa_0025",
+  "nll": 10.6875
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_17-26__qa_0026",
+  "nll": 6.0625
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_18__qa_0027",
+  "nll": 3.765625
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_8__qa_0028",
+  "nll": 4.21875
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_6-9__qa_0029",
+  "nll": 1.890625
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_3-6-9-27__qa_0030",
+  "nll": 2.09375
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_10__qa_0031",
+  "nll": 0.609375
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_10__qa_0032",
+  "nll": 2.921875
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_11__qa_0033",
+  "nll": 0.71875
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_11-26-27__qa_0034",
+  "nll": 4.5
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_3-12__qa_0035",
+  "nll": 1.6875
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_12-16__qa_0036",
+  "nll": 2.1875
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_13__qa_0037",
+  "nll": 1.5390625
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_1-13-18__qa_0038",
+  "nll": 8.1875
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_14__qa_0039",
+  "nll": 0.1416015625
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_14__qa_0040",
+  "nll": 4.09375
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_15-16__qa_0041",
+  "nll": 3.15625
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_10-15__qa_0042",
+  "nll": 5.3125
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_12-16__qa_0043",
+  "nll": 2.921875
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_16__qa_0044",
+  "nll": 0.859375
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_18__qa_0045",
+  "nll": 6.875
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_18__qa_0046",
+  "nll": 5.25
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_12__qa_0047",
+  "nll": 2.359375
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_18__qa_0048",
+  "nll": 1.6796875
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_18-19__qa_0049",
+  "nll": 1.8828125
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_18-19__qa_0050",
+  "nll": 3.0625
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_20__qa_0051",
+  "nll": 1.4921875
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_8-20__qa_0052",
+  "nll": 2.359375
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_8-20__qa_0053",
+  "nll": 3.640625
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_20__qa_0054",
+  "nll": 0.5
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_1-21__qa_0055",
+  "nll": 0.76171875
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_21__qa_0056",
+  "nll": 0.82421875
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_8-21__qa_0057",
+  "nll": 1.421875
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_4-22__qa_0058",
+  "nll": 0.6328125
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_3-23__qa_0059",
+  "nll": 6.75
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_23__qa_0060",
+  "nll": 1.4921875
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_4-11-17-19-22__qa_0061",
+  "nll": 5.40625
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_14-26__qa_0062",
+  "nll": 4.75
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_26__qa_0063",
+  "nll": 1.4296875
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_27__qa_0064",
+  "nll": 0.83984375
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_8-26-27__qa_0065",
+  "nll": 1.265625
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_27__qa_0066",
+  "nll": 4.40625
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_4-6-15-27__qa_0067",
+  "nll": 2.515625
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_28__qa_0068",
+  "nll": 3.59375
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_28__qa_0069",
+  "nll": 2.203125
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_1-27-28__qa_0070",
+  "nll": 7.0625
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_1__qa_0071",
+  "nll": 3.671875
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_1__qa_0072",
+  "nll": 5.1875
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_1__qa_0073",
+  "nll": 4.125
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_1__qa_0074",
+  "nll": 3.046875
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_2__qa_0075",
+  "nll": 4.4375
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_2__qa_0076",
+  "nll": 6.96875
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_3__qa_0077",
+  "nll": 1.765625
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_3__qa_0078",
+  "nll": 5.3125
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_3__qa_0079",
+  "nll": 3.578125
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_3__qa_0080",
+  "nll": 1.5546875
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_3__qa_0081",
+  "nll": 1.8515625
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_3__qa_0082",
+  "nll": 4.1875
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_4__qa_0083",
+  "nll": 4.4375
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_4__qa_0084",
+  "nll": 1.78125
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_4__qa_0085",
+  "nll": 6.0
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_5__qa_0086",
+  "nll": 6.03125
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_5__qa_0087",
+  "nll": 4.03125
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_6__qa_0088",
+  "nll": 2.75
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_6__qa_0089",
+  "nll": 1.2734375
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_6__qa_0090",
+  "nll": 3.875
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_7__qa_0091",
+  "nll": 4.8125
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_7__qa_0092",
+  "nll": 5.0625
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_7__qa_0093",
+  "nll": 2.28125
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_7__qa_0094",
+  "nll": 3.875
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_8__qa_0095",
+  "nll": 5.34375
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_8__qa_0096",
+  "nll": 1.25
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_8__qa_0097",
+  "nll": 3.71875
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_8__qa_0098",
+  "nll": 3.140625
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_8__qa_0099",
+  "nll": 3.796875
+ },
+ {
+  "episode_id": "locomo_conv-43__evidence_sessions_9__qa_0100",
+  "nll": 2.53125
+ }
+]
